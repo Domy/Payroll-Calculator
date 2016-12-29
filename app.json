@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/payroll/payroll"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/payroll/payroll",
+      "iconPath": "images/wechat.png",
+      "selectedIconPath": "images/wechatHL.png",
+      "text": "税后工资计算器"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "iconPath": "images/wechat.png",
+      "selectedIconPath": "images/wechatHL.png",
+      "text": "年终奖计算器"
+    }],
+    "selectedColor": "#3cc51f"
+  }
+}

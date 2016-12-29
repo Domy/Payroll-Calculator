@@ -1,0 +1,13 @@
+/**app.wxss**/
+page {
+  background-color: #fbf9fe;
+  height: 100%;
+}
+.section{
+    margin-bottom: 30rpx;
+}
+.section-title{
+    margin-bottom: 16rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}
