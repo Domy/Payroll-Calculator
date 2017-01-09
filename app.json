@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/payroll/payroll"
-  ],
+    "pages/payroll/payroll",
+    "pages/bonus/bonus"
+    ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#000000",
@@ -17,7 +17,7 @@
       "selectedIconPath": "images/wechatHL.png",
       "text": "税后工资计算器"
     }, {
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/bonus/bonus",
       "iconPath": "images/wechat.png",
       "selectedIconPath": "images/wechatHL.png",
       "text": "年终奖计算器"
