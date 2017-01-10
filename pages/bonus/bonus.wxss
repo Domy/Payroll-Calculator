@@ -1,1 +1,47 @@
-/* pages/bonus/bonus.wxss */
+.navbar {
+  background-color: #FFFFFF;
+  display: flex;
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.navbar-item {
+  flex: 1;
+  padding: 30rpx;
+}
+
+.navbar-item.selected {
+  border-bottom: 6rpx solid #26a2ff;
+  color: #26a2ff;
+  margin-bottom: -6rpx;
+}
+
+.picker {
+  padding: 26rpx;
+  background-color: #FFFFFF;
+}
+
+input {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+}
+
+.btn-area {
+  padding: 0 30rpx;
+}
+
+.btn-area button {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.text-item {
+  margin: 20rpx;
+  padding: 26rpx;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  border-radius: 4rpx;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between
+}
