@@ -1,19 +1,5 @@
-.navbar {
-  background-color: #FFFFFF;
-  display: flex;
-  text-align: center;
-  margin-bottom: 60rpx;
-}
-
-.navbar-item {
-  flex: 1;
-  padding: 30rpx;
-}
-
-.navbar-item.selected {
-  border-bottom: 6rpx solid #26a2ff;
-  color: #26a2ff;
-  margin-bottom: -6rpx;
+.bonus-calculator {
+  padding-top: 20rpx;
 }
 
 .picker {
