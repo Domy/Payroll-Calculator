@@ -36,7 +36,29 @@ Page({
       }
     },
     income: 0,
-    results: {}
+    results: {},
+    paymentDetail: [
+      {
+        name: '养老保险',
+        rate: 0.08,
+        amount: 800
+      },
+      {
+        name: '医疗保险',
+        rate: 0.02,
+        amount: 200
+      },
+      {
+        name: '失业保险',
+        rate: 0.01,
+        amount: 100
+      },
+      {
+        name: '住房公积金',
+        rate: 0.12,
+        amount: 1200
+      }
+    ]
   },
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)

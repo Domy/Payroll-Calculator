@@ -11,43 +11,41 @@
     <view class="item">社会保险：<text>8765</text></view>
     <view class="item">住房公积金：<text>4600</text></view>
   </view>
-  
-  <view class="section">
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{cities}}">
-      <view class="picker">
-        当前城市：{{cities[index]}}
-      </view>
-    </picker>
-  </view>
-  <view class="section">
-    <view class="section-title">月薪：</view>
-    <input type="digit" placeholder="0.00" bindinput="bindKeyInput" value="{{ income }}"/>
-  </view>
 
   <view class="section">
     <view class="item">
       <view class="lable">
-        养老保险 <text class="rate">{{ cityRate[cities[index]].agefund || 8 }}%</text>
+        当前城市
       </view>
-      <view class="amount">{{ results.ageFund || 0 }}</view>
     </view>
     <view class="item">
       <view class="lable">
-        医疗保险 <text class="rate">{{ cityRate[cities[index]].medfund || 2 }}%</text>
+        税前月薪
       </view>
-      <view class="amount">{{ results.medFund || 0 }}</view>
+    </view>
+  </view>
+
+  <view class="section">
+  <view class="section-title">缴纳基数</view>
+    <view class="item">
+      <view class="lable">
+        社保基数
+      </view>
     </view>
     <view class="item">
       <view class="lable">
-        失业保险 <text class="rate">{{ cityRate[cities[index]].workfund || 0.2 }}%</text>
+        公积金基数
       </view>
-      <view class="amount">{{ results.workFund || 0 }}</view>
     </view>
-    <view class="item">
+  </view>
+
+  <view class="section">
+    <view class="section-title">缴纳明细</view>
+    <view class="item" wx:for="{{paymentDetail}}">
       <view class="lable">
-        住房公积金 <text class="rate">{{ cityRate[cities[index]].housefund || 2 }}%</text>
+        {{item.name}} <text class="rate">{{item.rate}}%</text>
       </view>
-      <view class="amount">{{ results.houseFund || 0 }}</view>
+      <view class="amount">{{item.amount}}</view>
     </view>
   </view>
 </view>

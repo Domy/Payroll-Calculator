@@ -3,13 +3,20 @@ page {
   background: #EFEFF4;
   height: 100%;
 }
+
+.section .section-title {
+  background: #f5f5f5;
+  color: #999999;
+  font-size: 10pt;
+  padding: 20rpx 25rpx;
+}
+
 .section .item{
-    background: #ffffff;
-    border-bottom: #ececec solid 1px;
-    font-size: 12pt;
-    height: 80rpx;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 25rpx;
+  background: #ffffff;
+  border-bottom: #ececec solid 1px;
+  font-size: 10pt;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 25rpx;
 }

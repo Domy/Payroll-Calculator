@@ -13,15 +13,15 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/payroll/payroll",
-      "iconPath": "images/a2.png",
-      "selectedIconPath": "images/a1.png",
+      "iconPath": "images/icon_component.png",
+      "selectedIconPath": "images/icon_component_HL.png",
       "text": "工资计算器"
     }, {
       "pagePath": "pages/bonus/bonus",
-      "iconPath": "images/b2.png",
-      "selectedIconPath": "images/b1.png",
+      "iconPath": "images/icon_API.png",
+      "selectedIconPath": "images/icon_API_HL.png",
       "text": "奖金计算器"
     }],
-    "selectedColor": "#4976d3"
+    "selectedColor": "#09BB07"
   }
 }

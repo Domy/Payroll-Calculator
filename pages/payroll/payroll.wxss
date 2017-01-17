@@ -78,3 +78,28 @@ input {
   display: flex;
   justify-content: space-between
 }
+
+
+.widget{
+    position: relative;
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+    padding-left: 40rpx;
+    padding-right: 40rpx;
+}
+.widget__arrow{
+    position: absolute;
+    top: 28rpx;
+    right: 44rpx;
+    width: 32rpx;
+    height: 32rpx;
+}
+.widget__line{
+    content: " ";
+    position: absolute;
+    left: 40rpx;
+    top: 0;
+    right: 0;
+    height: 2rpx;
+    background-color: #F0F0F0;
+}
