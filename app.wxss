@@ -24,3 +24,7 @@ page {
 .section .item:last-child {
   border-bottom: none;
 }
+
+.section .item input {
+  text-align: right;
+}

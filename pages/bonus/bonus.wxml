@@ -11,11 +11,15 @@
       <view class="lable">
         当前城市
       </view>
+      <navigator url="">
+      北京
+      </navigator>
     </view>
     <view class="item">
       <view class="lable">
         税前月薪
       </view>
+      <input type="digit" placeholder="0"/>
     </view>
   </view>
   <view class="section">
