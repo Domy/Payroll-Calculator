@@ -41,7 +41,7 @@
 
   <view class="section">
     <view class="section-title">缴纳明细</view>
-    <view class="item" wx:for="{{paymentDetail}}">
+    <view class="item" wx:for="{{paymentDetail}}" wx:key="name">
       <view class="lable">
         {{item.name}} <text class="rate">{{item.rate}}%</text>
       </view>
