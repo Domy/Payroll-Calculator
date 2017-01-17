@@ -1,13 +1,15 @@
 /**app.wxss**/
 page {
-  background-color: #fbf9fe;
+  background: #fbf9fe;
   height: 100%;
 }
-.section{
-    margin-bottom: 30rpx;
-}
-.section-title{
-    margin-bottom: 16rpx;
-    padding-left: 30rpx;
-    padding-right: 30rpx;
+.section .item{
+    background: #ffffff;
+    border-bottom: #ececec solid 1px;
+    font-size: 12pt;
+    height: 80rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25rpx;
 }

@@ -1,10 +1,21 @@
 <!--payroll-calculator.wxml-->
 <view class="container payroll-calculator">
+  <view class="cover">
+    <view class="lable">税后所得</view>
+    <view class="amount">
+      <text>251558</text>元
+    </view>
+  </view>
+  <view class="strip">
+    <view class="item">个人所得税：<text>2817</text></view>
+    <view class="item">社会保险：<text>8765</text></view>
+    <view class="item">住房公积金：<text>4600</text></view>
+  </view>
+  
   <view class="section">
-    <view class="section-title">城市：</view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{cities}}">
       <view class="picker">
-        当前选择：{{cities[index]}}
+        当前城市：{{cities[index]}}
       </view>
     </picker>
   </view>
@@ -12,36 +23,31 @@
     <view class="section-title">月薪：</view>
     <input type="digit" placeholder="0.00" bindinput="bindKeyInput" auto-focus="true" value="{{ income }}"/>
   </view>
-  <view class="btn-area">
-    <view class="button-wrapper">
-      <button type="primary" hover-class="button-hover" bindtap="generateResult">计算</button>
-    </view>
-    <view class="button-wrapper">
-      <button type="default" hover-class="button-hover" bindtap="clear">重置</button>
-    </view>
-  </view>
+
   <view class="section">
-    <canvas id="myChart" width="400" height="400"></canvas>
-  </view>
-  <view class="section text-item">
-    <text>税后工资剩余</text> <text>￥{{ results.incomeTotal || 0 }}</text>
-  </view>
-  <view class="section text-item">
-    <text>扣除四金后月薪</text> <text>￥{{ results.incomeBefore || 0 }}</text>
-  </view>
-  <view class="section text-item">
-    <text>个人所得税</text> <text>￥{{ results.tax || 0 }}</text>
-  </view>
-  <view class="section text-item">
-    <text>养老保险金（{{ cityRate[cities[index]].agefund || 8 }}%）</text> <text>￥{{ results.ageFund || 0 }}</text>
-  </view>
-  <view class="section text-item">
-    <text>医疗保险金（{{ cityRate[cities[index]].medfund || 2 }}%）</text> <text>￥{{ results.medFund || 0 }}</text>
-  </view>
-  <view class="section text-item">
-    <text>失业保险金（{{ cityRate[cities[index]].workfund || 0.2 }}%）</text> <text>￥{{ results.workFund || 0 }}</text>
-  </view>
-  <view class="section text-item">
-    <text>住房公积金（{{ cityRate[cities[index]].housefund || 2 }}%）</text> <text>￥{{ results.houseFund || 0 }}</text>
+    <view class="item">
+      <view class="lable">
+        养老保险 <text class="rate">{{ cityRate[cities[index]].agefund || 8 }}%</text>
+      </view>
+      <view class="amount">{{ results.ageFund || 0 }}</view>
+    </view>
+    <view class="item">
+      <view class="lable">
+        医疗保险 <text class="rate">{{ cityRate[cities[index]].medfund || 2 }}%</text>
+      </view>
+      <view class="amount">{{ results.medFund || 0 }}</view>
+    </view>
+    <view class="item">
+      <view class="lable">
+        失业保险 <text class="rate">{{ cityRate[cities[index]].workfund || 0.2 }}%</text>
+      </view>
+      <view class="amount">{{ results.workFund || 0 }}</view>
+    </view>
+    <view class="item">
+      <view class="lable">
+        住房公积金 <text class="rate">{{ cityRate[cities[index]].housefund || 2 }}%</text>
+      </view>
+      <view class="amount">{{ results.houseFund || 0 }}</view>
+    </view>
   </view>
 </view>
