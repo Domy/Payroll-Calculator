@@ -1,6 +1,6 @@
 /**app.wxss**/
 page {
-  background: #fbf9fe;
+  background: #EFEFF4;
   height: 100%;
 }
 .section .item{

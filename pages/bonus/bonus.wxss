@@ -1,33 +1,22 @@
-.bonus-calculator {
-  padding-top: 20rpx;
+.cover {
+  background: #4976d3;
+  height: 230rpx;
+}
+.cover .lable {
+  padding: 30rpx 0 20rpx 25rpx;
+  color: #b6c8ee;
+  font-size: 11pt;
+  font-weight: bold;
 }
 
-.picker {
-  padding: 26rpx;
-  background-color: #FFFFFF;
+.cover .amount {
+  padding: 0 0 0 25rpx;
+  color: #92ade5;
+  font-size: 11pt;
 }
 
-input {
-  padding: 20rpx 30rpx;
-  background-color: #fff;
-}
-
-.btn-area {
-  padding: 0 30rpx;
-}
-
-.btn-area button {
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-}
-
-.text-item {
-  margin: 20rpx;
-  padding: 26rpx;
-  background-color: #FFFFFF;
-  overflow: hidden;
-  border-radius: 4rpx;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between
+.cover .amount text {
+  margin-right: 10rpx;
+  color: #ffffff;
+  font-size: 32pt;
 }

@@ -1,12 +1,18 @@
 <!--bonus-calculator.wxml-->
 <view class="container bonus-calculator">
+<view class="cover">
+    <view class="lable">税后所得</view>
+    <view class="amount">
+      <text>251558</text>元
+    </view>
+  </view>
   <view class="section">
     <view class="section-title">年终奖金：</view>
-    <input type="digit" placeholder="0.00" bindinput="bindKeyInput" auto-focus="true" value="{{ income }}"/>
+    <input type="digit" placeholder="0.00" bindinput="bindKeyInput" value="{{ income }}"/>
   </view>
   <view class="section">
     <view class="section-title">税前月薪：</view>
-    <input type="digit" placeholder="0.00" bindinput="bindKeyInput" auto-focus="true" value="{{ income }}"/>
+    <input type="digit" placeholder="0.00" bindinput="bindKeyInput" value="{{ income }}"/>
   </view>
   <view class="section">
     <view class="section-title">城市：</view>
@@ -15,14 +21,6 @@
         当前选择：{{cities[index]}}
       </view>
     </picker>
-  </view>
-  <view class="btn-area">
-    <view class="button-wrapper">
-      <button type="primary" hover-class="button-hover" bindtap="generateResult">计算</button>
-    </view>
-    <view class="button-wrapper">
-      <button type="default" hover-class="button-hover" bindtap="clear">重置</button>
-    </view>
   </view>
   <view class="section text-item">
     <text>个人所得税</text> <text>￥{{ results.incomeTotal || 0 }}</text>

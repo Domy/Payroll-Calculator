@@ -21,7 +21,7 @@
   </view>
   <view class="section">
     <view class="section-title">月薪：</view>
-    <input type="digit" placeholder="0.00" bindinput="bindKeyInput" auto-focus="true" value="{{ income }}"/>
+    <input type="digit" placeholder="0.00" bindinput="bindKeyInput" value="{{ income }}"/>
   </view>
 
   <view class="section">
