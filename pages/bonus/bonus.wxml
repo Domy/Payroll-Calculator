@@ -7,22 +7,24 @@
     </view>
   </view>
   <view class="section">
-    <view class="section-title">年终奖金：</view>
-    <input type="digit" placeholder="0.00" bindinput="bindKeyInput" value="{{ income }}"/>
-  </view>
-  <view class="section">
-    <view class="section-title">税前月薪：</view>
-    <input type="digit" placeholder="0.00" bindinput="bindKeyInput" value="{{ income }}"/>
-  </view>
-  <view class="section">
-    <view class="section-title">城市：</view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{cities}}">
-      <view class="picker">
-        当前选择：{{cities[index]}}
+    <view class="item">
+      <view class="lable">
+        当前城市
       </view>
-    </picker>
+    </view>
+    <view class="item">
+      <view class="lable">
+        税前月薪
+      </view>
+    </view>
   </view>
-  <view class="section text-item">
-    <text>个人所得税</text> <text>￥{{ results.incomeTotal || 0 }}</text>
+  <view class="section">
+    <view class="section-title">缴纳明细</view>
+    <view class="item">
+      <view class="lable">
+        个人所得税 <text class="rate">8%</text>
+      </view>
+      <view class="amount">1231</view>
+    </view>
   </view>
 </view>
