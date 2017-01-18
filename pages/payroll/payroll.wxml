@@ -3,13 +3,13 @@
   <view class="cover">
     <view class="lable">税后所得</view>
     <view class="amount">
-      <text>251558</text>元
+      <text>{{ results.incomeTotal || 0 }}</text>元
     </view>
   </view>
   <view class="strip">
-    <view class="item">个人所得税：<text>2817</text></view>
+    <view class="item">个人所得税：<text>{{ results.tax || 0 }}</text></view>
     <view class="item">社会保险：<text>8765</text></view>
-    <view class="item">住房公积金：<text>4600</text></view>
+    <view class="item">住房公积金：<text>{{ results.houseFund || 0 }}</text></view>
   </view>
 
   <view class="section">
@@ -17,15 +17,17 @@
       <view class="lable">
         当前城市
       </view>
-      <navigator url="">
-      北京
-      </navigator>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{cities}}">
+      <view class="picker">
+        当前选择：{{cities[index]}}
+      </view>
+    </picker>
     </view>
     <view class="item">
       <view class="lable">
         税前月薪
       </view>
-      <input type="digit" placeholder="0"/>
+      <input type="digit" placeholder="0" bindinput="bindKeyInput" focus="true" value="{{income}}"/>
     </view>
   </view>
 
@@ -47,11 +49,29 @@
 
   <view class="section">
     <view class="section-title">缴纳明细</view>
-    <view class="item" wx:for="{{paymentDetail}}" wx:key="name">
+    <view class="item">
       <view class="lable">
-        {{item.name}} <text class="rate">{{item.rate}}%</text>
+        养老保险 <text class="rate">{{ cityRate[cities[index]].agefund || 8 }}%</text>
       </view>
-      <view class="amount">{{item.amount}}</view>
+      <view class="amount">{{ results.ageFund || 0 }}</view>
+    </view>
+    <view class="item">
+      <view class="lable">
+        医疗保险 <text class="rate">{{ cityRate[cities[index]].medfund || 2 }}%</text>
+      </view>
+      <view class="amount">{{ results.medFund || 0 }}</view>
+    </view>
+    <view class="item">
+      <view class="lable">
+        失业保险 <text class="rate">{{ cityRate[cities[index]].workfund || 0.2 }}%</text>
+      </view>
+      <view class="amount">{{ results.workFund || 0 }}</view>
+    </view>
+    <view class="item">
+      <view class="lable">
+        住房公积金 <text class="rate">{{ cityRate[cities[index]].housefund || 2 }}%</text>
+      </view>
+      <view class="amount">{{ results.houseFund || 0 }}</view>
     </view>
   </view>
 </view>
