@@ -37,6 +37,7 @@
   padding-left: 25rpx;
   box-sizing: border-box;
   border-right: 1px solid #4976d3;
+  white-space: nowrap;
 }
 
 .strip .item:last-child {
