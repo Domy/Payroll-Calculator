@@ -73,7 +73,8 @@ Page({
         ageFund: ageFund.toFixed(2),
         incomeTotal: incomeTotal.toFixed(2),
         incomeBefore: incomeBefore.toFixed(2),
-        tax: tax.toFixed(2)
+        tax: tax.toFixed(2),
+        sum: (parseFloat(ageFund.toFixed(2)) + parseFloat(medFund.toFixed(2)) + parseFloat(workFund.toFixed(2)) + parseFloat(houseFund.toFixed(2)))
       }
     })
   },

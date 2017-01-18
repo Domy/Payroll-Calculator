@@ -8,7 +8,7 @@
   </view>
   <view class="strip">
     <view class="item">个人所得税：<text>{{ results.tax || 0 }}</text></view>
-    <view class="item">社会保险：<text>8765</text></view>
+    <view class="item">社会保险：<text>{{ results.sum || 0 }}</text></view>
     <view class="item">住房公积金：<text>{{ results.houseFund || 0 }}</text></view>
   </view>
 
@@ -19,7 +19,7 @@
       </view>
       <picker bindchange="bindPickerChange" value="{{index}}" range="{{cities}}">
       <view class="picker">
-        当前选择：{{cities[index]}}
+        {{cities[index]}}
       </view>
     </picker>
     </view>
