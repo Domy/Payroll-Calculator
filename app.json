@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/payroll/payroll",
-    "pages/bonus/bonus"
-    ],
+    "pages/bonus/bonus",
+    "pages/switchcity/switchcity"
+  ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#4976d3",

@@ -11,7 +11,7 @@
       <view class="lable">
         当前城市
       </view>
-      <navigator url="">
+      <navigator url="../switchcity/switchcity">
       北京
       </navigator>
     </view>
