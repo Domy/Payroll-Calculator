@@ -3,7 +3,7 @@
 <view class="cover">
     <view class="lable">税后所得</view>
     <view class="amount">
-      <text>251558</text>元
+      <text>{{ result || 0 }}</text>元
     </view>
   </view>
   <view class="section">
@@ -17,18 +17,18 @@
     </view>
     <view class="item">
       <view class="lable">
-        税前月薪
+        年终奖金
       </view>
-      <input type="digit" placeholder="0"/>
+      <input type="digit" bindinput="bindKeyInput" placeholder="0" value="{{ bonus }}"/>
     </view>
   </view>
   <view class="section">
     <view class="section-title">缴纳明细</view>
     <view class="item">
       <view class="lable">
-        个人所得税 <text class="rate">8%</text>
+        个人所得税
       </view>
-      <view class="amount">1231</view>
+      <view class="amount">{{ tax || 0 }}</view>
     </view>
   </view>
 </view>

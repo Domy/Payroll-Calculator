@@ -1,4 +1,3 @@
-//payroll-calculator.js
 import {getTaxLevel, formatNumber} from '../../utils/util.js';
 
 var format = formatNumber
