@@ -11,9 +11,14 @@ function formatTime(date) {
 }
 
 function formatNumber(n) {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+  var num = n.toFixed(2)
+  if (num * 100 % 100 === 0) {
+    return parseInt(num)
+  } else {
+    return num
+  }
 }
+
 
 function getTaxLevel (n) {
   if (n <= 0) {
@@ -37,5 +42,6 @@ function getTaxLevel (n) {
 
 module.exports = {
   formatTime: formatTime,
+  formatNumber: formatNumber,
   getTaxLevel: getTaxLevel
 }

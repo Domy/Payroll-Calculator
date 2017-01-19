@@ -7,9 +7,9 @@
     </view>
   </view>
   <view class="strip">
-    <view class="item">个人所得税：<text>{{ results.tax || 0 }}</text></view>
-    <view class="item">社会保险：<text>{{ results.sum || 0 }}</text></view>
-    <view class="item">住房公积金：<text>{{ results.houseFund || 0 }}</text></view>
+    <view class="item">个税：<text>{{ results.tax || 0 }}</text></view>
+    <view class="item">社保：<text>{{ results.sum || 0 }}</text></view>
+    <view class="item">公积金：<text>{{ results.houseFund || 0 }}</text></view>
   </view>
 
   <view class="section">
@@ -27,7 +27,7 @@
       <view class="lable">
         税前月薪
       </view>
-      <input type="digit" placeholder="0" bindinput="bindKeyInput" focus="true" value="{{income}}"/>
+      <input type="digit" placeholder="0" bindinput="bindIncomeInput" focus="true" value="{{income}}"/>
     </view>
   </view>
 
@@ -37,13 +37,13 @@
       <view class="lable">
         社保基数
       </view>
-      <input type="digit" placeholder="0"/>
+      <input type="digit" value="{{medFundBase}}" bindinput="bindMedInput" placeholder="0"/>
     </view>
     <view class="item">
       <view class="lable">
         公积金基数
       </view>
-      <input type="digit" placeholder="0"/>
+      <input type="digit" value="{{houseFundBase}}" bindinput="bindHouseInput" placeholder="0"/>
     </view>
   </view>
 
