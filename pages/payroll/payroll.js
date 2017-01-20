@@ -1,4 +1,5 @@
 import {getTaxLevel, formatNumber} from '../../utils/util.js';
+import {on, emit} from '../../utils/event.js';
 
 var format = formatNumber
 
@@ -41,6 +42,22 @@ Page({
     income: '',
     results: {}
   },
+  onShow: function() {
+    var self = this
+    var app = getApp()
+
+    this.setData({
+      city: app.globalData.city
+    })
+
+    on('changeCity', self, function(data) {
+      console.log(data)
+      self.setData({
+        city: data
+      })
+      self.generateResult()
+    })
+  },
   bindPickerChange: function(e) {
     this.setData({
       index: e.detail.value
@@ -48,8 +65,10 @@ Page({
     this.generateResult()
   },
   bindIncomeInput: function(e) {
+    let value = e.detail.value
+
     this.setData({
-      income: e.detail.value
+      income: value
     })
     this.generateResult()
   },
@@ -71,6 +90,22 @@ Page({
     let rate = data.cityRate[city];
 
     let income = data.income;
+
+    if (income > 1000000) {
+      this.setData({
+        results: {
+          ageFund: '有',
+          medFund: '钱',
+          workFund: '就是',
+          houseFund: '任性',
+          incomeTotal: '计较这个干啥',
+          incomeBefore: '计较这个干啥',
+          tax: '不在乎',
+          sum: '无所谓'
+        }
+      })
+      return 
+    }
 
     let houseFundBase = data.houseFundBase 
     ? Math.min(income, data.houseFundBase)

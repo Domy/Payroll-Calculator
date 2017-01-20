@@ -1,10 +1,15 @@
-//app.js
+import { on } from 'utils/event.js'
+
 App({
   onLaunch: function() {
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    on('changeCity', this, (data) => {
+      this.globalData.city = data
+    })
   },
   onShow: function() {
     console.log('App Show')
@@ -31,6 +36,7 @@ App({
     }
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    city: '北京市'
   }
 })

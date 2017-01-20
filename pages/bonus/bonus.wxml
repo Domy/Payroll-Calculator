@@ -12,7 +12,7 @@
         当前城市
       </view>
       <navigator url="../switchcity/switchcity">
-      北京
+      {{ city }}
       </navigator>
     </view>
     <view class="item">

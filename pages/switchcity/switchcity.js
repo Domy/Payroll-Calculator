@@ -1,5 +1,5 @@
-var city = require('../../utils/city.js');
-
+import city from '../../utils/city.js'
+import {emit} from '../../utils/event.js'
 
 Page({
   data: {
@@ -18,10 +18,8 @@ Page({
     // 生命周期函数--监听页面加载
     var searchLetter = city.searchLetter;
     var cityList=city.cityList();
-    // console.log(cityInfo);
 
     var sysInfo = wx.getSystemInfoSync();
-    console.log(sysInfo);
     var winHeight = sysInfo.windowHeight;
 
     //添加要匹配的字母范围值
@@ -43,8 +41,6 @@ Page({
       searchLetter: tempObj,
       cityList:cityList
     })
-
-    console.log(this.data.cityInfo);
   },
   onReady: function () {
     // 生命周期函数--监听页面初次渲染完成
@@ -140,7 +136,7 @@ Page({
       tHeight:tHeight,
       showLetter:showLetter,
       startPageY:pageY
-      })
+    })
   },
   bindScroll:function(e){
     console.log(e.detail)
@@ -164,8 +160,10 @@ Page({
         scrollTop:scrollTop
       })
   },
-  bindCity:function(e){
-    var city=e.currentTarget.dataset.city;
-    this.setData({city:city})
+  bindCity: function(e){
+    var city = e.currentTarget.dataset.city;
+    var app = getApp()
+    emit('changeCity', city)
+    wx.navigateBack()
   }
 })

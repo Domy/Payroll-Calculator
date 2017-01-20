@@ -17,11 +17,9 @@
       <view class="lable">
         当前城市
       </view>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{cities}}">
-      <view class="picker">
-        {{cities[index]}}
-      </view>
-    </picker>
+      <navigator url="../switchcity/switchcity">
+      {{ city }}
+      </navigator>
     </view>
     <view class="item">
       <view class="lable">
