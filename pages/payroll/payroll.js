@@ -90,7 +90,7 @@ Page({
     this.setData({
       medFundBase: value
     })
-    
+
     this.generateResult()
   },
 
@@ -98,6 +98,11 @@ Page({
     let data = this.data
     let city = data.city
     let rate = data.cityRate[city]
+
+    if (!rate) {
+      rate = data.cityRate['北京市']
+    }
+
     let income = data.income
 
     let houseFundBase = Math.min(income, rate.base)
@@ -131,6 +136,11 @@ Page({
 
     let city = data.city
     let rate = data.cityRate[city]
+
+    if (!rate) {
+      rate = data.cityRate['北京市']
+    }
+    
     let medFundBase = data.medFundBase
     let houseFundBase = data.houseFundBase
 
