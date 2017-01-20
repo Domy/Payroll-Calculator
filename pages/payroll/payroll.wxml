@@ -25,7 +25,9 @@
       <view class="lable">
         税前月薪
       </view>
+      <view class="input-box">
       <input type="digit" placeholder="0" bindinput="bindIncomeInput" focus="true" value="{{income}}"/>
+      </view>
     </view>
   </view>
 
@@ -35,13 +37,17 @@
       <view class="lable">
         社保基数
       </view>
+      <view class="input-box">
       <input type="digit" value="{{medFundBase}}" bindinput="bindMedInput" placeholder="0"/>
+      </view>
     </view>
     <view class="item">
       <view class="lable">
         公积金基数
       </view>
+      <view class="input-box">
       <input type="digit" value="{{houseFundBase}}" bindinput="bindHouseInput" placeholder="0"/>
+      </view>
     </view>
   </view>
 

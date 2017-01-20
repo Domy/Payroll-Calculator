@@ -25,10 +25,13 @@ page {
   border-bottom: none;
 }
 
-.section .item input {
-  background: url('/images/icon_edit.png') right center no-repeat;
+.section .item .input-box {
+  background: url('../../images/icon_edit.png') right center no-repeat;
   background-size: 20rpx;
-  padding-right: 20rpx;
+  padding-right: 30rpx;
+}
+
+.section .item input {
   text-align: right;
 }
 
