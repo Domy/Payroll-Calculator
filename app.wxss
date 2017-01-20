@@ -26,5 +26,12 @@ page {
 }
 
 .section .item input {
+  background: url('/images/icon_edit.png') right center no-repeat;
+  background-size: 20rpx;
+  padding-right: 20rpx;
   text-align: right;
+}
+
+.section .rate {
+  color: #b7b7b7;
 }

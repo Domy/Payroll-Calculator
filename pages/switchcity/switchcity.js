@@ -1,6 +1,5 @@
 var city = require('../../utils/city.js');
 
-
 Page({
   data: {
     searchLetter: [],
