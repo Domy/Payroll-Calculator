@@ -11,6 +11,10 @@ function formatTime(date) {
 }
 
 function formatNumber(n) {
+  if (typeof n !== 'number'){
+    return 0
+  }
+
   var num = n.toFixed(2)
   if (num * 100 % 100 === 0) {
     return parseInt(num)

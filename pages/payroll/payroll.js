@@ -10,28 +10,28 @@ Page({
     medFundBase: '',
     cities: ['北京', '上海', '广州', '深圳'],
     cityRate: {
-      '北京': {
+      '北京市': {
         base: 7086 * 3,
         housefund: 12,
         workfund: 0.2,
         medfund: 2,
         agefund: 8
       },
-      '上海': {
+      '上海市': {
         base: 5939 * 3,
         housefund: 7,
         workfund: 0.5,
         medfund: 2,
         agefund: 8
       },
-      '深圳': {
+      '深圳市': {
         base: 6054 * 3,
         housefund: 13,
         workfund: 0.5,
         medfund: 2,
         agefund: 8
       },
-      '广州': {
+      '广州市': {
         base: 5525 * 3,
         housefund: 10,
         workfund: 0.5,
@@ -51,44 +51,66 @@ Page({
     })
 
     on('changeCity', self, function(data) {
-      console.log(data)
       self.setData({
         city: data
       })
       self.generateResult()
     })
   },
-  bindPickerChange: function(e) {
-    this.setData({
-      index: e.detail.value
-    })
-    this.generateResult()
-  },
   bindIncomeInput: function(e) {
     let value = e.detail.value
 
     this.setData({
-      income: value
+      income: parseFloat(value)
     })
+    this.getBase()
     this.generateResult()
   },
   bindHouseInput: function (e) {
+    let value = e.detail.value
+    
+    value = value > this.data.income 
+    ? this.data.income
+    : parseFloat(value)
+
     this.setData({
-      houseFundBase: parseFloat(e.detail.value)
-    })
+      houseFundBase: value
+    }) 
+  
     this.generateResult()
   },
+
   bindMedInput: function (e) {
+    let value = e.detail.value
+    
+    value = value > this.data.income 
+    ? this.data.income
+    : parseFloat(value)
+
     this.setData({
-      medFundBase: parseFloat(e.detail.value)
+      medFundBase: value
     })
+    
     this.generateResult()
   },
+
+  getBase: function (e) {
+    let data = this.data
+    let city = data.city
+    let rate = data.cityRate[city]
+    let income = data.income
+
+    let houseFundBase = Math.min(income, rate.base)
+    let medFundBase = Math.min(income, rate.base)
+
+    this.setData({
+      houseFundBase: houseFundBase,
+      medFundBase: medFundBase
+    })
+  },
+
   generateResult: function(e) {
     let data = this.data
-    let city = data.cities[data.index];
-    let rate = data.cityRate[city];
-
     let income = data.income;
 
     if (income > 1000000) {
@@ -107,16 +129,12 @@ Page({
       return 
     }
 
-    let houseFundBase = data.houseFundBase 
-    ? Math.min(income, data.houseFundBase)
-    : Math.min(income, rate.base)
-    let houseFund = houseFundBase * (rate.housefund / 100);
-    
-    
-    let medFundBase = data.medFundBase 
-    ? Math.min(income, data.medFundBase)
-    : Math.min(income, rate.base)
-    
+    let city = data.city
+    let rate = data.cityRate[city]
+    let medFundBase = data.medFundBase
+    let houseFundBase = data.houseFundBase
+
+    let houseFund = houseFundBase * (rate.housefund / 100)
     let workFund = medFundBase * (rate.workfund / 100);
     let medFund = medFundBase * (rate.medfund / 100);
     let ageFund = medFundBase * (rate.agefund / 100);
