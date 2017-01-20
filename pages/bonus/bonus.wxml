@@ -7,15 +7,15 @@
     </view>
   </view>
   <view class="section">
-    <view class="item">
+    <view class="item edit-item">
       <view class="lable">
         当前城市
       </view>
-      <navigator url="../switchcity/switchcity">
+      <navigator hover-class="none" url="../switchcity/switchcity">
       {{ city }}
       </navigator>
     </view>
-    <view class="item">
+    <view class="item edit-item">
       <view class="lable">
         年终奖金
       </view>

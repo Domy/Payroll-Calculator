@@ -7,7 +7,6 @@
     {{showLetter}}
   </view>
 </block>
-<view>当前选择城市：{{city}}</view>
 <scroll-view scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" scroll-top="{{scrollTop}}">
   <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
     <view class="item_letter">{{item.initial}}</view>

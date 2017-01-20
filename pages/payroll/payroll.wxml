@@ -13,15 +13,15 @@
   </view>
 
   <view class="section">
-    <view class="item">
+    <view class="item edit-item">
       <view class="lable">
         当前城市
       </view>
-      <navigator url="../switchcity/switchcity">
+      <navigator hover-class="none" url="../switchcity/switchcity">
       {{ city }}
       </navigator>
     </view>
-    <view class="item">
+    <view class="item edit-item">
       <view class="lable">
         税前月薪
       </view>
@@ -33,7 +33,7 @@
 
   <view class="section">
   <view class="section-title">缴纳基数</view>
-    <view class="item">
+    <view class="item edit-item">
       <view class="lable">
         社保基数
       </view>
@@ -41,7 +41,7 @@
       <input type="digit" value="{{medFundBase}}" bindinput="bindMedInput" placeholder="0"/>
       </view>
     </view>
-    <view class="item">
+    <view class="item edit-item">
       <view class="lable">
         公积金基数
       </view>
