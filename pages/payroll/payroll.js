@@ -23,16 +23,121 @@ Page({
         medfund: 2,
         agefund: 8
       },
+      '广州市': {
+        base: 5525 * 3,
+        housefund: 5,
+        workfund: 0.2,
+        medfund: 2,
+        agefund: 8
+      },
       '深圳市': {
         base: 6054 * 3,
-        housefund: 13,
+        housefund: 5,
         workfund: 0.5,
         medfund: 2,
         agefund: 8
       },
-      '广州市': {
-        base: 5525 * 3,
-        housefund: 10,
+      '成都市': {
+        base: 5000 * 3,
+        housefund: 0,
+        workfund: 0.4,
+        medfund: 2,
+        agefund: 8
+      },
+      '杭州市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '武汉市': {
+        base: 5000 * 3,
+        housefund: 8,
+        workfund: 0.3,
+        medfund: 2,
+        agefund: 8
+      },
+      '天津市': {
+        base: 5000 * 3,
+        housefund: 11,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '南京市': {
+        base: 5000 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '重庆市': {
+        base: 5000 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '西安市': {
+        base: 5000 * 3,
+        housefund: 5,
+        workfund: 1,
+        medfund: 2,
+        agefund: 8
+      },
+      '长沙市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '青岛市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '沈阳市': {
+        base: 5000 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '大连市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 1,
+        medfund: 2,
+        agefund: 8
+      },
+      '厦门市': {
+        base: 5000 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '苏州市': {
+        base: 5000 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '宁波市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '无锡市': {
+        base: 5000 * 3,
+        housefund: 8,
         workfund: 0.5,
         medfund: 2,
         agefund: 8
