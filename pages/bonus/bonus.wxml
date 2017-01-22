@@ -12,6 +12,7 @@
         当前城市
       </view>
       <navigator hover-class="none" url="../switchcity/switchcity">
+      <image src="../../images/arrowright.png"></image>
       {{ city }}
       </navigator>
     </view>
@@ -19,7 +20,10 @@
       <view class="lable">
         年终奖金
       </view>
-      <input type="digit" bindinput="bindKeyInput" placeholder="0" focus="true" value="{{ bonus }}"/>
+      <view class="input-box">
+      <image src="../../images/icon_pen.png"></image>
+      <input type="digit" bindinput="bindKeyInput" focus="true" value="{{ bonus }}" placeholder="0"/>
+      </view>
     </view>
   </view>
   <view class="section">
