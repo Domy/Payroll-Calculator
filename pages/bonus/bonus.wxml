@@ -19,7 +19,7 @@
       <view class="lable">
         年终奖金
       </view>
-      <input type="digit" bindinput="bindKeyInput" placeholder="0" value="{{ bonus }}"/>
+      <input type="digit" bindinput="bindKeyInput" placeholder="0" focus="true" value="{{ bonus }}"/>
     </view>
   </view>
   <view class="section">
