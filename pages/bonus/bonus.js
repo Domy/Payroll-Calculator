@@ -34,10 +34,10 @@ Page({
     return {
       title: '税后工资计算器', // 分享标题
       desc: '税后工资，年终奖计算', // 分享描述
-      path: '../payroll/payroll' // 分享路径
+      path: '/pages/payroll/payroll' // 分享路径
     }
   },
-  
+
   getResult: function () {
     let base = this.data.bonus / 12;
     let level = getTaxLevel(base);
