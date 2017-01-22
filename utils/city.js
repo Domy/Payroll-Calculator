@@ -1,7 +1,7 @@
 import cityObj from 'citylist.js'
 
 //城市检索的首字母
-var searchLetter = ["B", "C", "D", "G", "H", "N", "Q", "S", "T", "W", "X"]
+var searchLetter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z']
 
 //对城市信息进行分组
 function cityList() {

@@ -141,6 +141,223 @@ Page({
         workfund: 0.5,
         medfund: 2,
         agefund: 8
+      },
+      '长春市': {
+        base: 4500 * 3,
+        housefund: 7,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '哈尔滨市': {
+        base: 4500 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '呼和浩特市': {
+        base: 4500 * 3,
+        housefund: 6,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '包头市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 1,
+        medfund: 2,
+        agefund: 8
+      },
+      '太原市': {
+        base: 4500 * 3,
+        housefund: 6,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '石家庄市': {
+        base: 4500 * 3,
+        housefund: 10,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '郑州市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 0.3,
+        medfund: 2,
+        agefund: 8
+      },
+      '济南市': {
+        base: 4500 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '温州市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '泰州市': {
+        base: 4500 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '绍兴市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '嘉兴市': {
+        base: 4500 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '昆山市': {
+        base: 4500 * 3,
+        housefund: 8,
+        workfund: 5,
+        medfund: 2,
+        agefund: 8
+      },
+      '张家港市': {
+        base: 4500 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '合肥市': {
+        base: 4500 * 3,
+        housefund: 12,
+        workfund: 1,
+        medfund: 2,
+        agefund: 8
+      },
+      '南昌市': {
+        base: 4500 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '扬州市': {
+        base: 4500 * 3,
+        housefund: 0,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '贵阳市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '昆明市': {
+        base: 4500 * 3,
+        housefund: 12,
+        workfund: 0.6,
+        medfund: 2,
+        agefund: 8
+      },
+      '兰州市': {
+        base: 4500 * 3,
+        housefund: 12,
+        workfund: 1,
+        medfund: 2,
+        agefund: 8
+      },
+      '西宁市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '银川市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '乌鲁木齐市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 9,
+        agefund: 8
+      },
+      '佛山市': {
+        base: 4500 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '珠海市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 0.2,
+        medfund: 2,
+        agefund: 8
+      },
+      '东莞市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 0.2,
+        medfund: 0,
+        agefund: 8
+      },
+      '福州市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 1,
+        medfund: 2,
+        agefund: 8
+      },
+      '汕头市': {
+        base: 4500 * 3,
+        housefund: 12,
+        workfund: 0.2,
+        medfund: 2,
+        agefund: 8
+      },
+      '潮州市': {
+        base: 4500 * 3,
+        housefund: 5,
+        workfund: 1,
+        medfund: 0,
+        agefund: 8
+      },
+      '唐山市': {
+        base: 4500 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '廊坊市': {
+        base: 4500 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
       }
     },
     income: '',
