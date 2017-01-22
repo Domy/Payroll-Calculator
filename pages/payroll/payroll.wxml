@@ -26,7 +26,8 @@
         税前月薪
       </view>
       <view class="input-box">
-      <input type="digit" placeholder="0" bindinput="bindIncomeInput" focus="true" value="{{income}}"/>
+        <input type="digit" placeholder="0" bindinput="bindIncomeInput" focus="true" value="{{income}}"/>
+        <span class="pen"></span>
       </view>
     </view>
   </view>

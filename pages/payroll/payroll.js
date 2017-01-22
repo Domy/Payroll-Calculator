@@ -397,8 +397,9 @@ Page({
     this.getBase()
     this.generateResult()
   },
+
   bindHouseInput: function (e) {
-    let value = e.detail.value
+    let value = e.detail.value || 0
 
     value = value > this.data.income
     ? this.data.income
@@ -412,7 +413,7 @@ Page({
   },
 
   bindMedInput: function (e) {
-    let value = e.detail.value
+    let value = e.detail.value || 0
 
     value = value > this.data.income
     ? this.data.income

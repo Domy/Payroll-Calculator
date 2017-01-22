@@ -36,3 +36,15 @@ page {
 .section .item .rate {
   color: #b7b7b7;
 }
+
+input {
+  display: inline-block;
+}
+
+.pen {
+  display: inline-block;
+  height: 1.4rem;
+  width: 1rem;
+  background: url(../../images/icon_edit.png) no-repeat center center; 
+  background-size: 20rpx;
+}
