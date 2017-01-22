@@ -23,16 +23,121 @@ Page({
         medfund: 2,
         agefund: 8
       },
+      '广州市': {
+        base: 5525 * 3,
+        housefund: 5,
+        workfund: 0.2,
+        medfund: 2,
+        agefund: 8
+      },
       '深圳市': {
         base: 6054 * 3,
-        housefund: 13,
+        housefund: 5,
         workfund: 0.5,
         medfund: 2,
         agefund: 8
       },
-      '广州市': {
-        base: 5525 * 3,
-        housefund: 10,
+      '成都市': {
+        base: 5000 * 3,
+        housefund: 0,
+        workfund: 0.4,
+        medfund: 2,
+        agefund: 8
+      },
+      '杭州市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '武汉市': {
+        base: 5000 * 3,
+        housefund: 8,
+        workfund: 0.3,
+        medfund: 2,
+        agefund: 8
+      },
+      '天津市': {
+        base: 5000 * 3,
+        housefund: 11,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '南京市': {
+        base: 5000 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '重庆市': {
+        base: 5000 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '西安市': {
+        base: 5000 * 3,
+        housefund: 5,
+        workfund: 1,
+        medfund: 2,
+        agefund: 8
+      },
+      '长沙市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '青岛市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '沈阳市': {
+        base: 5000 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '大连市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 1,
+        medfund: 2,
+        agefund: 8
+      },
+      '厦门市': {
+        base: 5000 * 3,
+        housefund: 5,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '苏州市': {
+        base: 5000 * 3,
+        housefund: 8,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '宁波市': {
+        base: 5000 * 3,
+        housefund: 12,
+        workfund: 0.5,
+        medfund: 2,
+        agefund: 8
+      },
+      '无锡市': {
+        base: 5000 * 3,
+        housefund: 8,
         workfund: 0.5,
         medfund: 2,
         agefund: 8
@@ -41,16 +146,16 @@ Page({
     income: '',
     results: {}
   },
-  
+
   onShareAppMessage: function () {
     // 用户点击右上角分享
     return {
       title: '税后工资计算器', // 分享标题
-      desc: '税后工资，年终奖计算', // 分享描述
+      desc: '税后工资、年终奖计算器', // 分享描述
       path: '/pages/payroll/payroll' // 分享路径
     }
   },
-  
+
   onShow: function() {
     var self = this
     var app = getApp()
@@ -77,22 +182,22 @@ Page({
   },
   bindHouseInput: function (e) {
     let value = e.detail.value
-    
-    value = value > this.data.income 
+
+    value = value > this.data.income
     ? this.data.income
     : parseFloat(value)
 
     this.setData({
       houseFundBase: value
-    }) 
-  
+    })
+
     this.generateResult()
   },
 
   bindMedInput: function (e) {
     let value = e.detail.value
-    
-    value = value > this.data.income 
+
+    value = value > this.data.income
     ? this.data.income
     : parseFloat(value)
 
@@ -140,7 +245,7 @@ Page({
           sum: '无所谓'
         }
       })
-      return 
+      return
     }
 
     let city = data.city
@@ -149,7 +254,7 @@ Page({
     if (!rate) {
       rate = data.cityRate['北京市']
     }
-    
+
     let medFundBase = data.medFundBase
     let houseFundBase = data.houseFundBase
 

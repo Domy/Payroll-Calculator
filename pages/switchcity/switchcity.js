@@ -34,7 +34,7 @@ Page({
 
       tempObj.push(temp)
     }
-    
+
     this.setData({
       winHeight: winHeight,
       itemH: itemH,
@@ -113,7 +113,7 @@ Page({
       isShowLetter:false
     })
     },1000)
-    
+
   },
   nowLetter: function (pageY, that) {//当前选中的信息
     var letterData = this.data.searchLetter;
@@ -122,7 +122,7 @@ Page({
     var showLetter="";
     for (var i = 0; i < letterData.length; i++) {
       if (letterData[i].tHeight <= pageY && pageY<= letterData[i].bHeight) {
-        bHeight = letterData[i].bHeight; 
+        bHeight = letterData[i].bHeight;
         tHeight = letterData[i].tHeight;
         showLetter = letterData[i].name;
         break;
