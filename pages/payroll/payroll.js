@@ -58,7 +58,7 @@ Page({
     })
   },
   bindIncomeInput: function(e) {
-    let value = e.detail.value
+    let value = e.detail.value || 0
 
     this.setData({
       income: parseFloat(value)

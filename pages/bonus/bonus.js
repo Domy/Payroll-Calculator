@@ -10,7 +10,7 @@ Page({
   },
   bindKeyInput: function (e) {
     this.setData({
-      bonus: e.detail.value
+      bonus: parseFloat(e.detail.value || 0)
     });
     this.getResult();
   },
