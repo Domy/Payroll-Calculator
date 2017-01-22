@@ -25,6 +25,10 @@ page {
   border-bottom: none;
 }
 
+.section .item .lable {
+  white-space: nowrap;
+}
+
 .section .item input {
   text-align: right;
 }
