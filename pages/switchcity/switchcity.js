@@ -34,7 +34,7 @@ Page({
 
       tempObj.push(temp)
     }
-    
+
     this.setData({
       winHeight: winHeight,
       itemH: itemH,
@@ -70,7 +70,7 @@ Page({
     // 用户点击右上角分享
     return {
       title: '税后工资计算器', // 分享标题
-      desc: '税后工资，年终奖计算', // 分享描述
+      desc: '税后工资、年终奖计算器', // 分享描述
       path: '/pages/payroll/payroll' // 分享路径
     }
   },
@@ -113,7 +113,7 @@ Page({
       isShowLetter:false
     })
     },1000)
-    
+
   },
   nowLetter: function (pageY, that) {//当前选中的信息
     var letterData = this.data.searchLetter;
@@ -122,7 +122,7 @@ Page({
     var showLetter="";
     for (var i = 0; i < letterData.length; i++) {
       if (letterData[i].tHeight <= pageY && pageY<= letterData[i].bHeight) {
-        bHeight = letterData[i].bHeight; 
+        bHeight = letterData[i].bHeight;
         tHeight = letterData[i].tHeight;
         showLetter = letterData[i].name;
         break;

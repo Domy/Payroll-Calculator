@@ -41,16 +41,16 @@ Page({
     income: '',
     results: {}
   },
-  
+
   onShareAppMessage: function () {
     // 用户点击右上角分享
     return {
       title: '税后工资计算器', // 分享标题
-      desc: '税后工资，年终奖计算', // 分享描述
+      desc: '税后工资、年终奖计算器', // 分享描述
       path: '/pages/payroll/payroll' // 分享路径
     }
   },
-  
+
   onShow: function() {
     var self = this
     var app = getApp()
@@ -77,22 +77,22 @@ Page({
   },
   bindHouseInput: function (e) {
     let value = e.detail.value
-    
-    value = value > this.data.income 
+
+    value = value > this.data.income
     ? this.data.income
     : parseFloat(value)
 
     this.setData({
       houseFundBase: value
-    }) 
-  
+    })
+
     this.generateResult()
   },
 
   bindMedInput: function (e) {
     let value = e.detail.value
-    
-    value = value > this.data.income 
+
+    value = value > this.data.income
     ? this.data.income
     : parseFloat(value)
 
@@ -140,7 +140,7 @@ Page({
           sum: '无所谓'
         }
       })
-      return 
+      return
     }
 
     let city = data.city
@@ -149,7 +149,7 @@ Page({
     if (!rate) {
       rate = data.cityRate['北京市']
     }
-    
+
     let medFundBase = data.medFundBase
     let houseFundBase = data.houseFundBase
 
