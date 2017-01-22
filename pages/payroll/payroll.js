@@ -8,7 +8,6 @@ Page({
     index: 0,
     houseFundBase: '',
     medFundBase: '',
-    cities: ['北京', '上海', '广州', '深圳'],
     cityRate: {
       '北京市': {
         base: 7086 * 3,
@@ -42,6 +41,16 @@ Page({
     income: '',
     results: {}
   },
+  
+  onShareAppMessage: function () {
+    // 用户点击右上角分享
+    return {
+      title: '税后工资计算器', // 分享标题
+      desc: '税后工资，年终奖计算', // 分享描述
+      path: '../payroll/payroll' // 分享路径
+    }
+  },
+  
   onShow: function() {
     var self = this
     var app = getApp()

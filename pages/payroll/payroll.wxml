@@ -55,25 +55,25 @@
     <view class="section-title">缴纳明细</view>
     <view class="item">
       <view class="lable">
-        养老保险 <text class="rate">{{ cityRate[cities[index]].agefund || 8 }}%</text>
+        养老保险 <text class="rate">{{ cityRate[city].agefund || 8 }}%</text>
       </view>
       <view class="amount">{{ results.ageFund || 0 }}</view>
     </view>
     <view class="item">
       <view class="lable">
-        医疗保险 <text class="rate">{{ cityRate[cities[index]].medfund || 2 }}%</text>
+        医疗保险 <text class="rate">{{ cityRate[city].medfund || 2 }}%</text>
       </view>
       <view class="amount">{{ results.medFund || 0 }}</view>
     </view>
     <view class="item">
       <view class="lable">
-        失业保险 <text class="rate">{{ cityRate[cities[index]].workfund || 0.2 }}%</text>
+        失业保险 <text class="rate">{{ cityRate[city].workfund || 0.2 }}%</text>
       </view>
       <view class="amount">{{ results.workFund || 0 }}</view>
     </view>
     <view class="item">
       <view class="lable">
-        住房公积金 <text class="rate">{{ cityRate[cities[index]].housefund || 2 }}%</text>
+        住房公积金 <text class="rate">{{ cityRate[city].housefund || 2 }}%</text>
       </view>
       <view class="amount">{{ results.houseFund || 0 }}</view>
     </view>
