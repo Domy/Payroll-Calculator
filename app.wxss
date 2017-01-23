@@ -12,6 +12,7 @@ page {
 }
 
 .section .item{
+  position: relative;
   background: #ffffff;
   border-bottom: #ececec solid 1px;
   font-size: 11pt;
@@ -41,9 +42,19 @@ input {
   display: inline-block;
 }
 
-.section .item image {
-  float: right;
-  height: 32rpx;
-  width: 32rpx;
-  margin-left: 5rpx;
+.section .item .pen {
+  position: absolute;
+  right: 5rpx;
+  top: 25rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.section .item wx-input {
+  margin-right: 20rpx;
+}
+
+.edit-item .arrow {
+  width: 25rpx;
+  height: 25rpx;
 }

@@ -47,9 +47,3 @@
 .strip .item text {
   color: #ffffff;
 }
-
-.pen {
-  display: inline-block;
-  background: url(../../images/icon_edit.png) no-repeat center center;
-  background-size: 100%; 
-}

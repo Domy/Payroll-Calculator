@@ -18,8 +18,8 @@
         当前城市
       </view>
       <navigator hover-class="none" url="../switchcity/switchcity">
-      <image src="../../images/arrowright.png"></image>
       {{ city }}
+      <image class="arrow" src="../../images/arrowright.png"></image>
       </navigator>
     </view>
     <view class="item edit-item">
@@ -27,7 +27,7 @@
         税前月薪
       </view>
       <view class="input-box">
-      <image src="../../images/icon_pen.png"></image>
+        <image class="pen" src="../../images/icon_pen.png"></image>
         <input type="digit" bindinput="bindIncomeInput" focus="true" value="{{income}}" placeholder="0"/>
       </view>
     </view>
@@ -40,7 +40,7 @@
         社保基数
       </view>
       <view class="input-box">
-      <image src="../../images/icon_pen.png"></image>
+      <image class="pen" src="../../images/icon_pen.png"></image>
       <input type="digit" value="{{medFundBase}}" bindinput="bindMedInput" placeholder="0"/>
       </view>
     </view>
@@ -49,7 +49,7 @@
         公积金基数
       </view>
       <view class="input-box">
-      <image src="../../images/icon_pen.png"></image>
+      <image class="pen" src="../../images/icon_pen.png"></image>
       <input type="digit" value="{{houseFundBase}}" bindinput="bindHouseInput" placeholder="0"/>
       </view>
     </view>
