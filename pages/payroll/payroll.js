@@ -10,28 +10,28 @@ Page({
     medFundBase: '',
     cityRate: {
       '北京市': {
-        base: 7086 * 3,
+        base: 7706 * 3,
         housefund: 12,
         workfund: 0.2,
         medfund: 2,
         agefund: 8
       },
       '上海市': {
-        base: 5939 * 3,
+        base: 6504 * 3,
         housefund: 7,
         workfund: 0.5,
         medfund: 2,
         agefund: 8
       },
       '广州市': {
-        base: 5525 * 3,
+        base: 6764 * 3,
         housefund: 5,
         workfund: 0.2,
         medfund: 2,
         agefund: 8
       },
       '深圳市': {
-        base: 6054 * 3,
+        base: 7480 * 3,
         housefund: 5,
         workfund: 0.5,
         medfund: 2,
@@ -59,7 +59,7 @@ Page({
         agefund: 8
       },
       '天津市': {
-        base: 5000 * 3,
+        base: 5265 * 3,
         housefund: 11,
         workfund: 0.5,
         medfund: 2,
