@@ -60,3 +60,8 @@ page {
   width: 25rpx;
   height: 25rpx;
 }
+
+.contact-wrap {
+  padding: 25rpx 0;
+  text-align: center;
+}

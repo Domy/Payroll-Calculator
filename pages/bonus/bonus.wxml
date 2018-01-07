@@ -35,4 +35,7 @@
       <view class="amount">{{ tax || 0 }}</view>
     </view>
   </view>
+  <view class="section contact-wrap">
+    <button open-type="contact" type="primary" size="mini" plain="true">建议&反馈</button>
+  </view>
 </view>

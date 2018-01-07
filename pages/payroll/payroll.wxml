@@ -82,4 +82,7 @@
       <view class="amount">{{ results.houseFund || 0 }}</view>
     </view>
   </view>
+  <view class="section contact-wrap">
+    <button class="contact" open-type="contact" type="primary" size="mini" plain="true">建议&反馈</button>
+  </view>
 </view>
