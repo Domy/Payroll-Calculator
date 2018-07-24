@@ -1,0 +1,51 @@
+<!--bonus-calculator.wxml-->
+<view class="container">
+    <view class="page-head">
+        <view class="page-head-title">标题</view>
+        <view class="page-head-desc">标题标题标题标题标题标题</view>
+    </view>
+    <view class="page-body">
+        <view class="page-section">
+            <view class="weui-cells__title">计算结果</view>
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">个人税前收入</view>
+                    <view class="weui-cell__ft">5612511</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">个人所得税</view>
+                    <view class="weui-cell__ft">5612511</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">个人缴纳公积金</view>
+                    <view class="weui-cell__ft">5612511</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">个人缴纳社保</view>
+                    <view class="weui-cell__ft">5612511</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">个人税后收入</view>
+                    <view class="weui-cell__ft">5612511</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">公司缴纳公积金</view>
+                    <view class="weui-cell__ft">5612511</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">公司缴纳社保</view>
+                    <view class="weui-cell__ft">5612511</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">公司雇佣成本</view>
+                    <view class="weui-cell__ft">5612511</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="page-foot">
+        <button class="weui-btn" type="primary">返回</button>
+        <button class="weui-btn" type="primary" plain="true">分享</button>
+    </view>
+    <ad unit-id="adunit-3833c4aefdfc1219"></ad>
+</view>

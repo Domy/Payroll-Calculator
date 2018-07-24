@@ -1,42 +1,38 @@
 <!--bonus-calculator.wxml-->
-<view class="container bonus-calculator">
-<view class="cover">
-    <view class="lable">税后所得</view>
-    <view class="amount">
-      <text>{{ result || 0 }}</text>元
+<view class="container">
+    <view class="page-head">
+        <view class="page-head-title">标题</view>
+        <view class="page-head-desc">标题标题标题标题标题标题</view>
     </view>
-  </view>
-  <view class="section">
-    <view class="item edit-item">
-      <view class="lable">
-        当前城市
-      </view>
-      <navigator hover-class="none" url="../switchcity/switchcity">
-      {{ city }}
-      <image class="arrow" src="../../images/arrowright.png"></image>
-      </navigator>
+    <view class="page-body">
+        <view class="page-section">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_select">
+                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                        <view class="weui-label">当前城市</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <navigator url="../switchcity/switchcity" hover-class="none" class="navigator">
+                            <view class="navigator-text">{{city}}</view>
+                            <view class="navigator-arrow weui-cell__ft_in-access"></view>
+                        </navigator>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">年终奖金</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" type="digit" placeholder="请输入" />
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
-    <view class="item edit-item">
-      <view class="lable">
-        年终奖金
-      </view>
-      <view class="input-box">
-      <image class="pen" src="../../images/icon_pen.png"></image>
-      <input type="digit" bindinput="bindKeyInput" focus="true" value="{{ bonus }}" placeholder="0"/>
-      </view>
+    <view class="page-foot">
+        <navigator url="../result/result" hover-class="none">
+            <button class="weui-btn" type="primary">开始计算</button>
+        </navigator>
     </view>
-  </view>
-  <view class="section">
-    <view class="section-title">缴纳明细</view>
-    <view class="item">
-      <view class="lable">
-        个人所得税
-      </view>
-      <view class="amount">{{ tax || 0 }}</view>
-    </view>
-  </view>
-  <view class="section contact-wrap">
-    <button open-type="contact" type="primary" size="mini" plain="true">建议&反馈</button>
-  </view>
-  <ad unit-id="adunit-3833c4aefdfc1219"></ad>
+    <ad unit-id="adunit-3833c4aefdfc1219"></ad>
 </view>

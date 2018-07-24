@@ -1,4 +1,4 @@
-<!--payroll-calculator.wxml-->
+<!--pretax-calculator.wxml-->
 <view class="container">
     <view class="page-head">
         <view class="page-head-title">标题</view>
@@ -20,7 +20,7 @@
                 </view>
                 <view class="weui-cell weui-cell_input">
                     <view class="weui-cell__hd">
-                        <view class="weui-label">税前工资</view>
+                        <view class="weui-label">期望税后工资</view>
                     </view>
                     <view class="weui-cell__bd">
                         <input class="weui-input" type="digit" placeholder="请输入" />

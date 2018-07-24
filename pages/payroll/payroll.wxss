@@ -1,49 +1,47 @@
+@import "../../styles/weui.wxss";
+
 .cover {
-  background: #4976d3;
-  height: 230rpx;
+    background: #4976d3;
+    height: 230rpx;
 }
+
 .cover .lable {
-  padding: 30rpx 0 20rpx 25rpx;
-  color: #b6c8ee;
-  font-size: 11pt;
-  font-weight: bold;
+    padding: 30rpx 0 20rpx 25rpx;
+    color: #b6c8ee;
+    font-size: 11pt;
+    font-weight: bold;
 }
 
 .cover .amount {
-  padding: 0 0 0 25rpx;
-  color: #92ade5;
-  font-size: 11pt;
+    padding: 0 0 0 25rpx;
+    color: #92ade5;
+    font-size: 11pt;
 }
 
 .cover .amount text {
-  margin-right: 10rpx;
-  color: #ffffff;
-  font-size: 32pt;
+    margin-right: 10rpx;
+    color: #ffffff;
+    font-size: 32pt;
 }
 
-.strip {
-  background: #4976d3;
-  height: 80rpx;
-  line-height: 80rpx;
-  display: flex;
-  justify-content: space-between;
+.page-section {
+    margin-bottom: 20rpx;
 }
 
-.strip .item {
-  background: #426abe;
-  color: #92ade5;
-  font-size: 9pt;
-  width: 100%;
-  padding-left: 25rpx;
-  box-sizing: border-box;
-  border-right: 1px solid #4976d3;
-  white-space: nowrap;
+.navigator {
+    padding: 20rpx 30rpx 20rpx 0;
 }
 
-.strip .item:last-child {
-  border-right: none;
+.weui-label {
+    width: 220rpx;
 }
 
-.strip .item text {
-  color: #ffffff;
+.page-foot {
+    padding: 40rpx 20rpx;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.weui-btn {
+    border-radius: 46px;
 }
