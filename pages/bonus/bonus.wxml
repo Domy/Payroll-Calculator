@@ -1,8 +1,8 @@
 <!--bonus-calculator.wxml-->
 <view class="container">
     <view class="page-head">
-        <view class="page-head-title">标题</view>
-        <view class="page-head-desc">标题标题标题标题标题标题</view>
+        <image class="page-head-logo" src="./../../images/logo.png" />
+        <view class="page-head-desc">方便 准确 实用</view>
     </view>
     <view class="page-body">
         <view class="page-section">

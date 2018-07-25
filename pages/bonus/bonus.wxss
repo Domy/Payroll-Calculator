@@ -32,14 +32,15 @@
     padding: 20rpx 30rpx 20rpx 0;
 }
 
-.weui-label {
-    width: 220rpx;
-}
-
 .page-foot {
     padding: 40rpx 20rpx;
     margin: 0 auto;
     width: 60%;
+}
+
+.weui-label {
+    width: 240rpx;
+    color: #666666;
 }
 
 .weui-btn {
