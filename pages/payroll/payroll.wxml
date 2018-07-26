@@ -1,89 +1,99 @@
 <!--payroll-calculator.wxml-->
 <view class="container payroll-calculator">
-  <view class="cover">
-    <view class="lable">税后所得</view>
-    <view class="amount">
-      <text>{{ results.incomeTotal || 0 }}</text>元
+    <view class="cover">
+        <view class="lable">税后所得</view>
+        <view class="amount">
+            <text>{{ results.incomeTotal || 0 }}</text>元
+        </view>
     </view>
-  </view>
-  <view class="strip">
-    <view class="item">个税：<text>{{ results.tax || 0 }}</text></view>
-    <view class="item">社保：<text>{{ results.sum || 0 }}</text></view>
-    <view class="item">公积金：<text>{{ results.houseFund || 0 }}</text></view>
-  </view>
+    <view class="strip">
+        <view class="item">个税：
+            <text>{{ results.tax || 0 }}</text>
+        </view>
+        <view class="item">社保：
+            <text>{{ results.sum || 0 }}</text>
+        </view>
+        <view class="item">公积金：
+            <text>{{ results.houseFund || 0 }}</text>
+        </view>
+    </view>
 
-  <view class="section">
-    <view class="item edit-item">
-      <view class="lable">
-        当前城市
-      </view>
-      <navigator hover-class="none" url="../switchcity/switchcity">
-      {{ city }}
-      <image class="arrow" src="../../images/arrowright.png"></image>
-      </navigator>
+    <view class="section">
+        <view class="item edit-item">
+            <view class="lable">
+                当前城市
+            </view>
+            <navigator hover-class="none" url="../switchcity/switchcity">
+                {{ city }}
+                <image class="arrow" src="../../images/arrowright.png"></image>
+            </navigator>
+        </view>
+        <view class="item edit-item">
+            <view class="lable">
+                税前月薪
+            </view>
+            <view class="input-box">
+                <image class="pen" src="../../images/icon_pen.png"></image>
+                <input type="digit" bindinput="bindIncomeInput" focus="true" value="{{income}}" placeholder="0" />
+            </view>
+        </view>
     </view>
-    <view class="item edit-item">
-      <view class="lable">
-        税前月薪
-      </view>
-      <view class="input-box">
-        <image class="pen" src="../../images/icon_pen.png"></image>
-        <input type="digit" bindinput="bindIncomeInput" focus="true" value="{{income}}" placeholder="0"/>
-      </view>
-    </view>
-  </view>
 
-  <view class="section">
-  <view class="section-title">缴纳基数</view>
-    <view class="item edit-item">
-      <view class="lable">
-        社保基数
-      </view>
-      <view class="input-box">
-      <image class="pen" src="../../images/icon_pen.png"></image>
-      <input type="digit" value="{{medFundBase}}" bindinput="bindMedInput" placeholder="0"/>
-      </view>
+    <view class="section">
+        <view class="section-title">缴纳基数</view>
+        <view class="item edit-item">
+            <view class="lable">
+                社保基数
+            </view>
+            <view class="input-box">
+                <image class="pen" src="../../images/icon_pen.png"></image>
+                <input type="digit" value="{{medFundBase}}" bindinput="bindMedInput" placeholder="0" />
+            </view>
+        </view>
+        <view class="item edit-item">
+            <view class="lable">
+                公积金基数
+            </view>
+            <view class="input-box">
+                <image class="pen" src="../../images/icon_pen.png"></image>
+                <input type="digit" value="{{houseFundBase}}" bindinput="bindHouseInput" placeholder="0" />
+            </view>
+        </view>
     </view>
-    <view class="item edit-item">
-      <view class="lable">
-        公积金基数
-      </view>
-      <view class="input-box">
-      <image class="pen" src="../../images/icon_pen.png"></image>
-      <input type="digit" value="{{houseFundBase}}" bindinput="bindHouseInput" placeholder="0"/>
-      </view>
-    </view>
-  </view>
 
-  <view class="section">
-    <view class="section-title">缴纳明细</view>
-    <view class="item">
-      <view class="lable">
-        养老保险 <text class="rate">{{ cityRate[city].agefund || 8 }}%</text>
-      </view>
-      <view class="amount">{{ results.ageFund || 0 }}</view>
+    <view class="section">
+        <view class="section-title">缴纳明细</view>
+        <view class="item">
+            <view class="lable">
+                养老保险
+                <text class="rate">{{ cityRate[city].agefund || 8 }}%</text>
+            </view>
+            <view class="amount">{{ results.ageFund || 0 }}</view>
+        </view>
+        <view class="item">
+            <view class="lable">
+                医疗保险
+                <text class="rate">{{ cityRate[city].medfund || 2 }}%</text>
+            </view>
+            <view class="amount">{{ results.medFund || 0 }}</view>
+        </view>
+        <view class="item">
+            <view class="lable">
+                失业保险
+                <text class="rate">{{ cityRate[city].workfund || 0.2 }}%</text>
+            </view>
+            <view class="amount">{{ results.workFund || 0 }}</view>
+        </view>
+        <view class="item">
+            <view class="lable">
+                住房公积金
+                <text class="rate">{{ cityRate[city].housefund || 2 }}%</text>
+            </view>
+            <view class="amount">{{ results.houseFund || 0 }}</view>
+        </view>
     </view>
-    <view class="item">
-      <view class="lable">
-        医疗保险 <text class="rate">{{ cityRate[city].medfund || 2 }}%</text>
-      </view>
-      <view class="amount">{{ results.medFund || 0 }}</view>
+    <view class="section contact-wrap">
+        <button class="contact" open-type="contact" type="primary" size="mini" plain="true">建议&反馈</button>
     </view>
-    <view class="item">
-      <view class="lable">
-        失业保险 <text class="rate">{{ cityRate[city].workfund || 0.2 }}%</text>
-      </view>
-      <view class="amount">{{ results.workFund || 0 }}</view>
-    </view>
-    <view class="item">
-      <view class="lable">
-        住房公积金 <text class="rate">{{ cityRate[city].housefund || 2 }}%</text>
-      </view>
-      <view class="amount">{{ results.houseFund || 0 }}</view>
-    </view>
-  </view>
-  <view class="section contact-wrap">
-    <button class="contact" open-type="contact" type="primary" size="mini" plain="true">建议&反馈</button>
-  </view>
-  <ad unit-id="adunit-3833c4aefdfc1219"></ad>
+    <ad unit-id="adunit-3833c4aefdfc1219"></ad>
 </view>

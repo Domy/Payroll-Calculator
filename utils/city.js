@@ -5,7 +5,7 @@ var searchLetter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 
 
 //对城市信息进行分组
 function cityList() {
-    var tempObj=[];
+    var tempObj = [];
     for (var i = 0; i < searchLetter.length; i++) {
         var initial = searchLetter[i];
         var cityInfo = [];

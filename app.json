@@ -1,28 +1,28 @@
 {
-  "pages": [
-    "pages/payroll/payroll",
-    "pages/bonus/bonus",
-    "pages/switchcity/switchcity"
-  ],
-  "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#4976d3",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": false
-  },
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/payroll/payroll",
-      "iconPath": "images/a2.png",
-      "selectedIconPath": "images/a1.png",
-      "text": "工资计算器"
-    }, {
-      "pagePath": "pages/bonus/bonus",
-      "iconPath": "images/b2.png",
-      "selectedIconPath": "images/b1.png",
-      "text": "奖金计算器"
-    }],
-    "selectedColor": "#478cd4"
-  }
+    "pages": [
+        "pages/payroll/payroll",
+        "pages/bonus/bonus",
+        "pages/switchcity/switchcity"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#4976d3",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "list": [{
+            "pagePath": "pages/payroll/payroll",
+            "iconPath": "images/a2.png",
+            "selectedIconPath": "images/a1.png",
+            "text": "工资计算器"
+        }, {
+            "pagePath": "pages/bonus/bonus",
+            "iconPath": "images/b2.png",
+            "selectedIconPath": "images/b1.png",
+            "text": "奖金计算器"
+        }],
+        "selectedColor": "#478cd4"
+    }
 }

@@ -5,8 +5,7 @@ function on(name, self, callback) {
     var callbacks = events[name];
     if (Array.isArray(callbacks)) {
         callbacks.push(tuple);
-    }
-    else {
+    } else {
         events[name] = [tuple];
     }
 }
@@ -33,5 +32,7 @@ function emit(name, data) {
 }
 
 module.exports = {
-    on, emit, remove
+    on,
+    emit,
+    remove
 }

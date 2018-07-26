@@ -1,67 +1,68 @@
 /**app.wxss**/
+
 page {
-  background: #EFEFF4;
-  height: 100%;
+    background: #EFEFF4;
+    height: 100%;
 }
 
 .section .section-title {
-  background: #f5f5f5;
-  color: #999999;
-  font-size: 11pt;
-  padding: 20rpx 25rpx;
+    background: #f5f5f5;
+    color: #999999;
+    font-size: 11pt;
+    padding: 20rpx 25rpx;
 }
 
-.section .item{
-  position: relative;
-  background: #ffffff;
-  border-bottom: #ececec solid 1px;
-  font-size: 11pt;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20rpx 25rpx;
-  height: 40rpx;
-  line-height: 40rpx;
+.section .item {
+    position: relative;
+    background: #ffffff;
+    border-bottom: #ececec solid 1px;
+    font-size: 11pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 25rpx;
+    height: 40rpx;
+    line-height: 40rpx;
 }
 
 .section .item:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .section .item .lable {
-  white-space: nowrap;
+    white-space: nowrap;
 }
 
 .section .item input {
-  text-align: right;
+    text-align: right;
 }
 
 .section .item .rate {
-  color: #b7b7b7;
+    color: #b7b7b7;
 }
 
 .section .item .pen {
-  position: absolute;
-  right: 15rpx;
-  top: 50%;
-  margin-top: -16rpx;
-  width: 32rpx;
-  height: 32rpx;
+    position: absolute;
+    right: 15rpx;
+    top: 50%;
+    margin-top: -16rpx;
+    width: 32rpx;
+    height: 32rpx;
 }
 
 .section .item wx-input {
-  margin-right: 35rpx;
-  padding: 0;
-  height: 36rpx;
-  line-height: 36rpx;
+    margin-right: 35rpx;
+    padding: 0;
+    height: 36rpx;
+    line-height: 36rpx;
 }
 
 .edit-item .arrow {
-  width: 25rpx;
-  height: 25rpx;
+    width: 25rpx;
+    height: 25rpx;
 }
 
 .contact-wrap {
-  padding: 25rpx 0;
-  text-align: center;
+    padding: 25rpx 0;
+    text-align: center;
 }
