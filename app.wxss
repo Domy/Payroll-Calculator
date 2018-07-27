@@ -21,7 +21,6 @@ form {
 }
 
 /* lib */
-
 .strong {
     font-weight: bold;
 }
@@ -239,7 +238,7 @@ form {
 }
 
 .weui-label {
-    width: 240rpx;
+    width: 260rpx;
     color: #666666;
 }
 
