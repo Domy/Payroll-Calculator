@@ -9,6 +9,8 @@ Page({
     countryIndex: 0,
     paymentMethods: ['按照工资', '按最低标准', '自定义'],
     paymentIndex: 0,
+    fundRange: ['12%', '10%', '9%', '8%', '7%', '6%', '5%'],
+    fundIndex: 0,
     index: 0,
     houseFundBase: '',
     medFundBase: '',
