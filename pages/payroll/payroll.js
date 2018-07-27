@@ -1,6 +1,6 @@
 import { getTaxLevel, formatNumber } from '../../utils/util.js';
 import { on, emit } from '../../utils/event.js';
-import cityRate from '../../utils/cityRate.js';
+import cityRate from '../../utils/cityrate.js';
 var format = formatNumber
 
 Page({

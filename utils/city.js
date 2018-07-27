@@ -1,4 +1,4 @@
-import citys from 'cityList.js'
+import citys from 'citylist.js'
 
 //城市检索的首字母
 var searchLetter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z']
