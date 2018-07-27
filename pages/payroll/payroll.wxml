@@ -44,19 +44,19 @@
                             <view class="weui-label">缴纳方式</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentType}}">
+                            <picker bindchange="bindInsuranceChange" value="{{insuranceIndex}}" range="{{paymentType}}">
                                 <view class="weui-select weui-select_in-select-after">
-                                    {{paymentType[paymentIndex]}}
+                                    {{paymentType[insuranceIndex]}}
                                 </view>
                             </picker>
                         </view>
                     </view>
-                    <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell weui-cell_input" wx:if="{{insuranceIndex != 0}}">
                         <view class="weui-cell__hd">
                             <view class="weui-label">社保基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" disabled="true" placeholder="请输入" />
+                            <input class="weui-input" type="digit" disabled="{{insuranceIndex != 2}}" placeholder="请输入" />
                         </view>
                     </view>
                 </block>
@@ -78,19 +78,19 @@
                             <view class="weui-label">缴纳方式</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentType}}">
+                            <picker bindchange="bindFundChange" value="{{fundIndex}}" range="{{paymentType}}">
                                 <view class="weui-select weui-select_in-select-after">
-                                    {{paymentType[paymentIndex]}}
+                                    {{paymentType[fundIndex]}}
                                 </view>
                             </picker>
                         </view>
                     </view>
-                    <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell weui-cell_input" wx:if="{{fundIndex != 0}}">
                         <view class="weui-cell__hd">
                             <view class="weui-label">缴纳基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" disabled="" placeholder="请输入" />
+                            <input class="weui-input" type="digit" disabled="{{fundIndex != 2}}" placeholder="请输入" />
                         </view>
                     </view>
                     <view class="weui-cell weui-cell_select">
@@ -98,9 +98,9 @@
                             <view class="weui-label">缴纳比例</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <picker bindchange="bindCountryChange" value="{{fundIndex}}" range="{{fundRange}}">
+                            <picker bindchange="bindRatioChange" value="{{ratioIndex}}" range="{{ratioRange}}">
                                 <view class="weui-select weui-select_in-select-after">
-                                    {{fundRange[fundIndex]}}
+                                    {{ratioRange[ratioIndex]}}
                                 </view>
                             </picker>
                         </view>

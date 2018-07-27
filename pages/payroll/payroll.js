@@ -5,13 +5,14 @@ var format = formatNumber
 
 Page({
     data: {
-        socialInsurance: true,
-        housingFund: true,
-        paymentType: ['按照工资', '按最低标准', '自定义'],
-        paymentIndex: 0,
-        fundRange: ['12%', '10%', '9%', '8%', '7%', '6%', '5%'],
+        socialInsurance: true, // 是否缴纳社保
+        housingFund: true, // 是否缴纳公积金
+        paymentType: ['按照工资', '按最低标准', '自定义'], // 缴纳方式
+        insuranceIndex: 0,
         fundIndex: 0,
-        index: 0,
+        ratioRange: ['12%', '10%', '9%', '8%', '7%', '6%', '5%'],
+        ratioIndex: 0,
+
         houseFundBase: '',
         medFundBase: '',
         cityRate: {},
@@ -23,27 +24,6 @@ Page({
         this.setData({
             cityRate: cityRate
         })
-    },
-
-    switchSocialInsurance (e) {
-        this.setData({
-            socialInsurance: e.detail.value
-        });
-    },
-
-    switchHousingFund (e) {
-        this.setData({
-            housingFund: e.detail.value
-        });
-    },
-
-    onShareAppMessage () {
-        // 用户点击右上角分享
-        return {
-            title: '税后工资计算器', // 分享标题
-            desc: '税后工资、年终奖计算器', // 分享描述
-            path: '/pages/payroll/payroll' // 分享路径
-        }
     },
 
     onShow () {
@@ -61,6 +41,46 @@ Page({
             self.generateResult()
         })
     },
+
+    switchSocialInsurance (e) {
+        this.setData({
+            socialInsurance: e.detail.value
+        });
+    },
+
+    switchHousingFund (e) {
+        this.setData({
+            housingFund: e.detail.value
+        });
+    },
+
+    bindInsuranceChange (e) {
+        this.setData({
+            insuranceIndex: e.detail.value
+        });
+    },
+
+    bindFundChange (e) {
+        this.setData({
+            fundIndex: e.detail.value
+        });
+    },
+
+    bindRatioChange (e) {
+        this.setData({
+            ratioIndex: e.detail.value
+        });
+    },
+
+    onShareAppMessage () {
+        // 用户点击右上角分享
+        return {
+            title: '税后工资计算器', // 分享标题
+            desc: '税后工资、年终奖计算器', // 分享描述
+            path: '/pages/payroll/payroll' // 分享路径
+        }
+    },
+
     bindIncomeInput (e) {
         let value = e.detail.value || 0
 

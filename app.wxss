@@ -1,5 +1,4 @@
 /* reset */
-
 page {
     background-color: #F8F8F8;
     height: 100%;
@@ -32,7 +31,6 @@ form {
 }
 
 /* page */
-
 .container {
     display: flex;
     flex-direction: column;
@@ -200,4 +198,51 @@ form {
     top: 50%;
     margin-top: -8rpx;
     right: 28rpx;
+}
+
+.cover {
+    background: #4976d3;
+    height: 230rpx;
+}
+
+.cover .lable {
+    padding: 30rpx 0 20rpx 25rpx;
+    color: #b6c8ee;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+.cover .amount {
+    padding: 0 0 0 25rpx;
+    color: #92ade5;
+    font-size: 11pt;
+}
+
+.cover .amount text {
+    margin-right: 10rpx;
+    color: #ffffff;
+    font-size: 32pt;
+}
+
+.page-section {
+    margin-bottom: 20rpx;
+}
+
+.navigator {
+    padding: 20rpx 30rpx 20rpx 0;
+}
+
+.page-foot {
+    padding: 40rpx 20rpx;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.weui-label {
+    width: 240rpx;
+    color: #666666;
+}
+
+.weui-btn {
+    border-radius: 46px;
 }
