@@ -1,4 +1,5 @@
 /* reset */
+
 page {
     background-color: #F8F8F8;
     height: 100%;
@@ -21,6 +22,7 @@ form {
 }
 
 /* lib */
+
 .strong {
     font-weight: bold;
 }
@@ -30,6 +32,7 @@ form {
 }
 
 /* page */
+
 .container {
     display: flex;
     flex-direction: column;

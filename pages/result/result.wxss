@@ -1,5 +1,4 @@
 @import "../../styles/weui.wxss";
-
 .cover {
     background: #4976d3;
     height: 230rpx;

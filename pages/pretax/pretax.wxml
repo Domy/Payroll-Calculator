@@ -43,9 +43,9 @@
                         <view class="weui-label">缴纳方式</view>
                     </view>
                     <view class="weui-cell__bd">
-                        <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentMethods}}">
+                        <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentType}}">
                             <view class="weui-select weui-select_in-select-after">
-                                {{paymentMethods[paymentIndex]}}
+                                {{paymentType[paymentIndex]}}
                             </view>
                         </picker>
                     </view>
@@ -75,9 +75,9 @@
                         <view class="weui-label">缴纳方式</view>
                     </view>
                     <view class="weui-cell__bd">
-                        <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentMethods}}">
+                        <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentType}}">
                             <view class="weui-select weui-select_in-select-after">
-                                {{paymentMethods[paymentIndex]}}
+                                {{paymentType[paymentIndex]}}
                             </view>
                         </picker>
                     </view>
