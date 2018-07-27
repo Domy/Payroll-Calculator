@@ -8,13 +8,13 @@ Page({
         tax: '',
         city: ''
     },
-    bindKeyInput: function (e) {
+    bindKeyInput (e) {
         this.setData({
             bonus: parseFloat(e.detail.value || 0)
         });
         this.getResult();
     },
-    onShow: function () {
+    onShow () {
         var self = this
         var app = getApp()
 
@@ -29,7 +29,7 @@ Page({
         })
     },
 
-    onShareAppMessage: function () {
+    onShareAppMessage () {
         // 用户点击右上角分享
         return {
             title: '税后工资计算器', // 分享标题
@@ -38,7 +38,7 @@ Page({
         }
     },
 
-    getResult: function () {
+    getResult () {
         let base = this.data.bonus / 12;
         let level = getTaxLevel(base);
 

@@ -4,7 +4,7 @@ import { emit } from '../../utils/event.js'
 Page({
     data: {
         searchLetter: [],
-        showLetter: "",
+        showLetter: '',
         winHeight: 0,
         tHeight: 0,
         bHeight: 0,
@@ -12,9 +12,9 @@ Page({
         cityList: [],
         isShowLetter: false,
         scrollTop: 0,
-        city: ""
+        city: ''
     },
-    onLoad: function (options) {
+    onLoad () {
         // 生命周期函数--监听页面加载
         var searchLetter = city.searchLetter;
         var cityList = city.cityList();
@@ -42,31 +42,25 @@ Page({
             cityList: cityList
         })
     },
-    onReady: function () {
+    onReady () {
         // 生命周期函数--监听页面初次渲染完成
-
     },
-    onShow: function () {
+    onShow () {
         // 生命周期函数--监听页面显示
-
     },
-    onHide: function () {
+    onHide () {
         // 生命周期函数--监听页面隐藏
-
     },
-    onUnload: function () {
+    onUnload () {
         // 生命周期函数--监听页面卸载
-
     },
-    onPullDownRefresh: function () {
+    onPullDownRefresh () {
         // 页面相关事件处理函数--监听用户下拉动作
-
     },
-    onReachBottom: function () {
+    onReachBottom () {
         // 页面上拉触底事件的处理函数
-
     },
-    onShareAppMessage: function () {
+    onShareAppMessage () {
         // 用户点击右上角分享
         return {
             title: '税后工资计算器', // 分享标题
@@ -119,7 +113,7 @@ Page({
         var letterData = this.data.searchLetter;
         var bHeight = 0;
         var tHeight = 0;
-        var showLetter = "";
+        var showLetter = '';
         for (var i = 0; i < letterData.length; i++) {
             if (letterData[i].tHeight <= pageY && pageY <= letterData[i].bHeight) {
                 bHeight = letterData[i].bHeight;

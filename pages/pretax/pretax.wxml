@@ -35,29 +35,31 @@
                         <view class="weui-label">是否缴纳社保</view>
                     </view>
                     <view class="weui-cell__ft">
-                        <switch checked />
+                        <switch checked="socialInsurance" bindchange="switchSocialInsurance" />
                     </view>
                 </view>
-                <view class="weui-cell weui-cell_select">
-                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
-                        <view class="weui-label">缴纳方式</view>
+                <block wx:if="{{socialInsurance}}">
+                    <view class="weui-cell weui-cell_select">
+                        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                            <view class="weui-label">缴纳方式</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentType}}">
+                                <view class="weui-select weui-select_in-select-after">
+                                    {{paymentType[paymentIndex]}}
+                                </view>
+                            </picker>
+                        </view>
                     </view>
-                    <view class="weui-cell__bd">
-                        <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentType}}">
-                            <view class="weui-select weui-select_in-select-after">
-                                {{paymentType[paymentIndex]}}
-                            </view>
-                        </picker>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label">社保基数</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" type="digit" disabled="true" placeholder="请输入" />
+                        </view>
                     </view>
-                </view>
-                <view class="weui-cell weui-cell_input">
-                    <view class="weui-cell__hd">
-                        <view class="weui-label">社保基数</view>
-                    </view>
-                    <view class="weui-cell__bd">
-                        <input class="weui-input" type="digit" placeholder="请输入" />
-                    </view>
-                </view>
+                </block>
             </view>
         </view>
         <view class="page-section">
@@ -67,37 +69,43 @@
                         <view class="weui-label">是否缴纳公积金</view>
                     </view>
                     <view class="weui-cell__ft">
-                        <switch checked />
+                        <switch checked="housingFund" bindchange="switchHousingFund" />
                     </view>
                 </view>
-                <view class="weui-cell weui-cell_select">
-                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
-                        <view class="weui-label">缴纳方式</view>
+                <block wx:if="{{housingFund}}">
+                    <view class="weui-cell weui-cell_select">
+                        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                            <view class="weui-label">缴纳方式</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentType}}">
+                                <view class="weui-select weui-select_in-select-after">
+                                    {{paymentType[paymentIndex]}}
+                                </view>
+                            </picker>
+                        </view>
                     </view>
-                    <view class="weui-cell__bd">
-                        <picker bindchange="bindCountryChange" value="{{paymentIndex}}" range="{{paymentType}}">
-                            <view class="weui-select weui-select_in-select-after">
-                                {{paymentType[paymentIndex]}}
-                            </view>
-                        </picker>
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label">缴纳基数</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" type="digit" disabled="" placeholder="请输入" />
+                        </view>
                     </view>
-                </view>
-                <view class="weui-cell weui-cell_input">
-                    <view class="weui-cell__hd">
-                        <view class="weui-label">缴纳基数</view>
+                    <view class="weui-cell weui-cell_select">
+                        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                            <view class="weui-label">缴纳比例</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <picker bindchange="bindCountryChange" value="{{fundIndex}}" range="{{fundRange}}">
+                                <view class="weui-select weui-select_in-select-after">
+                                    {{fundRange[fundIndex]}}
+                                </view>
+                            </picker>
+                        </view>
                     </view>
-                    <view class="weui-cell__bd">
-                        <input class="weui-input" type="digit" placeholder="请输入" />
-                    </view>
-                </view>
-                <view class="weui-cell weui-cell_input">
-                    <view class="weui-cell__hd">
-                        <view class="weui-label">缴纳比例</view>
-                    </view>
-                    <view class="weui-cell__bd">
-                        <input class="weui-input" type="digit" placeholder="请输入" />
-                    </view>
-                </view>
+                </block>
             </view>
         </view>
     </view>

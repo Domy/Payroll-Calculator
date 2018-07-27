@@ -1,4 +1,4 @@
-import cityObj from 'citylist.js'
+import citys from 'cityList.js'
 
 //城市检索的首字母
 var searchLetter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z']
@@ -11,9 +11,9 @@ function cityList() {
         var cityInfo = [];
         var tempArr = {};
         tempArr.initial = initial;
-        for (var j = 0; j < cityObj.length; j++) {
-            if (initial == cityObj[j].initial) {
-                cityInfo.push(cityObj[j]);
+        for (var j = 0; j < citys.length; j++) {
+            if (initial == citys[j].initial) {
+                cityInfo.push(citys[j]);
             }
         }
         tempArr.cityInfo = cityInfo;
