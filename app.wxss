@@ -237,11 +237,6 @@ form {
     width: 60%;
 }
 
-.weui-label {
-    width: 260rpx;
-    color: #666666;
-}
-
 .weui-btn {
     border-radius: 46px;
 }
