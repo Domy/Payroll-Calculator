@@ -1,4 +1,4 @@
-var cityRate = {
+const cityRate = {
     '北京市': {
         base: 7706 * 3,
         housefund: 12,
@@ -351,4 +351,12 @@ var cityRate = {
     }
 }
 
-module.exports = cityRate
+const paymentType = ['按照工资', '自定义']
+
+const ratioRange = ['12%', '10%', '9%', '8%', '7%', '6%', '5%']
+
+module.exports = {
+    cityRate,
+    paymentType,
+    ratioRange
+}

@@ -56,7 +56,7 @@ form {
 
 .page-head-desc {
     color: #FFFFFF;
-    font-size: 24rpx;
+    font-size: 32rpx;
 }
 
 .page-body {

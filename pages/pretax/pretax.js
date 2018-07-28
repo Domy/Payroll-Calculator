@@ -1,16 +1,16 @@
 import { getTaxLevel, formatNumber } from '../../utils/util.js';
 import { on, emit } from '../../utils/event.js';
-import cityRate from '../../utils/cityrate.js';
+import { cityRate, paymentType, ratioRange } from '../../utils/constant.js';
 var format = formatNumber
 
 Page({
     data: {
         socialInsurance: true, // 是否缴纳社保
         housingFund: true, // 是否缴纳公积金
-        paymentType: ['按照工资', '按最低标准', '自定义'], // 缴纳方式
+        paymentType: [], // 缴纳方式
         insuranceIndex: 0,
         fundIndex: 0,
-        ratioRange: ['12%', '10%', '9%', '8%', '7%', '6%', '5%'],
+        ratioRange: [],
         ratioIndex: 0,
 
         houseFundBase: '',
@@ -22,7 +22,9 @@ Page({
 
     onLoad () {
         this.setData({
-            cityRate: cityRate
+            cityRate: cityRate,
+            paymentType: paymentType,
+            ratioRange: ratioRange
         })
     },
 
