@@ -8,7 +8,7 @@ App({
         wx.setStorageSync('logs', logs)
 
         on('changeCity', this, (data) => {
-            this.globalData.city = data
+            this.globalData.currentCity = data
         })
     },
     onShow: function () {
@@ -37,6 +37,6 @@ App({
     },
     globalData: {
         userInfo: null,
-        city: '北京市'
+        currentCity: '北京市'
     }
 })

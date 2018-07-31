@@ -13,7 +13,7 @@
                     </view>
                     <view class="weui-cell__bd">
                         <navigator url="../switchcity/switchcity" hover-class="none" class="navigator">
-                            <view class="navigator-text">{{city}}</view>
+                            <view class="navigator-text">{{currentCity}}</view>
                             <view class="navigator-arrow weui-cell__ft_in-access"></view>
                         </navigator>
                     </view>
@@ -23,7 +23,7 @@
                         <view class="weui-label">税前工资</view>
                     </view>
                     <view class="weui-cell__bd">
-                        <input class="weui-input" type="digit" placeholder="请输入" />
+                        <input class="weui-input" type="digit" placeholder="请输入" bindinput="bindIncomeInput" value="{{preTaxIncome}}" />
                     </view>
                 </view>
             </view>
@@ -56,7 +56,7 @@
                             <view class="weui-label">社保基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" placeholder="请输入" />
+                            <input class="weui-input" type="digit" placeholder="请输入" bindinput="bindInsuranceInput" value="{{insuranceBase}}" />
                         </view>
                     </view>
                 </block>
@@ -90,7 +90,7 @@
                             <view class="weui-label">缴纳基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" placeholder="请输入" />
+                            <input class="weui-input" type="digit" placeholder="请输入" bindinput="bindFundInput" value="{{fundBase}}" />
                         </view>
                     </view>
                     <view class="weui-cell weui-cell_select">
@@ -98,9 +98,9 @@
                             <view class="weui-label">缴纳比例</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <picker bindchange="bindRatioChange" value="{{ratioIndex}}" range="{{ratioRange}}">
+                            <picker bindchange="bindFundRatioChange" value="{{fundRatioIndex}}" range="{{fundRatioRange}}">
                                 <view class="weui-select weui-select_in-select-after">
-                                    {{ratioRange[ratioIndex]}}
+                                    {{fundRatioRange[fundRatioIndex]}}
                                 </view>
                             </picker>
                         </view>

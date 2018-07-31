@@ -17,8 +17,8 @@
 工伤保险 0.3% 0
 住房公积金 12% 12%
 
-socialInsurance 社会保险
+insurance 社会保险
 housingFund 住房公积金
 
-beforeTax  税前
-afterTax  税后
+afterTaxIncome 税后收入
+preTaxIncome 税前收入

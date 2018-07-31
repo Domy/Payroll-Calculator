@@ -1,4 +1,4 @@
-const cityRate = {
+const cityRatio = {
     '北京市': {
         base: 7706 * 3,
         housefund: 12,
@@ -351,12 +351,12 @@ const cityRate = {
     }
 }
 
-const paymentType = ['按照工资', '自定义']
+const paymentList = ['按照工资', '自定义']
 
-const ratioRange = ['12%', '10%', '9%', '8%', '7%', '6%', '5%']
+const fundRatioList = ['12%', '10%', '9%', '8%', '7%', '6%', '5%']
 
 export {
-    cityRate,
-    paymentType,
-    ratioRange
+    cityRatio,
+    paymentList,
+    fundRatioList
 }
