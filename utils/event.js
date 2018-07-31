@@ -32,6 +32,8 @@ function emit(name, data) {
     }
 }
 
-module.exports = {
-    on, emit, remove
+export {
+    on,
+    emit,
+    remove
 }

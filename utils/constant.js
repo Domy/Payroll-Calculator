@@ -355,7 +355,7 @@ const paymentType = ['按照工资', '自定义']
 
 const ratioRange = ['12%', '10%', '9%', '8%', '7%', '6%', '5%']
 
-module.exports = {
+export {
     cityRate,
     paymentType,
     ratioRange

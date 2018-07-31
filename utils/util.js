@@ -44,8 +44,8 @@ function getTaxLevel (n) {
   }
 }
 
-module.exports = {
-  formatTime: formatTime,
-  formatNumber: formatNumber,
-  getTaxLevel: getTaxLevel
+export {
+  formatTime,
+  formatNumber,
+  getTaxLevel
 }
