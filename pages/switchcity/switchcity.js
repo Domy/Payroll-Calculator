@@ -1,4 +1,4 @@
-import city from '../../utils/city.js'
+import { letterIndexes, getCityList } from '../../utils/city.js'
 import { emit } from '../../utils/event.js'
 
 Page({
@@ -16,19 +16,16 @@ Page({
     },
     onLoad () {
         // 生命周期函数--监听页面加载
-        var searchLetter = city.searchLetter;
-        var cityList = city.cityList();
-
         var sysInfo = wx.getSystemInfoSync();
         var winHeight = sysInfo.windowHeight;
 
         //添加要匹配的字母范围值
         //1、更加屏幕高度设置子元素的高度
-        var itemH = winHeight / searchLetter.length;
+        var itemH = winHeight / letterIndexes.length;
         var tempObj = [];
-        for (var i = 0; i < searchLetter.length; i++) {
+        for (var i = 0; i < letterIndexes.length; i++) {
             var temp = {};
-            temp.name = searchLetter[i];
+            temp.name = letterIndexes[i];
             temp.tHeight = i * itemH;
             temp.bHeight = (i + 1) * itemH;
 
@@ -39,7 +36,7 @@ Page({
             winHeight: winHeight,
             itemH: itemH,
             searchLetter: tempObj,
-            cityList: cityList
+            cityList: getCityList()
         })
     },
     onReady () {
