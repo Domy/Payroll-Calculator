@@ -44,7 +44,7 @@
         </view>
     </view>
     <view class="page-foot">
-        <button class="weui-btn" type="primary">返回</button>
+        <button class="weui-btn" type="primary" bindtap="goBack">返回</button>
         <button class="weui-btn" type="primary" plain="true">分享</button>
     </view>
     <ad unit-id="adunit-3833c4aefdfc1219"></ad>

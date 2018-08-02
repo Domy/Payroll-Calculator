@@ -3,10 +3,10 @@ import { on, emit } from '../../utils/event.js';
 
 Page({
     data: {
+        currentCity: '',
         bonus: '',
         result: '',
-        tax: '',
-        city: ''
+        tax: ''
     },
     bindKeyInput: function (e) {
         this.setData({
@@ -19,11 +19,11 @@ Page({
         var app = getApp()
 
         this.setData({
-            city: app.globalData.city
+            currentCity: app.globalData.currentCity
         })
         on('changeCity', self, function (data) {
             self.setData({
-                city: data
+                currentCity: data
             })
             self.getResult()
         })

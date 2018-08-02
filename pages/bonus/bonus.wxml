@@ -13,7 +13,7 @@
                     </view>
                     <view class="weui-cell__bd">
                         <navigator url="../switchcity/switchcity" hover-class="none" class="navigator">
-                            <view class="navigator-text">{{city}}</view>
+                            <view class="navigator-text">{{currentCity}}</view>
                             <view class="navigator-arrow weui-cell__ft_in-access"></view>
                         </navigator>
                     </view>

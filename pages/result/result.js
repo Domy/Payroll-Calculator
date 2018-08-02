@@ -80,6 +80,10 @@ Page({
         })
     },
 
+    goBack () {
+        wx.navigateBack()
+    },
+
     onShareAppMessage () { // 用户点击右上角分享
         return {
             title: '税后工资计算器',

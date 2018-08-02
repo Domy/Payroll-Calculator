@@ -44,9 +44,9 @@
                             <view class="weui-label">缴纳方式</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <picker bindchange="bindInsuranceChange" value="{{insuranceIndex}}" range="{{paymentType}}">
+                            <picker bindchange="bindInsuranceChange" value="{{insuranceIndex}}" range="{{paymentList}}">
                                 <view class="weui-select weui-select_in-select-after">
-                                    {{paymentType[insuranceIndex]}}
+                                    {{paymentList[insuranceIndex]}}
                                 </view>
                             </picker>
                         </view>
@@ -78,9 +78,9 @@
                             <view class="weui-label">缴纳方式</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <picker bindchange="bindFundChange" value="{{fundIndex}}" range="{{paymentType}}">
+                            <picker bindchange="bindFundChange" value="{{fundIndex}}" range="{{paymentList}}">
                                 <view class="weui-select weui-select_in-select-after">
-                                    {{paymentType[fundIndex]}}
+                                    {{paymentList[fundIndex]}}
                                 </view>
                             </picker>
                         </view>
@@ -98,9 +98,9 @@
                             <view class="weui-label">缴纳比例</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <picker bindchange="bindFundRatioChange" value="{{fundRatioIndex}}" range="{{fundRatioRange}}">
+                            <picker bindchange="bindFundRatioChange" value="{{fundRatioIndex}}" range="{{fundRatioList}}">
                                 <view class="weui-select weui-select_in-select-after">
-                                    {{fundRatioRange[fundRatioIndex]}}
+                                    {{fundRatioList[fundRatioIndex]}}
                                 </view>
                             </picker>
                         </view>
