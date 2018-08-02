@@ -4,3 +4,11 @@
     width: 250rpx;
     color: #666666;
 }
+
+.weui-label_warn {
+    color: #E64340;
+}
+
+.weui-select {
+    border-right: none;
+}

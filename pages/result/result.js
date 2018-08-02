@@ -37,22 +37,6 @@ Page({
         let data = this.data
         let income = data.preTaxIncome;
 
-        if (income > 1000000) {
-            this.setData({
-                results: {
-                    ageFund: '有',
-                    medFund: '钱',
-                    workFund: '就是',
-                    houseFund: '任性',
-                    incomeTotal: '计较这个干啥',
-                    incomeBefore: '计较这个干啥',
-                    tax: '不在乎',
-                    sum: '无所谓'
-                }
-            })
-            return
-        }
-
         let city = data.city
         let rate = data.cityRatio[city]
 

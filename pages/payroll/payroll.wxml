@@ -23,7 +23,10 @@
                         <view class="weui-label">税前工资</view>
                     </view>
                     <view class="weui-cell__bd">
-                        <input class="weui-input" type="digit" placeholder="请输入" bindinput="bindPreTaxIncomeInput" value="{{preTaxIncome}}" />
+                        <input class="weui-input" type="digit" maxlength="10" placeholder="请输入" bindinput="bindPreTaxIncomeInput" value="{{preTaxIncome}}" />
+                    </view>
+                    <view class="weui-cell__ft" wx:if="{{preTaxIncomeWarn}}">
+                        <icon type="warn" size="23" color="#E64340"></icon>
                     </view>
                 </view>
             </view>
@@ -51,12 +54,15 @@
                             </picker>
                         </view>
                     </view>
-                    <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell weui-cell_input" wx:if="{{insuranceIndex != 0}}">
                         <view class="weui-cell__hd">
-                            <view class="weui-label">社保基数</view>
+                            <view class="weui-label">缴纳基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" placeholder="请输入" bindinput="bindInsuranceInput" value="{{insuranceBase}}" />
+                            <input class="weui-input" type="digit" maxlength="10" placeholder="请输入" bindinput="bindInsuranceInput" value="{{insuranceBase}}" />
+                        </view>
+                        <view class="weui-cell__ft" wx:if="{{insuranceBaseWarn}}">
+                            <icon type="warn" size="23" color="#E64340"></icon>
                         </view>
                     </view>
                 </block>
@@ -90,7 +96,10 @@
                             <view class="weui-label">缴纳基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" placeholder="请输入" bindinput="bindFundInput" value="{{fundBase}}" />
+                            <input class="weui-input" type="digit" maxlength="10" placeholder="请输入" bindinput="bindFundInput" value="{{fundBase}}" />
+                        </view>
+                        <view class="weui-cell__ft" wx:if="{{fundBaseWarn}}">
+                            <icon type="warn" size="23" color="#E64340"></icon>
                         </view>
                     </view>
                     <view class="weui-cell weui-cell_select">
@@ -110,9 +119,9 @@
         </view>
     </view>
     <view class="page-foot">
-        <navigator url="../result/result" hover-class="none">
-            <button class="weui-btn" type="primary">开始计算</button>
-        </navigator>
+        <!-- <navigator url="../result/result" hover-class="none"> -->
+            <button class="weui-btn" type="primary" bindtap="result">开始计算</button>
+        <!-- </navigator> -->
     </view>
     <ad unit-id="adunit-3833c4aefdfc1219"></ad>
 </view>

@@ -15,7 +15,9 @@ Page({
         fundBase: '', // 公积金缴纳基数
 
         fundRatioList: [],
-        fundRatioIndex: 0 // 公积金缴纳比例
+        fundRatioIndex: 0, // 公积金缴纳比例
+
+        preTaxIncomeWarn: false
     },
 
     onLoad () {
@@ -24,12 +26,12 @@ Page({
             fundRatioList: fundRatioList
         })
     },
-
     onShow () {
         var self = this
         var app = getApp()
 
         this.setData({
+            preTaxIncome: '',
             currentCity: app.globalData.currentCity
         })
 
@@ -38,69 +40,103 @@ Page({
                 currentCity: data
             })
         })
+
+        this.changeBase()
     },
 
     bindPreTaxIncomeInput (e) {
-        let app = getApp()
-        let value = e.detail.value
-
         this.setData({
-            preTaxIncome: parseFloat(value)
+            preTaxIncome: e.detail.value,
+            preTaxIncomeWarn: false
         })
 
-        if (this.data.insuranceIndex == 0) {
-            console.log(this.data.preTaxIncome)
+        this.changeBase()
+    },
+
+    changeBase () {
+        if (this.data.socialInsurance) {
+            if (this.data.insuranceIndex == 0) {
+                this.setData({
+                    insuranceBase: this.data.preTaxIncome
+                })
+            } else {
+                this.setData({
+                    insuranceBase: ''
+                })
+            }
+        } else {
             this.setData({
-                insuranceBase: this.data.preTaxIncome
+                insuranceBase: 0
+            })
+        }
+        if (this.data.housingFund) {
+            if (this.data.fundIndex == 0) {
+                this.setData({
+                    fundBase: this.data.preTaxIncome
+                })
+            } else {
+                this.setData({
+                    fundBase: ''
+                })
+            }
+        } else {
+            this.setData({
+                fundBase: 0
             })
         }
     },
 
     switchSocialInsurance (e) {
         this.setData({
-            socialInsurance: e.detail.value
+            socialInsurance: e.detail.value,
+            insuranceIndex: 0
         });
+        this.changeBase()
     },
 
     bindInsuranceChange (e) {
         this.setData({
             insuranceIndex: e.detail.value
         });
+        if (this.data.insuranceBase) {
+            this.setData({
+                insuranceBaseWarn: false
+            });
+        }
+        this.changeBase()
     },
 
     bindInsuranceInput (e) {
-        let value = e.detail.value || 0
-
-        value = value > this.data.preTaxIncome ?
-            this.data.preTaxIncome :
-            parseFloat(value)
-
         this.setData({
-            insuranceBase: value
+            insuranceBase: e.detail.value,
+            insuranceBaseWarn: false
         })
     },
 
     switchHousingFund (e) {
         this.setData({
-            housingFund: e.detail.value
+            housingFund: e.detail.value,
+            fundIndex: 0
         });
+        this.changeBase()
     },
 
     bindFundChange (e) {
         this.setData({
             fundIndex: e.detail.value
         });
+        if (this.data.fundBase) {
+            this.setData({
+                fundBaseWarn: false
+            });
+        }
+        this.changeBase()
     },
 
     bindFundInput (e) {
-        let value = e.detail.value || 0
-
-        value = value > this.data.preTaxIncome ?
-            this.data.preTaxIncome :
-            parseFloat(value)
-
         this.setData({
-            fundBase: value
+            fundBase: e.detail.value,
+            fundBaseWarn: false
         })
     },
 
@@ -108,6 +144,32 @@ Page({
         this.setData({
             fundRatioIndex: e.detail.value
         });
+    },
+
+    result () {
+        console.log('currentCity:', this.data.currentCity)
+        console.log('preTaxIncome:', this.data.preTaxIncome)
+        console.log('insuranceBase:', this.data.insuranceBase)
+        console.log('fundBase:', this.data.fundBase)
+        console.log('fundRatio:', this.data.fundRatioList[this.data.fundRatioIndex])
+
+        if (!this.data.preTaxIncome) {
+            this.setData({
+                preTaxIncomeWarn: true
+            });
+        }
+        if (!this.data.insuranceBase) {
+            this.setData({
+                insuranceBaseWarn: true
+            });
+        }
+        if (!this.data.fundBase) {
+            this.setData({
+                fundBaseWarn: true
+            });
+        }
+
+        
     },
 
     onShareAppMessage () {

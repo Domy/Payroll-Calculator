@@ -16,10 +16,8 @@ App({
         })
     },
     onShow: function () {
-        console.log('App Show')
     },
     onHide: function () {
-        console.log('App Hide')
     },
     getUserInfo: function (cb) {
         var that = this
