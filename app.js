@@ -1,6 +1,10 @@
 import { on } from 'utils/event.js'
 
 App({
+    globalData: {
+        userInfo: null,
+        currentCity: '北京市'
+    },
     onLaunch: function () {
         //调用API从本地缓存中获取数据
         var logs = wx.getStorageSync('logs') || []
@@ -34,9 +38,5 @@ App({
                 }
             })
         }
-    },
-    globalData: {
-        userInfo: null,
-        currentCity: '北京市'
     }
 })

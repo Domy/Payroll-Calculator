@@ -1,8 +1,16 @@
+import { cityRatio } from '../../utils/constant.js';
+import { getTaxLevel, formatNumber } from '../../utils/util.js';
+var format = formatNumber
+
 Page({
     data: {
+        cityRatio: {}
     },
 
-    onShow () {
+    onLoad () {
+        this.setData({
+            cityRatio: cityRatio,
+        })        
     },
 
     getBase () {

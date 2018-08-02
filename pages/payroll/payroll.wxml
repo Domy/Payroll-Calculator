@@ -23,7 +23,7 @@
                         <view class="weui-label">税前工资</view>
                     </view>
                     <view class="weui-cell__bd">
-                        <input class="weui-input" type="digit" placeholder="请输入" bindinput="bindIncomeInput" value="{{preTaxIncome}}" />
+                        <input class="weui-input" type="digit" placeholder="请输入" bindinput="bindPreTaxIncomeInput" value="{{preTaxIncome}}" />
                     </view>
                 </view>
             </view>
@@ -51,7 +51,7 @@
                             </picker>
                         </view>
                     </view>
-                    <view class="weui-cell weui-cell_input" wx:if="{{insuranceIndex != 0}}">
+                    <view class="weui-cell weui-cell_input">
                         <view class="weui-cell__hd">
                             <view class="weui-label">社保基数</view>
                         </view>

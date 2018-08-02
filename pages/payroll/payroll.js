@@ -1,7 +1,5 @@
-import { getTaxLevel, formatNumber } from '../../utils/util.js';
 import { on, emit } from '../../utils/event.js';
-import { cityRatio, paymentList, fundRatioList } from '../../utils/constant.js';
-var format = formatNumber
+import { paymentList, fundRatioList } from '../../utils/constant.js';
 
 Page({
     data: {
@@ -11,20 +9,17 @@ Page({
         socialInsurance: true, // 是否缴纳社保
         housingFund: true, // 是否缴纳公积金
         paymentList: [], // 缴纳方式
-        insuranceIndex: 0,
-        insuranceBase: '',
-        fundIndex: 0,
-        fundBase: '',
+        insuranceIndex: 0, // 社保缴纳方式
+        insuranceBase: '', // 社保缴纳基数
+        fundIndex: 0, // 公积金缴纳方式
+        fundBase: '', // 公积金缴纳基数
 
         fundRatioList: [],
-        fundRatioIndex: 0,
-
-        cityRatio: {}
+        fundRatioIndex: 0 // 公积金缴纳比例
     },
 
     onLoad () {
         this.setData({
-            cityRatio: cityRatio,
             paymentList: paymentList,
             fundRatioList: fundRatioList
         })
@@ -45,15 +40,25 @@ Page({
         })
     },
 
+    bindPreTaxIncomeInput (e) {
+        let app = getApp()
+        let value = e.detail.value
+
+        this.setData({
+            preTaxIncome: parseFloat(value)
+        })
+
+        if (this.data.insuranceIndex == 0) {
+            console.log(this.data.preTaxIncome)
+            this.setData({
+                insuranceBase: this.data.preTaxIncome
+            })
+        }
+    },
+
     switchSocialInsurance (e) {
         this.setData({
             socialInsurance: e.detail.value
-        });
-    },
-
-    switchHousingFund (e) {
-        this.setData({
-            housingFund: e.detail.value
         });
     },
 
@@ -61,34 +66,6 @@ Page({
         this.setData({
             insuranceIndex: e.detail.value
         });
-    },
-
-    bindFundChange (e) {
-        this.setData({
-            fundIndex: e.detail.value
-        });
-    },
-
-    bindFundRatioChange (e) {
-        this.setData({
-            fundRatioIndex: e.detail.value
-        });
-    },
-
-    onShareAppMessage () { // 用户点击右上角分享
-        return {
-            title: '税后工资计算器',
-            desc: '税后工资、年终奖计算器',
-            path: '/pages/payroll/payroll'
-        }
-    },
-
-    bindIncomeInput (e) {
-        let value = e.detail.value || 0
-
-        this.setData({
-            income: parseFloat(value)
-        })
     },
 
     bindInsuranceInput (e) {
@@ -103,6 +80,18 @@ Page({
         })
     },
 
+    switchHousingFund (e) {
+        this.setData({
+            housingFund: e.detail.value
+        });
+    },
+
+    bindFundChange (e) {
+        this.setData({
+            fundIndex: e.detail.value
+        });
+    },
+
     bindFundInput (e) {
         let value = e.detail.value || 0
 
@@ -113,5 +102,19 @@ Page({
         this.setData({
             fundBase: value
         })
+    },
+
+    bindFundRatioChange (e) {
+        this.setData({
+            fundRatioIndex: e.detail.value
+        });
+    },
+
+    onShareAppMessage () {
+        return {
+            title: '税后工资计算器',
+            desc: '税后工资、年终奖计算器',
+            path: '/pages/payroll/payroll'
+        }
     }
 })
