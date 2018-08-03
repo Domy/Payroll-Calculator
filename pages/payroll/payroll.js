@@ -168,8 +168,6 @@ Page({
                 fundBaseWarn: true
             });
         }
-
-        
     },
 
     onShareAppMessage () {
