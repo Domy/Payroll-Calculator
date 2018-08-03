@@ -8,28 +8,28 @@ Page({
         result: '',
         tax: ''
     },
-    bindKeyInput (e) {
+    bindKeyInput(e) {
         this.setData({
             bonus: parseFloat(e.detail.value || 0)
         });
         this.getResult();
     },
-    onShow () {
-        var self = this
-        var app = getApp()
+    onShow() {
+        var self = this;
+        var app = getApp();
 
         this.setData({
             currentCity: app.globalData.currentCity
-        })
+        });
         on('changeCity', self, function (data) {
             self.setData({
                 currentCity: data
-            })
-            self.getResult()
+            });
+            self.getResult();
         })
     },
 
-    onShareAppMessage () {
+    onShareAppMessage() {
         // 用户点击右上角分享
         return {
             title: '税后工资计算器', // 分享标题
@@ -38,7 +38,7 @@ Page({
         }
     },
 
-    getResult () {
+    getResult() {
         let base = this.data.bonus / 12;
         let level = getTaxLevel(base);
 
@@ -48,6 +48,6 @@ Page({
         this.setData({
             tax: formatNumber(tax),
             result: formatNumber(result)
-        })
+        });
     }
 })

@@ -18,48 +18,48 @@ Page({
         fundRatioIndex: 0 // 公积金缴纳比例
     },
 
-    onLoad () {
+    onLoad() {
         this.setData({
             paymentList: paymentList,
             fundRatioList: fundRatioList
-        })
+        });
     },
-    onShow () {
-        var self = this
-        var app = getApp()
+    onShow() {
+        var self = this;
+        var app = getApp();
 
         this.setData({
             preTaxIncome: '',
             currentCity: app.globalData.currentCity
-        })
+        });
 
         on('changeCity', self, function (data) {
             self.setData({
                 currentCity: data
-            })
-        })
+            });
+        });
 
-        this.changeBase()
+        this.changeBase();
     },
 
-    bindPreTaxIncomeInput (e) {
+    bindPreTaxIncomeInput(e) {
         this.setData({
             preTaxIncome: e.detail.value
-        })
+        });
 
-        this.changeBase()
+        this.changeBase();
     },
 
-    changeBase () {
+    changeBase() {
         if (this.data.socialInsurance) {
             if (this.data.insuranceIndex == 0) {
                 this.setData({
                     insuranceBase: this.data.preTaxIncome
-                })
+                });
             } else {
                 this.setData({
                     insuranceBase: ''
-                })
+                });
             }
         } else {
             this.setData({
@@ -70,97 +70,96 @@ Page({
             if (this.data.fundIndex == 0) {
                 this.setData({
                     fundBase: this.data.preTaxIncome
-                })
+                });
             } else {
                 this.setData({
                     fundBase: ''
-                })
+                });
             }
         } else {
             this.setData({
                 fundBase: 0
-            })
+            });
         }
     },
 
-    switchSocialInsurance (e) {
+    switchSocialInsurance(e) {
         this.setData({
             socialInsurance: e.detail.value,
             insuranceIndex: 0
         });
-        this.changeBase()
+        this.changeBase();
     },
 
-    bindInsuranceChange (e) {
+    bindInsuranceChange(e) {
         this.setData({
             insuranceIndex: e.detail.value
         });
-        this.changeBase()
+        this.changeBase();
     },
 
-    bindInsuranceInput (e) {
+    bindInsuranceInput(e) {
         this.setData({
             insuranceBase: e.detail.value
-        })
+        });
     },
 
-    switchHousingFund (e) {
+    switchHousingFund(e) {
         this.setData({
             housingFund: e.detail.value,
             fundIndex: 0
         });
-        this.changeBase()
+        this.changeBase();
     },
 
-    bindFundChange (e) {
+    bindFundChange(e) {
         this.setData({
             fundIndex: e.detail.value
         });
-        this.changeBase()
+        this.changeBase();
     },
 
-    bindFundInput (e) {
+    bindFundInput(e) {
         this.setData({
             fundBase: e.detail.value
-        })
+        });
     },
 
-    bindFundRatioChange (e) {
+    bindFundRatioChange(e) {
         this.setData({
             fundRatioIndex: e.detail.value
         });
     },
 
-    result () {
-        console.log('currentCity:', this.data.currentCity)
-        console.log('preTaxIncome:', this.data.preTaxIncome)
-        console.log('insuranceBase:', this.data.insuranceBase)
-        console.log('fundBase:', this.data.fundBase)
-        console.log('fundRatio:', this.data.fundRatioList[this.data.fundRatioIndex])
-
+    openResult() {
+        var app = getApp();
         if (this.data.preTaxIncome === '') {
-            this.openToast('请输入税前工资')
+            app.openToast('请输入税前工资');
+            return;
         } else if (this.data.insuranceBase === '') {
-            this.openToast('请输入社保基数')
+            app.openToast('请输入社保基数');
+            return;
         } else if (this.data.fundBase === '') {
-            this.openToast('请输入公积金基数')
+            app.openToast('请输入公积金基数');
+            return;
         }
-    },
 
-    openToast (msg) {
-        wx.showToast({
-            title: msg,
-            icon: 'none',
-            mask: true,
-            duration: 3000
+        console.log('currentCity:', this.data.currentCity);
+        console.log('preTaxIncome:', this.data.preTaxIncome);
+        console.log('insuranceBase:', this.data.insuranceBase);
+        console.log('fundBase:', this.data.fundBase);
+        console.log('fundRatio:', this.data.fundRatioList[this.data.fundRatioIndex]);
+
+        wx.navigateTo({
+            url: '../result/result'
         });
     },
 
-    onShareAppMessage () {
+    onShareAppMessage() {
         return {
             title: '税后工资计算器',
             desc: '税后工资、年终奖计算器',
             path: '/pages/payroll/payroll'
-        }
+        };
     }
 })

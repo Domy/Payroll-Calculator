@@ -109,9 +109,6 @@
         </view>
     </view>
     <view class="page-foot">
-        <!-- <navigator url="../result/result" hover-class="none"> -->
-            <button class="weui-btn" type="primary" bindtap="result">开始计算</button>
-        <!-- </navigator> -->
+        <button class="weui-btn" type="primary" bindtap="openResult">开始计算</button>
     </view>
-    <ad unit-id="adunit-3833c4aefdfc1219"></ad>
 </view>

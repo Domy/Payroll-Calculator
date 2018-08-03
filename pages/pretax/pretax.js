@@ -1,7 +1,5 @@
-import { getTaxLevel, formatNumber } from '../../utils/util.js';
 import { on, emit } from '../../utils/event.js';
-import { cityRatio, paymentList, fundRatioList } from '../../utils/constant.js';
-var format = formatNumber
+import { paymentList, fundRatioList } from '../../utils/constant.js';
 
 Page({
     data: {
@@ -11,107 +9,157 @@ Page({
         socialInsurance: true, // 是否缴纳社保
         housingFund: true, // 是否缴纳公积金
         paymentList: [], // 缴纳方式
-        insuranceIndex: 0,
-        insuranceBase: '',
-        fundIndex: 0,
-        fundBase: '',
+        insuranceIndex: 0, // 社保缴纳方式
+        insuranceBase: '', // 社保缴纳基数
+        fundIndex: 0, // 公积金缴纳方式
+        fundBase: '', // 公积金缴纳基数
 
         fundRatioList: [],
-        fundRatioIndex: 0,
-
-        cityRatio: {}
+        fundRatioIndex: 0 // 公积金缴纳比例
     },
 
-    onLoad () {
+    onLoad() {
         this.setData({
-            cityRatio: cityRatio,
             paymentList: paymentList,
             fundRatioList: fundRatioList
-        })
+        });
     },
-
-    onShow () {
-        var self = this
-        var app = getApp()
+    onShow() {
+        var self = this;
+        var app = getApp();
 
         this.setData({
+            preTaxIncome: '',
             currentCity: app.globalData.currentCity
-        })
+        });
 
         on('changeCity', self, function (data) {
             self.setData({
                 currentCity: data
+            });
+        });
+
+        this.changeBase();
+    },
+
+    bindPreTaxIncomeInput(e) {
+        this.setData({
+            preTaxIncome: e.detail.value
+        });
+
+        this.changeBase();
+    },
+
+    changeBase() {
+        if (this.data.socialInsurance) {
+            if (this.data.insuranceIndex == 0) {
+                this.setData({
+                    insuranceBase: this.data.preTaxIncome
+                });
+            } else {
+                this.setData({
+                    insuranceBase: ''
+                });
+            }
+        } else {
+            this.setData({
+                insuranceBase: 0
             })
-        })
+        }
+        if (this.data.housingFund) {
+            if (this.data.fundIndex == 0) {
+                this.setData({
+                    fundBase: this.data.preTaxIncome
+                });
+            } else {
+                this.setData({
+                    fundBase: ''
+                });
+            }
+        } else {
+            this.setData({
+                fundBase: 0
+            });
+        }
     },
 
-    switchSocialInsurance (e) {
+    switchSocialInsurance(e) {
         this.setData({
-            socialInsurance: e.detail.value
+            socialInsurance: e.detail.value,
+            insuranceIndex: 0
         });
+        this.changeBase();
     },
 
-    switchHousingFund (e) {
-        this.setData({
-            housingFund: e.detail.value
-        });
-    },
-
-    bindInsuranceChange (e) {
+    bindInsuranceChange(e) {
         this.setData({
             insuranceIndex: e.detail.value
         });
+        this.changeBase();
     },
 
-    bindFundChange (e) {
+    bindInsuranceInput(e) {
         this.setData({
-            fundIndex: e.detail.value
+            insuranceBase: e.detail.value
         });
     },
 
-    bindFundRatioChange (e) {
+    switchHousingFund(e) {
+        this.setData({
+            housingFund: e.detail.value,
+            fundIndex: 0
+        });
+        this.changeBase();
+    },
+
+    bindFundChange(e) {
+        this.setData({
+            fundIndex: e.detail.value
+        });
+        this.changeBase();
+    },
+
+    bindFundInput(e) {
+        this.setData({
+            fundBase: e.detail.value
+        });
+    },
+
+    bindFundRatioChange(e) {
         this.setData({
             fundRatioIndex: e.detail.value
         });
     },
 
-    onShareAppMessage () { // 用户点击右上角分享
+    openResult() {
+        var app = getApp();
+        if (this.data.preTaxIncome === '') {
+            app.openToast('请输入税前工资');
+            return;
+        } else if (this.data.insuranceBase === '') {
+            app.openToast('请输入社保基数');
+            return;
+        } else if (this.data.fundBase === '') {
+            app.openToast('请输入公积金基数');
+            return;
+        }
+
+        console.log('currentCity:', this.data.currentCity);
+        console.log('preTaxIncome:', this.data.preTaxIncome);
+        console.log('insuranceBase:', this.data.insuranceBase);
+        console.log('fundBase:', this.data.fundBase);
+        console.log('fundRatio:', this.data.fundRatioList[this.data.fundRatioIndex]);
+
+        wx.navigateTo({
+            url: '../result/result'
+        });
+    },
+
+    onShareAppMessage() {
         return {
             title: '税后工资计算器',
             desc: '税后工资、年终奖计算器',
             path: '/pages/payroll/payroll'
-        }
-    },
-
-    bindIncomeInput (e) {
-        let value = e.detail.value || 0
-
-        this.setData({
-            income: parseFloat(value)
-        })
-    },
-
-    bindInsuranceInput (e) {
-        let value = e.detail.value || 0
-
-        value = value > this.data.preTaxIncome ?
-            this.data.preTaxIncome :
-            parseFloat(value)
-
-        this.setData({
-            insuranceBase: value
-        })
-    },
-
-    bindFundInput (e) {
-        let value = e.detail.value || 0
-
-        value = value > this.data.preTaxIncome ?
-            this.data.preTaxIncome :
-            parseFloat(value)
-
-        this.setData({
-            fundBase: value
-        })
+        };
     }
 })

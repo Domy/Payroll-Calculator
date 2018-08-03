@@ -14,7 +14,7 @@ Page({
         scrollTop: 0,
         city: ''
     },
-    onLoad () {
+    onLoad() {
         // 生命周期函数--监听页面加载
         var sysInfo = wx.getSystemInfoSync();
         var winHeight = sysInfo.windowHeight;
@@ -29,7 +29,7 @@ Page({
             temp.tHeight = i * itemH;
             temp.bHeight = (i + 1) * itemH;
 
-            tempObj.push(temp)
+            tempObj.push(temp);
         }
 
         this.setData({
@@ -37,9 +37,9 @@ Page({
             itemH: itemH,
             searchLetter: tempObj,
             cityList: getCityList()
-        })
+        });
     },
-    searchStart (e) {
+    searchStart(e) {
         var showLetter = e.currentTarget.dataset.letter;
         var pageY = e.touches[0].pageY;
         this.setScrollTop(this, showLetter);
@@ -48,39 +48,33 @@ Page({
             showLetter: showLetter,
             startPageY: pageY,
             isShowLetter: true,
-        })
+        });
     },
-    searchMove (e) {
+    searchMove(e) {
         var pageY = e.touches[0].pageY;
         var startPageY = this.data.startPageY;
         var tHeight = this.data.tHeight;
         var bHeight = this.data.bHeight;
-        var showLetter = 0;
-        console.log(pageY);
         if (startPageY - pageY > 0) { //向上移动
             if (pageY < tHeight) {
-                // showLetter=this.mateLetter(pageY,this);
                 this.nowLetter(pageY, this);
             }
         } else { //向下移动
             if (pageY > bHeight) {
-                // showLetter=this.mateLetter(pageY,this);
                 this.nowLetter(pageY, this);
             }
         }
     },
-    searchEnd (e) {
-        // console.log(e);
-        // var showLetter=e.currentTarget.dataset.letter;
+    searchEnd(e) {
         var that = this;
         setTimeout(function () {
             that.setData({
                 isShowLetter: false
-            })
-        }, 1000)
+            });
+        }, 1000);
 
     },
-    nowLetter (pageY, that) { //当前选中的信息
+    nowLetter(pageY, that) { //当前选中的信息
         var letterData = this.data.searchLetter;
         var bHeight = 0;
         var tHeight = 0;
@@ -101,12 +95,12 @@ Page({
             tHeight: tHeight,
             showLetter: showLetter,
             startPageY: pageY
-        })
+        });
     },
-    bindScroll (e) {
+    bindScroll(e) {
         console.log(e.detail)
     },
-    setScrollTop (that, showLetter) {
+    setScrollTop(that, showLetter) {
         var scrollTop = 0;
         var cityList = that.data.cityList;
         var cityCount = 0;
@@ -123,12 +117,12 @@ Page({
 
         that.setData({
             scrollTop: scrollTop
-        })
+        });
     },
-    bindCity (e) {
+    bindCity(e) {
         var city = e.currentTarget.dataset.city;
-        var app = getApp()
-        emit('changeCity', city)
-        wx.navigateBack()
+        var app = getApp();
+        emit('changeCity', city);
+        wx.navigateBack();
     }
 })
