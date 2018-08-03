@@ -4,7 +4,8 @@
         "pages/pretax/pretax",
         "pages/bonus/bonus",
         "pages/result/result",
-        "pages/switchcity/switchcity"
+        "pages/switchcity/switchcity",
+        "pages/ratestable/ratestable"
     ],
     "window": {
         "backgroundTextStyle": "dark",

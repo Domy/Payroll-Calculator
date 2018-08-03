@@ -1,4 +1,3 @@
-<!--bonus-calculator.wxml-->
 <view class="container">
     <view class="page-head">
         <image class="page-head-logo" src="./../../images/logo.png" />
@@ -30,8 +29,8 @@
         </view>
     </view>
     <view class="page-foot">
-        <navigator url="../result/result" hover-class="none">
-            <button class="weui-btn" type="primary">开始计算</button>
+        <navigator url="../ratestable/ratestable" hover-class="none">
+            <button class="weui-btn" type="primary">个人所得税税率表</button>
         </navigator>
     </view>
     <ad unit-id="adunit-3833c4aefdfc1219"></ad>

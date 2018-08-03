@@ -1,0 +1,46 @@
+@import "../../styles/weui.wxss";
+
+.table-container {
+    overflow: auto;
+}
+
+.table {
+    border: 1rpx solid #f8f8f8;
+    border-right: 0;
+    border-bottom: 0;
+    width: 2000rpx;
+}
+
+.tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.th, .td {
+    padding: 10rpx;
+    border-bottom: 1rpx solid #f8f8f8;
+    border-right: 1rpx solid #f8f8f8;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    background-color: #fff;
+}
+
+.th {
+    background-color: #EBEBEB
+}
+
+.th:nth-child(1), .td:nth-child(1) {
+    width: 250rpx;
+}
+
+.th:nth-child(4), .td:nth-child(4) {
+    width: 500rpx;
+}
+
+.th:nth-child(5), .td:nth-child(5) {
+    width: 500rpx;
+}

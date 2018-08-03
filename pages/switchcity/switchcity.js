@@ -39,7 +39,7 @@ Page({
             cityList: getCityList()
         })
     },
-    searchStart: function (e) {
+    searchStart (e) {
         var showLetter = e.currentTarget.dataset.letter;
         var pageY = e.touches[0].pageY;
         this.setScrollTop(this, showLetter);
@@ -50,7 +50,7 @@ Page({
             isShowLetter: true,
         })
     },
-    searchMove: function (e) {
+    searchMove (e) {
         var pageY = e.touches[0].pageY;
         var startPageY = this.data.startPageY;
         var tHeight = this.data.tHeight;
@@ -69,7 +69,7 @@ Page({
             }
         }
     },
-    searchEnd: function (e) {
+    searchEnd (e) {
         // console.log(e);
         // var showLetter=e.currentTarget.dataset.letter;
         var that = this;
@@ -80,7 +80,7 @@ Page({
         }, 1000)
 
     },
-    nowLetter: function (pageY, that) { //当前选中的信息
+    nowLetter (pageY, that) { //当前选中的信息
         var letterData = this.data.searchLetter;
         var bHeight = 0;
         var tHeight = 0;
@@ -103,10 +103,10 @@ Page({
             startPageY: pageY
         })
     },
-    bindScroll: function (e) {
+    bindScroll (e) {
         console.log(e.detail)
     },
-    setScrollTop: function (that, showLetter) {
+    setScrollTop (that, showLetter) {
         var scrollTop = 0;
         var cityList = that.data.cityList;
         var cityCount = 0;
@@ -125,7 +125,7 @@ Page({
             scrollTop: scrollTop
         })
     },
-    bindCity: function (e) {
+    bindCity (e) {
         var city = e.currentTarget.dataset.city;
         var app = getApp()
         emit('changeCity', city)

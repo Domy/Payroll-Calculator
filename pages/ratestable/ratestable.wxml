@@ -1,0 +1,77 @@
+<view class="container">
+    <view class="page-head">
+        <image class="page-head-logo" src="./../../images/logo.png" />
+        <view class="page-head-desc">方便 准确 实用</view>
+    </view>
+    <view class="page-body">
+        <view class="page-section page-section-gap">
+            <view class="table-container">
+                <view class="table">
+                    <view class="tr">
+                        <view class="th">级数</view>
+                        <view class="th">应纳税所得额(含税)</view>
+                        <view class="th">应纳税所得额(不含税)</view>
+                        <view class="th">税率(%)</view>
+                        <view class="th">速算扣除数</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">1</view>
+                        <view class="td">不超过1,500元的部分</view>
+                        <view class="td">不超过1,455元的部分</view>
+                        <view class="td">3</view>
+                        <view class="td">0</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">2</view>
+                        <view class="td">超过1,500元至4,500元的部分</view>
+                        <view class="td">超过1,455元至4,155元的部分	</view>
+                        <view class="td">10</view>
+                        <view class="td">105</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">3</view>
+                        <view class="td">超过4,500元至9,000元的部分</view>
+                        <view class="td">超过4,155元至7,755元的部分</view>
+                        <view class="td">20</view>
+                        <view class="td">555</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">4</view>
+                        <view class="td">超过9,000元至35,000元的部分</view>
+                        <view class="td">超过7,755元至27,255元的部分</view>
+                        <view class="td">25</view>
+                        <view class="td">1,005</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">5</view>
+                        <view class="td">超过35,000元至55,000元的部分</view>
+                        <view class="td">超过27,255元至41,255元的部分</view>
+                        <view class="td">30</view>
+                        <view class="td">2,755</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">6</view>
+                        <view class="td">超过55,000元至80,000元的部分</view>
+                        <view class="td">超过41,255元至57,505元的部分</view>
+                        <view class="td">35</view>
+                        <view class="td">5,505</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">7</view>
+                        <view class="td">超过80,000元的部分</view>
+                        <view class="td">超过57,505的部分</view>
+                        <view class="td">45</view>
+                        <view class="td">13,505</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="page-section page-section-gap">
+            <ad unit-id="adunit-3833c4aefdfc1219"></ad>
+        </view>
+    </view>
+    <view class="page-foot">
+        <button class="weui-btn" type="primary" bindtap="goBack">返回</button>
+        <button class="weui-btn" type="primary" plain="true">分享</button>
+    </view>
+</view>

@@ -15,9 +15,7 @@ Page({
         fundBase: '', // 公积金缴纳基数
 
         fundRatioList: [],
-        fundRatioIndex: 0, // 公积金缴纳比例
-
-        preTaxIncomeWarn: false
+        fundRatioIndex: 0 // 公积金缴纳比例
     },
 
     onLoad () {
@@ -46,8 +44,7 @@ Page({
 
     bindPreTaxIncomeInput (e) {
         this.setData({
-            preTaxIncome: e.detail.value,
-            preTaxIncomeWarn: false
+            preTaxIncome: e.detail.value
         })
 
         this.changeBase()
@@ -98,18 +95,12 @@ Page({
         this.setData({
             insuranceIndex: e.detail.value
         });
-        if (this.data.insuranceBase) {
-            this.setData({
-                insuranceBaseWarn: false
-            });
-        }
         this.changeBase()
     },
 
     bindInsuranceInput (e) {
         this.setData({
-            insuranceBase: e.detail.value,
-            insuranceBaseWarn: false
+            insuranceBase: e.detail.value
         })
     },
 
@@ -125,18 +116,12 @@ Page({
         this.setData({
             fundIndex: e.detail.value
         });
-        if (this.data.fundBase) {
-            this.setData({
-                fundBaseWarn: false
-            });
-        }
         this.changeBase()
     },
 
     bindFundInput (e) {
         this.setData({
-            fundBase: e.detail.value,
-            fundBaseWarn: false
+            fundBase: e.detail.value
         })
     },
 
@@ -153,21 +138,22 @@ Page({
         console.log('fundBase:', this.data.fundBase)
         console.log('fundRatio:', this.data.fundRatioList[this.data.fundRatioIndex])
 
-        if (!this.data.preTaxIncome) {
-            this.setData({
-                preTaxIncomeWarn: true
-            });
+        if (this.data.preTaxIncome === '') {
+            this.openToast('请输入税前工资')
+        } else if (this.data.insuranceBase === '') {
+            this.openToast('请输入社保基数')
+        } else if (this.data.fundBase === '') {
+            this.openToast('请输入公积金基数')
         }
-        if (!this.data.insuranceBase) {
-            this.setData({
-                insuranceBaseWarn: true
-            });
-        }
-        if (!this.data.fundBase) {
-            this.setData({
-                fundBaseWarn: true
-            });
-        }
+    },
+
+    openToast (msg) {
+        wx.showToast({
+            title: msg,
+            icon: 'none',
+            mask: true,
+            duration: 3000
+        });
     },
 
     onShareAppMessage () {
