@@ -14,15 +14,14 @@ Page({
     },
 
     getBase() {
-        let data = this.data;
-        let city = data.city;
-        let rate = data.cityRatio[city];
+        let city = this.data.city;
+        let rate = this.data.cityRatio[city];
 
         if (!rate) {
-            rate = data.cityRatio['北京市'];
+            rate = this.data.cityRatio['北京市'];
         }
 
-        let income = data.preTaxIncome;
+        let income = this.data.preTaxIncome;
 
         let insuranceBase = Math.min(income, rate.base);
         let fundBase = Math.min(income, rate.base);
@@ -35,17 +34,17 @@ Page({
 
     generateResult() {
         let data = this.data;
-        let income = data.preTaxIncome;
+        let income = this.data.preTaxIncome;
 
-        let city = data.city;
-        let rate = data.cityRatio[city];
+        let city = this.data.city;
+        let rate = this.data.cityRatio[city];
 
         if (!rate) {
-            rate = data.cityRatio['北京市'];
+            rate = this.data.cityRatio['北京市'];
         }
 
-        let insuranceBase = data.insuranceBase;
-        let fundBase = data.fundBase;
+        let insuranceBase = this.data.insuranceBase;
+        let fundBase = this.data.fundBase;
 
         let houseFund = fundBase * (rate.housefund / 100);
         let workFund = insuranceBase * (rate.workfund / 100);
