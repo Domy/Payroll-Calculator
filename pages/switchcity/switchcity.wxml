@@ -8,7 +8,7 @@
         {{showLetter}}
     </view>
 </block>
-<scroll-view scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" scroll-top="{{scrollTop}}">
+<scroll-view scroll-y="true" style="height:{{winHeight}}px" scroll-top="{{scrollTop}}">
     <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
         <view class="item_letter">{{item.initial}}</view>
         <view class="item_city" wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.id}}" data-city="{{ct.city}}" bindtap="bindCity">

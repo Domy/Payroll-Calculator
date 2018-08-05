@@ -97,9 +97,6 @@ Page({
             startPageY: pageY
         });
     },
-    bindScroll(e) {
-        console.log(e.detail)
-    },
     setScrollTop(that, showLetter) {
         var scrollTop = 0;
         var cityList = that.data.cityList;

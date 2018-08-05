@@ -21,7 +21,6 @@ function remove(name, self) {
 }
 
 function emit(name, data) {
-    console.log(name, data)
     var callbacks = events[name];
     if (Array.isArray(callbacks)) {
         callbacks.map((tuple) => {

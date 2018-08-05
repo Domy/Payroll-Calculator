@@ -158,9 +158,9 @@ Page({
         console.log('fundBase:', this.data.fundBase);
         console.log('fundRatio:', this.data.fundRatioList[this.data.fundRatioIndex]);
 
-        wx.navigateTo({
-            url: '../result/result'
-        });
+        // wx.navigateTo({
+        //     url: '../result/result'
+        // });
     },
 
     onShareAppMessage() {

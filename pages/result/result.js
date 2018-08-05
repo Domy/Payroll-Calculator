@@ -38,8 +38,6 @@ Page({
             currentCity: app.globalData.currentCity
         });
 
-        console.log(this);
-
         this.generateResult();
     },
 
