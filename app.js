@@ -3,7 +3,8 @@ import { on } from 'utils/event.js';
 App({
     globalData: {
         userInfo: null,
-        currentCity: '北京市'
+        currentCity: '北京市',
+        currentCityRatio: {}
     },
     onLaunch() {
         //调用API从本地缓存中获取数据
@@ -13,6 +14,10 @@ App({
 
         on('changeCity', this, (data) => {
             this.globalData.currentCity = data;
+        });
+
+        on('updateCityRatio', this, (data) => {
+            this.globalData.currentCityRatio = data;
         });
     },
     onShow() {

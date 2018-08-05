@@ -50,12 +50,12 @@
                             </picker>
                         </view>
                     </view>
-                    <view class="weui-cell weui-cell_input" wx:if="{{insuranceIndex != 0}}">
+                    <view class="weui-cell weui-cell_input">
                         <view class="weui-cell__hd">
                             <view class="weui-label">缴纳基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" maxlength="10" placeholder="请输入" bindinput="bindInsuranceInput" value="{{insuranceBase}}" />
+                            <input class="weui-input" type="digit" disabled="{{insuranceIndex === '0'}}" maxlength="10" placeholder="请输入" bindinput="bindInsuranceInput" value="{{insuranceBase}}" />
                         </view>
                     </view>
                 </block>
@@ -84,12 +84,12 @@
                             </picker>
                         </view>
                     </view>
-                    <view class="weui-cell weui-cell_input" wx:if="{{fundIndex != 0}}">
+                    <view class="weui-cell weui-cell_input">
                         <view class="weui-cell__hd">
                             <view class="weui-label">缴纳基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" maxlength="10" placeholder="请输入" bindinput="bindFundInput" value="{{fundBase}}" />
+                            <input class="weui-input" type="digit" disabled="{{fundIndex === '0'}}" maxlength="10" placeholder="请输入" bindinput="bindFundInput" value="{{fundBase}}" />
                         </view>
                     </view>
                     <view class="weui-cell weui-cell_select">

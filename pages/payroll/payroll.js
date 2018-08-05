@@ -3,22 +3,20 @@ import { cityRatioList, paymentList, fundRatioList } from '../../utils/constant.
 
 Page({
     data: {
-        currentCity: '',
-
         cityRatioList: {},
-        // currentCityRatio: {},
+        currentCity: '',
         preTaxIncome: '', // 税前月薪
 
         insurance: true, // 是否缴纳社保
         housingFund: true, // 是否缴纳公积金
         paymentList: [], // 缴纳方式
-        insuranceIndex: 0, // 社保缴纳方式
+        insuranceIndex: '0', // 社保缴纳方式
         insuranceBase: '', // 社保缴纳基数
-        fundIndex: 0, // 公积金缴纳方式
+        fundIndex: '0', // 公积金缴纳方式
         fundBase: '', // 公积金缴纳基数
 
         fundRatioList: [],
-        fundRatioIndex: 0 // 公积金缴纳比例
+        fundRatioIndex: '0' // 公积金缴纳比例
     },
 
     onLoad() {
@@ -29,64 +27,39 @@ Page({
         });
     },
     onShow() {
-        let self = this;
-        let app = getApp();
+        let app = getApp()['globalData'];
         let data = this.data;
 
-        this.setData({
-            currentCity: app.globalData.currentCity,
-            preTaxIncome: '',
-            fundRatioIndex: data.fundRatioList.indexOf(data.cityRatioList[app.globalData.currentCity].fundRatio)
-        });
-
-        on('changeCity', self, function (value) {
-            self.setData({
+        on('changeCity', this, function (value) {
+            this.setData({
                 currentCity: value
             });
         });
+        
+        emit('updateCityRatio', data.cityRatioList[app.currentCity]);
 
-        console.log(data.cityRatioList[app.globalData.currentCity]);
-
-        this.changeBase();
+        this.setData({
+            currentCity: app.currentCity,
+            currentCityRatio: app.currentCityRatio,
+            fundRatioIndex: data.fundRatioList.indexOf(app.currentCityRatio.fundRatio)
+        });
+        console.log(app.currentCityRatio, data.fundRatioList)
     },
 
     bindPreTaxIncomeInput(e) {
+        console.log(this.data.insurance, this.data.insuranceIndex, '0')
         this.setData({
             preTaxIncome: e.detail.value
         });
 
-        this.changeBase();
-    },
-
-    changeBase() {
-        if (this.data.insurance) {
-            if (this.data.insuranceIndex == 0) {
-                this.setData({
-                    insuranceBase: this.data.preTaxIncome
-                });
-            } else {
-                this.setData({
-                    insuranceBase: ''
-                });
-            }
-        } else {
+        if (this.data.insurance && this.data.insuranceIndex === '0') {
             this.setData({
-                insuranceBase: 0
-            })
+                insuranceBase: this.data.preTaxIncome
+            });
         }
-        if (this.data.housingFund) {
-            if (this.data.fundIndex == 0) {
-                this.setData({
-                    fundBase: this.data.preTaxIncome
-                });
-            } else {
-                this.setData({
-                    fundBase: ''
-                });
-            }
-        } else {
+        if (this.data.housingFund && this.data.fundIndex === '0') {
             this.setData({
-                fundBase: 0
+                fundBase: this.data.preTaxIncome
             });
         }
     },
@@ -94,16 +67,29 @@ Page({
     switchInsurance(e) {
         this.setData({
             insurance: e.detail.value,
-            insuranceIndex: 0
+            insuranceIndex: '0'
         });
-        this.changeBase();
+        if (!this.data.insurance) {
+            this.setData({
+                insuranceBase: 0
+            })
+        }
     },
 
     bindInsuranceChange(e) {
         this.setData({
             insuranceIndex: e.detail.value
         });
-        this.changeBase();
+        if (this.data.insuranceIndex === '0') {
+            this.setData({
+                insuranceBase: this.data.preTaxIncome
+            });
+        }
+        if (this.data.insuranceIndex === '1') {
+            this.setData({
+                insuranceBase: ''
+            });
+        }
     },
 
     bindInsuranceInput(e) {
@@ -115,16 +101,29 @@ Page({
     switchHousingFund(e) {
         this.setData({
             housingFund: e.detail.value,
-            fundIndex: 0
+            fundIndex: '0'
         });
-        this.changeBase();
+        if (!this.data.housingFund) {
+            this.setData({
+                fundBase: 0
+            });
+        }
     },
 
     bindFundChange(e) {
         this.setData({
             fundIndex: e.detail.value
         });
-        this.changeBase();
+        if (this.data.fundIndex === '0') {
+            this.setData({
+                fundBase: this.data.preTaxIncome
+            });
+        }
+        if (this.data.fundIndex === '1') {
+            this.setData({
+                fundBase: ''
+            });
+        }
     },
 
     bindFundInput(e) {
