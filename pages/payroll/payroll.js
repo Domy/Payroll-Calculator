@@ -27,6 +27,7 @@ Page({
         });
     },
     onShow() {
+        this.init();
         let app = getApp()['globalData'];
         let data = this.data;
 
@@ -43,11 +44,19 @@ Page({
             currentCityRatio: app.currentCityRatio,
             fundRatioIndex: data.fundRatioList.indexOf(app.currentCityRatio.fundRatio)
         });
-        console.log(app.currentCityRatio, data.fundRatioList)
+    },
+
+    init() {
+        this.setData({
+            preTaxIncome: '',
+            insuranceIndex: '0',
+            insuranceBase: '',
+            fundIndex: '0',
+            fundBase: ''
+        });
     },
 
     bindPreTaxIncomeInput(e) {
-        console.log(this.data.insurance, this.data.insuranceIndex, '0')
         this.setData({
             preTaxIncome: e.detail.value
         });
@@ -69,7 +78,11 @@ Page({
             insurance: e.detail.value,
             insuranceIndex: '0'
         });
-        if (!this.data.insurance) {
+        if (this.data.insurance) {
+            this.setData({
+                insuranceBase: this.data.preTaxIncome
+            });
+        } else {
             this.setData({
                 insuranceBase: 0
             })
@@ -103,7 +116,11 @@ Page({
             housingFund: e.detail.value,
             fundIndex: '0'
         });
-        if (!this.data.housingFund) {
+        if (this.data.housingFund) {
+            this.setData({
+                fundBase: this.data.preTaxIncome
+            });
+        } else {
             this.setData({
                 fundBase: 0
             });
@@ -157,9 +174,9 @@ Page({
         console.log('fundBase:', this.data.fundBase);
         console.log('fundRatio:', this.data.fundRatioList[this.data.fundRatioIndex]);
 
-        // wx.navigateTo({
-        //     url: '../result/result'
-        // });
+        wx.navigateTo({
+            url: '../result/result'
+        });
     },
 
     onShareAppMessage() {
