@@ -1,9 +1,12 @@
 import { on, emit } from '../../utils/event.js';
-import { paymentList, fundRatioList } from '../../utils/constant.js';
+import { cityRatioList, paymentList, fundRatioList } from '../../utils/constant.js';
 
 Page({
     data: {
         currentCity: '',
+
+        cityRatioList: {},
+        // currentCityRatio: {},
         preTaxIncome: '', // 税前月薪
 
         insurance: true, // 是否缴纳社保
@@ -20,24 +23,29 @@ Page({
 
     onLoad() {
         this.setData({
+            cityRatioList: cityRatioList,
             paymentList: paymentList,
             fundRatioList: fundRatioList
         });
     },
     onShow() {
-        var self = this;
-        var app = getApp();
+        let self = this;
+        let app = getApp();
+        let data = this.data;
 
         this.setData({
+            currentCity: app.globalData.currentCity,
             preTaxIncome: '',
-            currentCity: app.globalData.currentCity
+            fundRatioIndex: data.fundRatioList.indexOf(data.cityRatioList[app.globalData.currentCity].fundRatio)
         });
 
-        on('changeCity', self, function (data) {
+        on('changeCity', self, function (value) {
             self.setData({
-                currentCity: data
+                currentCity: value
             });
         });
+
+        console.log(data.cityRatioList[app.globalData.currentCity]);
 
         this.changeBase();
     },

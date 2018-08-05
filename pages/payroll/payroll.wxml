@@ -99,7 +99,7 @@
                         <view class="weui-cell__bd">
                             <picker bindchange="bindFundRatioChange" value="{{fundRatioIndex}}" range="{{fundRatioList}}">
                                 <view class="weui-select weui-select_in-select-after">
-                                    {{fundRatioList[fundRatioIndex]}}
+                                    {{fundRatioList[fundRatioIndex]}} %
                                 </view>
                             </picker>
                         </view>
