@@ -9,25 +9,33 @@
                 <view class="weui-form-preview__hd">
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">税后工资</view>
-                        <view class="weui-form-preview__value_in-hd">¥2400.00</view>
+                        <view class="weui-form-preview__value_in-hd">{{results.afterTaxIncome}}</view>
                     </view>
                 </view>
                 <view class="weui-form-preview__bd">
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">税前工资</view>
-                        <view class="weui-form-preview__value">¥2400.00</view>
+                        <view class="weui-form-preview__value">{{results.preTaxIncome}}</view>
                     </view>
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">个人所得税</view>
-                        <view class="weui-form-preview__value">¥2400.00</view>
+                        <view class="weui-form-preview__value">{{results.personalIncomeTax}}</view>
                     </view>
                     <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">个人缴纳社保</view>
-                        <view class="weui-form-preview__value">¥2400.00</view>
+                        <view class="weui-form-preview__label">医疗保险</view>
+                        <view class="weui-form-preview__value">{{results.personalMedical}}</view>
                     </view>
                     <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">个人缴纳公积金</view>
-                        <view class="weui-form-preview__value">¥2400.00</view>
+                        <view class="weui-form-preview__label">养老保险</view>
+                        <view class="weui-form-preview__value">{{results.personalEndowment}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">失业保险</view>
+                        <view class="weui-form-preview__value">{{results.personalUnemployment}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">公积金</view>
+                        <view class="weui-form-preview__value">{{results.personalHousingFund}}</view>
                     </view>
                 </view>
             </view>
@@ -37,17 +45,33 @@
                 <view class="weui-form-preview__hd">
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">公司雇佣成本</view>
-                        <view class="weui-form-preview__value_in-hd">¥2400.00</view>
+                        <view class="weui-form-preview__value_in-hd">{{results.companyCost}}</view>
                     </view>
                 </view>
                 <view class="weui-form-preview__bd">
                     <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">公司缴纳社保</view>
-                        <view class="weui-form-preview__value">¥2400.00</view>
+                        <view class="weui-form-preview__label">医疗保险</view>
+                        <view class="weui-form-preview__value">{{results.companyMedical}}</view>
                     </view>
                     <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">公司缴纳公积金</view>
-                        <view class="weui-form-preview__value">¥2400.00</view>
+                        <view class="weui-form-preview__label">养老保险</view>
+                        <view class="weui-form-preview__value">{{results.companyEndowment}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">失业保险</view>
+                        <view class="weui-form-preview__value">{{results.companyUnemployment}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">工伤保险</view>
+                        <view class="weui-form-preview__value">{{results.companyIndustrialInjury}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">生育保险</view>
+                        <view class="weui-form-preview__value">{{results.companyMaternity}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">公积金</view>
+                        <view class="weui-form-preview__value">{{results.companyHousingFund}}</view>
                     </view>
                 </view>
             </view>

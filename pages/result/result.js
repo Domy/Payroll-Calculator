@@ -4,47 +4,55 @@ var format = formatNumber;
 
 Page({
     data: {
-        cityRatio: {}
+        cityRatio: {},
+        currentCity: '',
+
+        results: {
+            afterTaxIncome: '', // 税后工资
+            preTaxIncome: '', // 税前工资
+
+            personalIncomeTax: '', // 个人所得税
+            personalInsurance: '', // 个人缴纳社保
+            personalMedical: '', // 个人医疗保险
+            personalEndowment: '', // 个人养老保险
+            personalUnemployment: '', // 个人失业保险
+            personalHousingFund: '', // 个人缴纳公积金
+
+            companyCost: '', // 公司雇佣成本
+
+            companyInsurance: '', // 公司缴纳社保
+            companyMedical: '', // 公司医疗保险
+            companyEndowment: '', // 公司养老保险
+            companyUnemployment: '', // 公司失业保险
+            companyIndustrialInjury: '', // 公司工伤保险
+            companyMaternity: '', // 公司生育保险
+            companyHousingFund: '' // 公司缴纳公积金
+        }
     },
 
     onLoad() {
+        var app = getApp();
+
         this.setData({
             cityRatio: cityRatio,
+            currentCity: app.globalData.currentCity
         });
-    },
 
-    getBase() {
-        let city = this.data.city;
-        let rate = this.data.cityRatio[city];
+        console.log(this);
 
-        if (!rate) {
-            rate = this.data.cityRatio['北京市'];
-        }
-
-        let income = this.data.preTaxIncome;
-
-        let insuranceBase = Math.min(income, rate.base);
-        let fundBase = Math.min(income, rate.base);
-
-        this.setData({
-            fundBase: fundBase,
-            insuranceBase: insuranceBase
-        });
+        this.generateResult();
     },
 
     generateResult() {
-        let data = this.data;
-        let income = this.data.preTaxIncome;
-
-        let city = this.data.city;
+        let city = this.data.currentCity;
         let rate = this.data.cityRatio[city];
 
         if (!rate) {
             rate = this.data.cityRatio['北京市'];
         }
 
-        let insuranceBase = this.data.insuranceBase;
-        let fundBase = this.data.fundBase;
+        let insuranceBase = Math.min(this.data.insuranceBase, rate.base);  // ?
+        let fundBase = Math.min(this.data.fundBase, rate.base);  // ?
 
         let houseFund = fundBase * (rate.housefund / 100);
         let workFund = insuranceBase * (rate.workfund / 100);
@@ -52,21 +60,32 @@ Page({
         let ageFund = insuranceBase * (rate.agefund / 100);
         let sumFund = houseFund + workFund + medFund + ageFund;
 
-        let incomeBefore = income - sumFund;
+        let incomeBefore = this.data.preTaxIncome - sumFund;
         let taxLevel = getTaxLevel(incomeBefore - 3500);
         let tax = (taxLevel.rate * (incomeBefore - 3500)) - taxLevel.quota;
         let incomeTotal = incomeBefore - tax;
 
         this.setData({
             results: {
-                houseFund: format(houseFund),
-                workFund: format(workFund),
-                medFund: format(medFund),
-                ageFund: format(ageFund),
-                incomeTotal: format(incomeTotal),
-                incomeBefore: format(incomeBefore),
-                tax: format(tax),
-                sum: format(sumFund)
+                afterTaxIncome: format(), // 税后工资
+                preTaxIncome: format(), // 税前工资
+
+                personalIncomeTax: format(), // 个人所得税
+                personalInsurance: format(), // 个人缴纳社保
+                personalMedical: format(), // 个人医疗保险
+                personalEndowment: format(), // 个人养老保险
+                personalUnemployment: format(), // 个人失业保险
+                personalHousingFund: format(), // 个人缴纳公积金
+
+                companyCost: format(), // 公司雇佣成本
+
+                companyInsurance: format(), // 公司缴纳社保
+                companyMedical: format(), // 公司医疗保险
+                companyEndowment: format(), // 公司养老保险
+                companyUnemployment: format(), // 公司失业保险
+                companyIndustrialInjury: format(), // 公司工伤保险
+                companyMaternity: format(), // 公司生育保险
+                companyHousingFund: format() // 公司缴纳公积金
             }
         });
     },

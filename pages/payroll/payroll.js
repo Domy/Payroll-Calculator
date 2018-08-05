@@ -6,7 +6,7 @@ Page({
         currentCity: '',
         preTaxIncome: '', // 税前月薪
 
-        socialInsurance: true, // 是否缴纳社保
+        insurance: true, // 是否缴纳社保
         housingFund: true, // 是否缴纳公积金
         paymentList: [], // 缴纳方式
         insuranceIndex: 0, // 社保缴纳方式
@@ -51,7 +51,7 @@ Page({
     },
 
     changeBase() {
-        if (this.data.socialInsurance) {
+        if (this.data.insurance) {
             if (this.data.insuranceIndex == 0) {
                 this.setData({
                     insuranceBase: this.data.preTaxIncome
@@ -83,9 +83,9 @@ Page({
         }
     },
 
-    switchSocialInsurance(e) {
+    switchInsurance(e) {
         this.setData({
-            socialInsurance: e.detail.value,
+            insurance: e.detail.value,
             insuranceIndex: 0
         });
         this.changeBase();

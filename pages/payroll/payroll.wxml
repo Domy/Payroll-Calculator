@@ -34,10 +34,10 @@
                         <view class="weui-label">是否缴纳社保</view>
                     </view>
                     <view class="weui-cell__ft">
-                        <switch checked="socialInsurance" bindchange="switchSocialInsurance" />
+                        <switch checked="insurance" bindchange="switchInsurance" />
                     </view>
                 </view>
-                <block wx:if="{{socialInsurance}}">
+                <block wx:if="{{insurance}}">
                     <view class="weui-cell weui-cell_select">
                         <view class="weui-cell__hd weui-cell__hd_in-select-after">
                             <view class="weui-label">缴纳方式</view>
