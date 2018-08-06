@@ -65,7 +65,7 @@ const cityRatioList = {
     },
     '南京市': {
         cityName: '南京市',
-        cardinalNumber: 5000 * 3,
+        cardinalNumber: 6057 * 3,
         fundRatio: 8,
         workfund: 0.5,
         medfund: 2,
