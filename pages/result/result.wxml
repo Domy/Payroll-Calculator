@@ -59,7 +59,11 @@
         </view>
     </view>
     <view class="page-foot">
-        <button class="weui-btn" type="primary" bindtap="goBack">返回</button>
-        <button class="weui-btn" type="primary" plain="true">分享</button>
+        <button class="weui-btn" type="primary" bindtap="goBack">
+            返回
+        </button>
+        <button class="weui-btn" type="primary" plain="true" open-type="contact">
+            建议&反馈
+        </button>
     </view>
 </view>
