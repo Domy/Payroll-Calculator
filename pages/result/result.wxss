@@ -9,7 +9,7 @@
 }
 
 .weui-form-preview__value {
-    color: #495b91;
+    color: #333333;
     font-size: 17px;
 }
 
