@@ -2,11 +2,7 @@
 
 .weui-label {
     width: 250rpx;
-    color: #666666;
-}
-
-.weui-label_warn {
-    color: #E64340;
+    color: #999999;
 }
 
 .weui-select {

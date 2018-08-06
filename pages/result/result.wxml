@@ -9,73 +9,51 @@
                 <view class="weui-form-preview__hd">
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">税后工资</view>
-                        <view class="weui-form-preview__value_in-hd">{{results.afterTaxIncome}}</view>
+                        <view class="weui-form-preview__value_in-hd">
+                            {{results.afterTaxIncome}}元
+                        </view>
                     </view>
                 </view>
                 <view class="weui-form-preview__bd">
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">税前工资</view>
-                        <view class="weui-form-preview__value">{{results.preTaxIncome}}</view>
+                        <view class="weui-form-preview__value">
+                            {{results.preTaxIncome}}元
+                        </view>
                     </view>
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">个人所得税</view>
-                        <view class="weui-form-preview__value">{{results.personalIncomeTax}}</view>
+                        <view class="weui-form-preview__value">
+                            {{results.personalIncomeTax}}元
+                        </view>
                     </view>
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">医疗保险</view>
-                        <view class="weui-form-preview__value">{{results.personalMedical}}</view>
+                        <view class="weui-form-preview__value">
+                            {{results.personalMedical}}元
+                        </view>
                     </view>
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">养老保险</view>
-                        <view class="weui-form-preview__value">{{results.personalEndowment}}</view>
+                        <view class="weui-form-preview__value">
+                            {{results.personalEndowment}}元
+                        </view>
                     </view>
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">失业保险</view>
-                        <view class="weui-form-preview__value">{{results.personalUnemployment}}</view>
+                        <view class="weui-form-preview__value">
+                            {{results.personalUnemployment}}元
+                        </view>
                     </view>
                     <view class="weui-form-preview__item">
                         <view class="weui-form-preview__label">公积金</view>
-                        <view class="weui-form-preview__value">{{results.personalHousingFund}}</view>
+                        <view class="weui-form-preview__value">
+                            {{results.personalHousingFund}}元
+                        </view>
                     </view>
                 </view>
             </view>
         </view>
-        <!-- <view class="page-section">
-            <view class="weui-form-preview">
-                <view class="weui-form-preview__hd">
-                    <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">公司雇佣成本</view>
-                        <view class="weui-form-preview__value_in-hd">{{results.companyCost}}</view>
-                    </view>
-                </view>
-                <view class="weui-form-preview__bd">
-                    <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">医疗保险</view>
-                        <view class="weui-form-preview__value">{{results.companyMedical}}</view>
-                    </view>
-                    <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">养老保险</view>
-                        <view class="weui-form-preview__value">{{results.companyEndowment}}</view>
-                    </view>
-                    <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">失业保险</view>
-                        <view class="weui-form-preview__value">{{results.companyUnemployment}}</view>
-                    </view>
-                    <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">工伤保险</view>
-                        <view class="weui-form-preview__value">{{results.companyIndustrialInjury}}</view>
-                    </view>
-                    <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">生育保险</view>
-                        <view class="weui-form-preview__value">{{results.companyMaternity}}</view>
-                    </view>
-                    <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">公积金</view>
-                        <view class="weui-form-preview__value">{{results.companyHousingFund}}</view>
-                    </view>
-                </view>
-            </view>
-        </view> -->
         <view class="page-section page-section-gap">
             <ad unit-id="adunit-3833c4aefdfc1219"></ad>
         </view>
