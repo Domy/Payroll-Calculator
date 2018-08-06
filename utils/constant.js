@@ -1,7 +1,7 @@
 const cityRatioList = {
     '北京市': {
         cityName: '北京市',
-        cardinalNumber: 7706 * 3,
+        cardinalNumber: 8467 * 3,
         fundRatio: 12,
         workfund: 0.2,
         medfund: 2,
@@ -9,7 +9,7 @@ const cityRatioList = {
     },
     '上海市': {
         cityName: '上海市',
-        cardinalNumber: 6504 * 3,
+        cardinalNumber: 7132 * 3,
         fundRatio: 7,
         workfund: 0.5,
         medfund: 2,
@@ -17,7 +17,7 @@ const cityRatioList = {
     },
     '广州市': {
         cityName: '广州市',
-        cardinalNumber: 6764 * 3,
+        cardinalNumber: 8218 * 3,
         fundRatio: 5,
         workfund: 0.2,
         medfund: 2,
@@ -25,7 +25,7 @@ const cityRatioList = {
     },
     '深圳市': {
         cityName: '深圳市',
-        cardinalNumber: 7480 * 3,
+        cardinalNumber: 8261 * 3,
         fundRatio: 5,
         workfund: 0.5,
         medfund: 2,
