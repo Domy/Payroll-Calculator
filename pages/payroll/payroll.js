@@ -190,6 +190,13 @@ Page({
             return;
         }
 
+        wx.showToast({
+            title: '计算中',
+            icon: 'loading',
+            duration: 2000,
+            mask: true
+        });
+
         let currentCityRatio = app.globalData.currentCityRatio;
 
         let insuranceBase = Math.min(this.data.insuranceBase, currentCityRatio.cardinalNumber);
@@ -231,16 +238,16 @@ Page({
             }
         });
 
-        console.log(format(this.data.preTaxIncome), 'preTaxIncome');
-        console.log(incomeBefore, 'incomeBefore');
-        console.log(incomeTotal, 'incomeTotal');
+        // console.log(format(this.data.preTaxIncome), 'preTaxIncome');
+        // console.log(incomeBefore, 'incomeBefore');
+        // console.log(incomeTotal, 'incomeTotal');
         
-        console.log(tax);
-        console.log(sumFund);
-        console.log(medFund);
-        console.log(ageFund);
-        console.log(workFund);
-        console.log(houseFund);
+        // console.log(tax);
+        // console.log(sumFund);
+        // console.log(medFund);
+        // console.log(ageFund);
+        // console.log(workFund);
+        // console.log(houseFund);
 
         emit('generateResult', this.data.results);
 

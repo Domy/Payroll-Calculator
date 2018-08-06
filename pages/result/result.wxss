@@ -1,9 +1,18 @@
 @import "../../styles/weui.wxss";
 
+.weui-form-preview__label {
+    font-size: 17px;
+}
+
 .weui-form-preview__value_in-hd {
     color: #d3725a;
 }
 
 .weui-form-preview__value {
     color: #495b91;
+    font-size: 17px;
+}
+
+.weui-cells__tips {
+    text-align: center;
 }

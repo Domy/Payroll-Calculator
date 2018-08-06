@@ -53,6 +53,7 @@
                     </view>
                 </view>
             </view>
+            <view class="weui-cells__tips">注：由于各地工伤保险有差异，计算结果仅供参考</view>
         </view>
         <view class="page-section page-section-gap">
             <ad unit-id="adunit-3833c4aefdfc1219"></ad>
@@ -63,7 +64,7 @@
             返回
         </button>
         <button class="weui-btn" type="primary" plain="true" open-type="contact">
-            建议&反馈
+            意见反馈
         </button>
     </view>
 </view>
