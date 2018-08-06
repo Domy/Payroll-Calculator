@@ -50,7 +50,7 @@
                             </picker>
                         </view>
                     </view>
-                    <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell weui-cell_input" wx:if="{{insuranceIndex !== '0'}}">
                         <view class="weui-cell__hd">
                             <view class="weui-label">缴纳基数</view>
                         </view>
@@ -84,7 +84,7 @@
                             </picker>
                         </view>
                     </view>
-                    <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell weui-cell_input" wx:if="{{fundIndex !== '0'}}">
                         <view class="weui-cell__hd">
                             <view class="weui-label">缴纳基数</view>
                         </view>
