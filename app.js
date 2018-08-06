@@ -4,7 +4,8 @@ App({
     globalData: {
         userInfo: null,
         currentCity: '北京市',
-        currentCityRatio: {}
+        currentCityRatio: {},
+        results: {}
     },
     onLaunch() {
         //调用API从本地缓存中获取数据
@@ -18,6 +19,10 @@ App({
 
         on('updateCityRatio', this, (data) => {
             this.globalData.currentCityRatio = data;
+        });
+
+        on('generateResult', this, (data) => {
+            this.globalData.results = data;
         });
     },
     onShow() {

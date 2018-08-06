@@ -1,21 +1,17 @@
 function formatTime(date) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
+  let year = date.getFullYear()
+  let month = date.getMonth() + 1
+  let day = date.getDate()
 
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
+  let hour = date.getHours()
+  let minute = date.getMinutes()
+  let second = date.getSeconds()
 
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
 function formatNumber(n) {
-  if (typeof n !== 'number'){
-    return 0
-  }
-
-  var num = n.toFixed(2)
+  let num = Number(n).toFixed(2)
   if (num * 100 % 100 === 0) {
     return parseInt(num)
   } else {

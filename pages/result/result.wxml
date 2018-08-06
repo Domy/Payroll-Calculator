@@ -40,7 +40,7 @@
                 </view>
             </view>
         </view>
-        <view class="page-section">
+        <!-- <view class="page-section">
             <view class="weui-form-preview">
                 <view class="weui-form-preview__hd">
                     <view class="weui-form-preview__item">
@@ -75,7 +75,7 @@
                     </view>
                 </view>
             </view>
-        </view>
+        </view> -->
         <view class="page-section page-section-gap">
             <ad unit-id="adunit-3833c4aefdfc1219"></ad>
         </view>

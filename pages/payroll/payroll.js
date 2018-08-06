@@ -1,4 +1,5 @@
 import { on, emit } from '../../utils/event.js';
+import { getTaxLevel, formatNumber as format } from '../../utils/util.js';
 import { cityRatioList, paymentList, fundRatioList } from '../../utils/constant.js';
 
 Page({
@@ -16,7 +17,29 @@ Page({
         fundBase: '', // 公积金缴纳基数
 
         fundRatioList: [],
-        fundRatioIndex: '0' // 公积金缴纳比例
+        fundRatioIndex: '0', // 公积金缴纳比例
+
+        results: {
+            // preTaxIncome: '', // 税前工资
+            // afterTaxIncome: '', // 税后工资
+
+            // personalIncomeTax: '', // 个人所得税
+            // personalInsurance: '', // 个人缴纳社保
+            // personalMedical: '', // 个人医疗保险
+            // personalEndowment: '', // 个人养老保险
+            // personalUnemployment: '', // 个人失业保险
+            // personalHousingFund: '', // 个人缴纳公积金
+
+            // companyCost: '', // 公司雇佣成本
+
+            // companyInsurance: '', // 公司缴纳社保
+            // companyMedical: '', // 公司医疗保险
+            // companyEndowment: '', // 公司养老保险
+            // companyUnemployment: '', // 公司失业保险
+            // companyIndustrialInjury: '', // 公司工伤保险
+            // companyMaternity: '', // 公司生育保险
+            // companyHousingFund: '' // 公司缴纳公积金
+        }
     },
 
     onLoad() {
@@ -41,7 +64,6 @@ Page({
 
         this.setData({
             currentCity: app.currentCity,
-            currentCityRatio: app.currentCityRatio,
             fundRatioIndex: data.fundRatioList.indexOf(app.currentCityRatio.fundRatio)
         });
     },
@@ -156,7 +178,7 @@ Page({
     },
 
     openResult() {
-        var app = getApp();
+        let app = getApp();
         if (this.data.preTaxIncome === '') {
             app.openToast('请输入税前工资');
             return;
@@ -168,11 +190,59 @@ Page({
             return;
         }
 
-        console.log('currentCity:', this.data.currentCity);
-        console.log('preTaxIncome:', this.data.preTaxIncome);
-        console.log('insuranceBase:', this.data.insuranceBase);
-        console.log('fundBase:', this.data.fundBase);
-        console.log('fundRatio:', this.data.fundRatioList[this.data.fundRatioIndex]);
+        let currentCityRatio = app.globalData.currentCityRatio;
+
+        let insuranceBase = Math.min(this.data.insuranceBase, currentCityRatio.cardinalNumber);
+        let fundBase = Math.min(this.data.fundBase, currentCityRatio.cardinalNumber);
+
+        
+        let medFund = insuranceBase * (currentCityRatio.medfund / 100);
+        let ageFund = insuranceBase * (currentCityRatio.agefund / 100);
+        let workFund = insuranceBase * (currentCityRatio.workfund / 100);
+        let houseFund = fundBase * (this.data.fundRatioList[this.data.fundRatioIndex] / 100);
+        let sumFund = houseFund + workFund + medFund + ageFund;
+
+        let incomeBefore = this.data.preTaxIncome - sumFund;
+        let taxLevel = getTaxLevel(incomeBefore - 3500);
+        let tax = (taxLevel.rate * (incomeBefore - 3500)) - taxLevel.quota;
+        let incomeTotal = incomeBefore - tax;
+
+        this.setData({
+            results: {
+                preTaxIncome: format(this.data.preTaxIncome), // 税前工资
+                afterTaxIncome: format(incomeTotal), // 税后工资
+
+                personalIncomeTax: format(tax), // 个人所得税
+                personalInsurance: format(sumFund), // 个人缴纳社保
+                personalMedical: format(medFund), // 个人医疗保险
+                personalEndowment: format(ageFund), // 个人养老保险
+                personalUnemployment: format(workFund), // 个人失业保险
+                personalHousingFund: format(houseFund), // 个人缴纳公积金
+
+                companyCost: format(), // 公司雇佣成本
+
+                companyInsurance: format(), // 公司缴纳社保
+                companyMedical: format(), // 公司医疗保险
+                companyEndowment: format(), // 公司养老保险
+                companyUnemployment: format(), // 公司失业保险
+                companyIndustrialInjury: format(), // 公司工伤保险
+                companyMaternity: format(), // 公司生育保险
+                companyHousingFund: format() // 公司缴纳公积金
+            }
+        });
+
+        console.log(format(this.data.preTaxIncome), 'preTaxIncome');
+        console.log(incomeBefore, 'incomeBefore');
+        console.log(incomeTotal, 'incomeTotal');
+        
+        console.log(tax);
+        console.log(sumFund);
+        console.log(medFund);
+        console.log(ageFund);
+        console.log(workFund);
+        console.log(houseFund);
+
+        emit('generateResult', this.data.results);
 
         wx.navigateTo({
             url: '../result/result'
