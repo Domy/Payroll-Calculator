@@ -1,5 +1,48 @@
+import * as echarts from '../../libs/ec-canvas/echarts';
+
+function initChart(canvas, width, height) {
+    const chart = echarts.init(canvas, null, {
+        width: width,
+        height: height
+    });
+    canvas.setChart(chart);
+    let {globalData} = getApp();
+
+    let option = {
+        series: [{
+            type: 'pie',
+            color: ['#ff6485', '#28c0bf', '#ffcd63', '#c9cbcf', '#00a2e7', '#a475fb'],
+            data: [{
+                value: globalData.results.afterTaxIncome,
+                name: '税后工资'
+            }, {
+                value: globalData.results.personalIncomeTax,
+                name: '个人所得税'
+            }, {
+                value: globalData.results.personalHousingFund,
+                name: '医疗保险'
+            }, {
+                value: globalData.results.personalEndowment,
+                name: '养老保险'
+            }, {
+                value: globalData.results.personalUnemployment,
+                name: '失业保险'
+            }, {
+                value: globalData.results.personalHousingFund,
+                name: '住房公积金'
+            }, ]
+        }]
+    };
+
+    chart.setOption(option);
+    return chart;
+}
+
 Page({
     data: {
+        ec: {
+            onInit: initChart
+        },
         results: {
             preTaxIncome: '', // 税前工资
             afterTaxIncome: '', // 税后工资
@@ -24,13 +67,10 @@ Page({
     },
 
     onLoad() {
-        let app = getApp();
-
+        let {globalData} = getApp();
         this.setData({
-            results: app.globalData.results
+            results: globalData.results
         });
-
-        console.log(this.data.results)
     },
 
     goBack() {

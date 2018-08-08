@@ -118,7 +118,6 @@ Page({
     },
     bindCity(e) {
         var city = e.currentTarget.dataset.city;
-        var app = getApp();
         emit('changeCity', city);
         wx.navigateBack();
     }

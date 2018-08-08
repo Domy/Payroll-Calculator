@@ -1,5 +1,10 @@
 @import "../../styles/weui.wxss";
 
+ec-canvas {
+    background-color: #fff;
+    height: 220px;
+}
+
 .weui-form-preview__label {
     font-size: 17px;
 }

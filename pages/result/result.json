@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "计算结果"
+    "navigationBarTitleText": "计算结果",
+    "usingComponents": {
+        "ec-canvas": "../../libs/ec-canvas/ec-canvas"
+    }
 }

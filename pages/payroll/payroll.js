@@ -51,7 +51,7 @@ Page({
     },
     onShow() {
         this.init();
-        let app = getApp()['globalData'];
+        let {globalData} = getApp();
         let data = this.data;
 
         on('changeCity', this, function (value) {
@@ -60,11 +60,11 @@ Page({
             });
         });
         
-        emit('updateCityRatio', data.cityRatioList[app.currentCity]);
+        emit('updateCityRatio', data.cityRatioList[globalData.currentCity]);
 
         this.setData({
-            currentCity: app.currentCity,
-            fundRatioIndex: data.fundRatioList.indexOf(app.currentCityRatio.fundRatio)
+            currentCity: globalData.currentCity,
+            fundRatioIndex: data.fundRatioList.indexOf(globalData.currentCityRatio.fundRatio)
         });
     },
 
@@ -178,15 +178,15 @@ Page({
     },
 
     openResult() {
-        let app = getApp();
+        let {globalData, openToast} = getApp();
         if (this.data.preTaxIncome === '') {
-            app.openToast('请输入税前工资');
+            openToast('请输入税前工资');
             return;
         } else if (this.data.insuranceBase === '') {
-            app.openToast('请输入社保基数');
+            openToast('请输入社保基数');
             return;
         } else if (this.data.fundBase === '') {
-            app.openToast('请输入公积金基数');
+            openToast('请输入公积金基数');
             return;
         }
 
@@ -197,7 +197,7 @@ Page({
             mask: true
         });
 
-        let currentCityRatio = app.globalData.currentCityRatio;
+        let currentCityRatio = globalData.currentCityRatio;
 
         let insuranceBase = Math.min(this.data.insuranceBase, currentCityRatio.cardinalNumber);
         let fundBase = Math.min(this.data.fundBase, currentCityRatio.cardinalNumber);
@@ -237,17 +237,6 @@ Page({
                 companyHousingFund: format() // 公司缴纳公积金
             }
         });
-
-        // console.log(format(this.data.preTaxIncome), 'preTaxIncome');
-        // console.log(incomeBefore, 'incomeBefore');
-        // console.log(incomeTotal, 'incomeTotal');
-        
-        // console.log(tax);
-        // console.log(sumFund);
-        // console.log(medFund);
-        // console.log(ageFund);
-        // console.log(workFund);
-        // console.log(houseFund);
 
         emit('generateResult', this.data.results);
 
