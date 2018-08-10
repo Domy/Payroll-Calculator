@@ -1,7 +1,22 @@
 <view class="container">
     <view class="page-head">
-        <image class="page-head-logo" src="./../../images/logo.png" />
-        <view class="page-head-desc">方便 准确 实用</view>
+        <view class="cover">
+            <view class="lable">税后所得</view>
+            <view class="amount">
+                <text>{{results.afterTaxIncome || 0}}</text>元
+            </view>
+        </view>
+        <view class="strip">
+            <view class="item">个税：
+                <text>{{results.personalIncomeTax || 0}}</text>
+            </view>
+            <view class="item">社保：
+                <text>{{results.personalInsuranceSum || 0}}</text>
+            </view>
+            <view class="item">公积金：
+                <text>{{results.personalHousingFund || 0}}</text>
+            </view>
+        </view>
     </view>
     <view class="page-body">
         <view class="page-section">
@@ -22,7 +37,7 @@
                         <view class="weui-label">税前工资</view>
                     </view>
                     <view class="weui-cell__bd">
-                        <input class="weui-input" type="digit" maxlength="10" placeholder="请输入" bindinput="bindPreTaxIncomeInput" value="{{preTaxIncome}}" />
+                        <input class="weui-input" type="digit" maxlength="8" placeholder="请输入" bindinput="bindPreTaxIncomeInput" value="{{preTaxIncome}}" />
                     </view>
                 </view>
             </view>
@@ -55,7 +70,7 @@
                             <view class="weui-label">缴纳基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" disabled="{{insuranceIndex === '0'}}" maxlength="10" placeholder="请输入" bindinput="bindInsuranceInput" value="{{insuranceBase}}" />
+                            <input class="weui-input" type="digit" disabled="{{insuranceIndex === '0'}}" maxlength="8" placeholder="请输入" bindinput="bindInsuranceInput" value="{{insuranceBase}}" />
                         </view>
                     </view>
                 </block>
@@ -89,7 +104,7 @@
                             <view class="weui-label">缴纳基数</view>
                         </view>
                         <view class="weui-cell__bd">
-                            <input class="weui-input" type="digit" disabled="{{fundIndex === '0'}}" maxlength="10" placeholder="请输入" bindinput="bindFundInput" value="{{fundBase}}" />
+                            <input class="weui-input" type="digit" disabled="{{fundIndex === '0'}}" maxlength="8" placeholder="请输入" bindinput="bindFundInput" value="{{fundBase}}" />
                         </view>
                     </view>
                     <view class="weui-cell weui-cell_select">
@@ -107,8 +122,46 @@
                 </block>
             </view>
         </view>
+        <view class="page-section" wx:if="{{insurance}}">
+            <view class="weui-cells__title">缴纳明细</view>
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label">医疗保险</view>
+                    </view>
+                    <view class="weui-cell__ft">{{results.personalMedical || 0}}</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label">养老保险</view>
+                    </view>
+                    <view class="weui-cell__ft">{{results.personalEndowment || 0}}</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label">失业保险</view>
+                    </view>
+                    <view class="weui-cell__ft">{{results.personalUnemployment || 0}}</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label">工伤保险</view>
+                    </view>
+                    <view class="weui-cell__ft">0</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label">生育保险</view>
+                    </view>
+                    <view class="weui-cell__ft">0</view>
+                </view>
+            </view>
+            <view class="weui-cells__tips">注：由于各地工伤保险有差异，计算结果仅供参考</view>
+        </view>
     </view>
     <view class="page-foot">
-        <button class="weui-btn" type="primary" bindtap="openResult">开始计算</button>
+        <view class="page-section page-section-gap">
+            <ad unit-id="adunit-3833c4aefdfc1219"></ad>
+        </view>
     </view>
 </view>

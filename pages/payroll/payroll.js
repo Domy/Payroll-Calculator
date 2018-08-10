@@ -50,7 +50,6 @@ Page({
         });
     },
     onShow() {
-        this.init();
         let {globalData} = getApp();
         let data = this.data;
 
@@ -66,16 +65,7 @@ Page({
             currentCity: globalData.currentCity,
             fundRatioIndex: data.fundRatioList.indexOf(globalData.currentCityRatio.fundRatio)
         });
-    },
-
-    init() {
-        this.setData({
-            preTaxIncome: '',
-            insuranceIndex: '0',
-            insuranceBase: '',
-            fundIndex: '0',
-            fundBase: ''
-        });
+        this.generateResult();
     },
 
     bindPreTaxIncomeInput(e) {
@@ -93,6 +83,7 @@ Page({
                 fundBase: this.data.preTaxIncome
             });
         }
+        this.generateResult();
     },
 
     switchInsurance(e) {
@@ -109,6 +100,7 @@ Page({
                 insuranceBase: '0'
             })
         }
+        this.generateResult();
     },
 
     bindInsuranceChange(e) {
@@ -125,12 +117,14 @@ Page({
                 insuranceBase: ''
             });
         }
+        this.generateResult();
     },
 
     bindInsuranceInput(e) {
         this.setData({
             insuranceBase: e.detail.value
         });
+        this.generateResult();
     },
 
     switchHousingFund(e) {
@@ -147,9 +141,10 @@ Page({
                 fundBase: '0'
             });
         }
+        this.generateResult();
     },
 
-    bindFundChange(e) {        
+    bindFundChange(e) {
         this.setData({
             fundIndex: e.detail.value
         });
@@ -163,53 +158,52 @@ Page({
                 fundBase: ''
             });
         }
+        this.generateResult();
     },
 
     bindFundInput(e) {
         this.setData({
             fundBase: e.detail.value
         });
+        this.generateResult();
     },
 
     bindFundRatioChange(e) {
         this.setData({
             fundRatioIndex: e.detail.value
         });
+        this.generateResult();
     },
 
-    openResult() {
+    generateResult() {
         let {globalData, openToast} = getApp();
+
         if (this.data.preTaxIncome === '') {
-            openToast('请输入税前工资');
+            openToast('请输入税前工资进行计算');
             return;
         } else if (this.data.insurance && this.data.insuranceBase === '') {
-            openToast('请输入社保基数');
+            openToast('请输入社保基数进行计算');
             return;
         } else if (this.data.housingFund && this.data.fundBase === '') {
-            openToast('请输入公积金基数');
+            openToast('请输入公积金基数进行计算');
+            return;
+        } else if (this.data.insuranceBase > this.data.preTaxIncome || this.data.fundBase > this.data.preTaxIncome) {
+            openToast('缴纳基数的上限不能超过税前工资');
             return;
         }
-
-        wx.showToast({
-            title: '计算中',
-            icon: 'loading',
-            duration: 2000,
-            mask: true
-        });
 
         let currentCityRatio = globalData.currentCityRatio;
 
         let insuranceBase = Math.min(this.data.insuranceBase, currentCityRatio.cardinalNumber);
         let fundBase = Math.min(this.data.fundBase, currentCityRatio.cardinalNumber);
-
         
         let medFund = insuranceBase * (currentCityRatio.medfund / 100);
         let ageFund = insuranceBase * (currentCityRatio.agefund / 100);
         let workFund = insuranceBase * (currentCityRatio.workfund / 100);
         let houseFund = fundBase * (this.data.fundRatioList[this.data.fundRatioIndex] / 100);
-        let sumFund = houseFund + workFund + medFund + ageFund;
+        let insuranceSum = workFund + medFund + ageFund;
 
-        let incomeBefore = this.data.preTaxIncome - sumFund;
+        let incomeBefore = this.data.preTaxIncome - (insuranceSum + houseFund);
         let taxLevel = getTaxLevel(incomeBefore - 3500);
         let tax = (taxLevel.rate * (incomeBefore - 3500)) - taxLevel.quota;
         let incomeTotal = incomeBefore - tax;
@@ -220,7 +214,7 @@ Page({
                 afterTaxIncome: format(incomeTotal), // 税后工资
 
                 personalIncomeTax: format(tax), // 个人所得税
-                personalInsurance: format(sumFund), // 个人缴纳社保
+                personalInsuranceSum: format(insuranceSum), // 个人缴纳社保
                 personalMedical: format(medFund), // 个人医疗保险
                 personalEndowment: format(ageFund), // 个人养老保险
                 personalUnemployment: format(workFund), // 个人失业保险
@@ -236,12 +230,6 @@ Page({
                 companyMaternity: format(), // 公司生育保险
                 companyHousingFund: format() // 公司缴纳公积金
             }
-        });
-
-        emit('generateResult', this.data.results);
-
-        wx.navigateTo({
-            url: '../result/result'
         });
     },
 

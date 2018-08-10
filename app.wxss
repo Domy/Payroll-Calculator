@@ -40,23 +40,7 @@ form {
 }
 
 .page-head {
-    background-color: #4976d3;
-    padding: 20rpx 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 20rpx;
-}
-
-.page-head-logo {
-    height: 64px;
-    width: 64px;
-}
-
-.page-head-desc {
-    color: #FFFFFF;
-    font-size: 32rpx;
 }
 
 .page-body {
@@ -229,12 +213,6 @@ form {
 
 .navigator {
     padding: 20rpx 30rpx 20rpx 0;
-}
-
-.page-foot {
-    padding: 40rpx 20rpx;
-    margin: 0 auto;
-    width: 60%;
 }
 
 .weui-btn {

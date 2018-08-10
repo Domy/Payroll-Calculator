@@ -5,8 +5,7 @@ App({
     globalData: {
         userInfo: null,
         currentCity: '北京市',
-        currentCityRatio: {},
-        results: {}
+        currentCityRatio: {}
     },
     onLaunch() {
         //调用API从本地缓存中获取数据
@@ -20,10 +19,6 @@ App({
 
         on('updateCityRatio', this, (data) => {
             this.globalData.currentCityRatio = data;
-        });
-
-        on('generateResult', this, (data) => {
-            this.globalData.results = data;
         });
     },
     onShow() {
@@ -75,7 +70,7 @@ App({
         wx.showToast({
             title: msg,
             icon: 'none',
-            duration: 2000
+            duration: 3000
         });
     }
 })
