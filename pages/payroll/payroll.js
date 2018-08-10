@@ -106,7 +106,7 @@ Page({
             });
         } else {
             this.setData({
-                insuranceBase: 0
+                insuranceBase: '0'
             })
         }
     },
@@ -144,12 +144,12 @@ Page({
             });
         } else {
             this.setData({
-                fundBase: 0
+                fundBase: '0'
             });
         }
     },
 
-    bindFundChange(e) {
+    bindFundChange(e) {        
         this.setData({
             fundIndex: e.detail.value
         });
@@ -182,10 +182,10 @@ Page({
         if (this.data.preTaxIncome === '') {
             openToast('请输入税前工资');
             return;
-        } else if (this.data.insuranceBase === '') {
+        } else if (this.data.insurance && this.data.insuranceBase === '') {
             openToast('请输入社保基数');
             return;
-        } else if (this.data.fundBase === '') {
+        } else if (this.data.housingFund && this.data.fundBase === '') {
             openToast('请输入公积金基数');
             return;
         }

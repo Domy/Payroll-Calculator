@@ -1,5 +1,4 @@
 <view class="container">
-    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec}}"></ec-canvas>
     <view class="page-body">
         <view class="page-section">
             <view class="weui-form-preview">
