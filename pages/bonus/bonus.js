@@ -1,4 +1,4 @@
-import { getTaxLevel, formatNumber } from '../../utils/util.js';
+import { getTaxLevel, formatNumber as format } from '../../utils/util.js';
 import { on, emit } from '../../utils/event.js';
 
 Page({
@@ -6,39 +6,33 @@ Page({
         bonus: '',
         result: '',
         tax: '',
-        city: ''
+        currentCity: ''
     },
-    bindKeyInput: function (e) {
+    bindInput(e) {
         this.setData({
             bonus: parseFloat(e.detail.value || 0)
         });
-        this.getResult();
+        this.generateResult();
     },
-    onShow: function () {
-        var self = this
-        var app = getApp()
+    onShow() {
+        let {
+            globalData
+        } = getApp();
+
+        on('changeCity', this, function (value) {
+            this.setData({
+                currentCity: value
+            });
+        });
 
         this.setData({
-            city: app.globalData.city
-        })
-        on('changeCity', self, function (data) {
-            self.setData({
-                city: data
-            })
-            self.getResult()
-        })
+            currentCity: globalData.currentCity
+        });
+
+        this.generateResult();
     },
 
-    onShareAppMessage: function () {
-        // 用户点击右上角分享
-        return {
-            title: '税后工资计算器', // 分享标题
-            desc: '税后工资、年终奖计算器', // 分享描述
-            path: '/pages/payroll/payroll' // 分享路径
-        }
-    },
-
-    getResult: function () {
+    generateResult() {
         let base = this.data.bonus / 12;
         let level = getTaxLevel(base);
 
@@ -46,8 +40,16 @@ Page({
         let result = this.data.bonus - tax;
 
         this.setData({
-            tax: formatNumber(tax),
-            result: formatNumber(result)
+            tax: format(tax),
+            result: format(result)
         })
+    },
+
+    onShareAppMessage() {
+        return {
+            title: '税后工资计算器',
+            desc: '税后工资、年终奖计算器',
+            path: '/pages/payroll/payroll'
+        };
     }
 })

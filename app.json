@@ -1,7 +1,7 @@
 {
     "pages": [
         "pages/payroll/payroll",
-        "pages/payroll/bonus",
+        "pages/bonus/bonus",
         "pages/switchcity/switchcity"
     ],
     "window": {
@@ -10,5 +10,19 @@
         "navigationBarTitleText": "WeChat",
         "navigationBarTextStyle": "white",
         "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "list": [{
+            "pagePath": "pages/payroll/payroll",
+            "iconPath": "images/icon_payroll.png",
+            "selectedIconPath": "images/icon_payroll_HL.png",
+            "text": "工资计算器"
+        }, {
+            "pagePath": "pages/bonus/bonus",
+            "iconPath": "images/icon_bonus.png",
+            "selectedIconPath": "images/icon_bonus_HL.png",
+            "text": "奖金计算器"
+        }],
+        "selectedColor": "#4976d3"
     }
 }
