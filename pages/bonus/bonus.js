@@ -33,6 +33,13 @@ Page({
     },
 
     generateResult() {
+        let {openToast} = getApp();
+
+        if (this.data.bonus === '') {
+            openToast('请输入奖金数进行计算');
+            return;
+        }
+
         let base = this.data.bonus / 12;
         let level = getTaxLevel(base);
 

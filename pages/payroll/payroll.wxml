@@ -160,6 +160,11 @@
         </view>
     </view>
     <view class="page-foot">
+        <view class="page-section">
+            <button class="weui-btn" type="primary" plain="true" open-type="contact">
+                建议反馈
+            </button>
+        </view>
         <view class="page-section page-section-gap">
             <ad unit-id="adunit-3833c4aefdfc1219"></ad>
         </view>

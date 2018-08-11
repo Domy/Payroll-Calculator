@@ -1,25 +1,15 @@
 @import "../../styles/weui.wxss";
 
-.cover {
-    background: #4976d3;
-    height: 230rpx;
+.weui-label {
+    width: 250rpx;
+    color: #999999;
 }
 
-.cover .lable {
-    padding: 30rpx 0 20rpx 25rpx;
-    color: #b6c8ee;
-    font-size: 11pt;
-    font-weight: bold;
+.weui-select {
+    border-right: none;
 }
 
-.cover .amount {
-    padding: 0 0 0 25rpx;
-    color: #92ade5;
-    font-size: 11pt;
-}
-
-.cover .amount text {
-    margin-right: 10rpx;
-    color: #ffffff;
-    font-size: 32pt;
+.weui-btn {
+    width: 60%;
+    border-radius: 46px;
 }

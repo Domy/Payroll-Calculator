@@ -214,7 +214,3 @@ form {
 .navigator {
     padding: 20rpx 30rpx 20rpx 0;
 }
-
-.weui-btn {
-    border-radius: 46px;
-}
