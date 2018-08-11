@@ -70,7 +70,7 @@ Page({
 
     bindPreTaxIncomeInput(e) {
         this.setData({
-            preTaxIncome: e.detail.value
+            preTaxIncome: parseFloat(e.detail.value)
         });
 
         if (this.data.insurance && this.data.insuranceIndex === '0') {
@@ -97,7 +97,7 @@ Page({
             });
         } else {
             this.setData({
-                insuranceBase: '0'
+                insuranceBase: 0
             })
         }
         this.generateResult();
@@ -122,7 +122,7 @@ Page({
 
     bindInsuranceInput(e) {
         this.setData({
-            insuranceBase: e.detail.value
+            insuranceBase: parseFloat(e.detail.value)
         });
         this.generateResult();
     },
@@ -138,7 +138,7 @@ Page({
             });
         } else {
             this.setData({
-                fundBase: '0'
+                fundBase: 0
             });
         }
         this.generateResult();
@@ -163,7 +163,7 @@ Page({
 
     bindFundInput(e) {
         this.setData({
-            fundBase: e.detail.value
+            fundBase: parseFloat(e.detail.value)
         });
         this.generateResult();
     },
@@ -176,7 +176,7 @@ Page({
     },
 
     generateResult() {
-        let {globalData, openToast} = getApp();
+        var {globalData, openToast} = getApp();
 
         if (this.data.preTaxIncome === '') {
             openToast('请输入税前工资进行计算');
@@ -187,38 +187,46 @@ Page({
         } else if (this.data.housingFund && this.data.fundBase === '') {
             openToast('请输入公积金基数进行计算');
             return;
-        } else if (this.data.insuranceBase > this.data.preTaxIncome || this.data.fundBase > this.data.preTaxIncome) {
-            openToast('缴纳基数的上限不能超过税前工资');
+        } else if (this.data.insuranceBase > this.data.preTaxIncome) {
+            openToast('缴纳基数的上限不能超过税前工资，请重新输入');
+            return;
+        } else if (this.data.fundBase > this.data.preTaxIncome) {
+            openToast('缴纳基数的上限不能超过税前工资，请重新输入');
             return;
         }
 
-        let currentCityRatio = globalData.currentCityRatio;
+        var currentCityRatio = globalData.currentCityRatio;
 
-        let insuranceBase = Math.min(this.data.insuranceBase, currentCityRatio.cardinalNumber);
-        let fundBase = Math.min(this.data.fundBase, currentCityRatio.cardinalNumber);
+        if (this.data.preTaxIncome > 1000) {
+            var insuranceBase = Math.min(this.data.insuranceBase, currentCityRatio.upperLimit);
+            var fundBase = Math.min(this.data.fundBase, currentCityRatio.upperLimit);   
+        } else {
+            var insuranceBase = this.data.insuranceBase;
+            var fundBase = this.data.fundBase;
+        }
         
-        let medFund = insuranceBase * (currentCityRatio.medfund / 100);
-        let ageFund = insuranceBase * (currentCityRatio.agefund / 100);
-        let workFund = insuranceBase * (currentCityRatio.workfund / 100);
-        let houseFund = fundBase * (this.data.fundRatioList[this.data.fundRatioIndex] / 100);
-        let insuranceSum = workFund + medFund + ageFund;
+        var medFund = insuranceBase * (currentCityRatio.medfund / 100);
+        var ageFund = insuranceBase * (currentCityRatio.agefund / 100);
+        var workFund = insuranceBase * (currentCityRatio.workfund / 100);
+        var houseFund = fundBase * (this.data.fundRatioList[this.data.fundRatioIndex] / 100);
+        var insuranceSum = workFund + medFund + ageFund;
 
-        let incomeBefore = this.data.preTaxIncome - (insuranceSum + houseFund);
-        let taxLevel = getTaxLevel(incomeBefore - 3500);
-        let tax = (taxLevel.rate * (incomeBefore - 3500)) - taxLevel.quota;
-        let incomeTotal = incomeBefore - tax;
+        var incomeBefore = this.data.preTaxIncome - (insuranceSum + houseFund);
+        var taxLevel = getTaxLevel(incomeBefore - 3500);
+        var tax = (taxLevel.rate * (incomeBefore - 3500)) - taxLevel.quota;
+        var incomeTotal = incomeBefore - tax;
 
         this.setData({
             results: {
-                preTaxIncome: format(this.data.preTaxIncome), // 税前工资
-                afterTaxIncome: format(incomeTotal), // 税后工资
+                preTaxIncome: format(this.data.preTaxIncome || 0), // 税前工资
+                afterTaxIncome: format(incomeTotal || 0), // 税后工资
 
-                personalIncomeTax: format(tax), // 个人所得税
-                personalInsuranceSum: format(insuranceSum), // 个人缴纳社保
-                personalMedical: format(medFund), // 个人医疗保险
-                personalEndowment: format(ageFund), // 个人养老保险
-                personalUnemployment: format(workFund), // 个人失业保险
-                personalHousingFund: format(houseFund), // 个人缴纳公积金
+                personalIncomeTax: format(tax || 0), // 个人所得税
+                personalInsuranceSum: format(insuranceSum || 0), // 个人缴纳社保
+                personalMedical: format(medFund || 0), // 个人医疗保险
+                personalEndowment: format(ageFund || 0), // 个人养老保险
+                personalUnemployment: format(workFund || 0), // 个人失业保险
+                personalHousingFund: format(houseFund || 0), // 个人缴纳公积金
 
                 companyCost: format(), // 公司雇佣成本
 
