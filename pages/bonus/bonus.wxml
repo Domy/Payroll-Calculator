@@ -1,0 +1,42 @@
+<!--bonus-calculator.wxml-->
+<view class="container bonus-calculator">
+    <view class="cover">
+        <view class="lable">税后所得</view>
+        <view class="amount">
+            <text>{{ result || 0 }}</text>元
+        </view>
+    </view>
+    <view class="section">
+        <view class="item edit-item">
+            <view class="lable">
+                当前城市
+            </view>
+            <navigator hover-class="none" url="../switchcity/switchcity">
+                {{ city }}
+                <image class="arrow" src="../../images/arrowright.png"></image>
+            </navigator>
+        </view>
+        <view class="item edit-item">
+            <view class="lable">
+                年终奖金
+            </view>
+            <view class="input-box">
+                <image class="pen" src="../../images/icon_pen.png"></image>
+                <input type="digit" bindinput="bindKeyInput" focus="true" value="{{ bonus }}" placeholder="0" />
+            </view>
+        </view>
+    </view>
+    <view class="section">
+        <view class="section-title">缴纳明细</view>
+        <view class="item">
+            <view class="lable">
+                个人所得税
+            </view>
+            <view class="amount">{{ tax || 0 }}</view>
+        </view>
+    </view>
+    <view class="section contact-wrap">
+        <button open-type="contact" type="primary" size="mini" plain="true">建议&反馈</button>
+    </view>
+    <ad unit-id="adunit-3833c4aefdfc1219"></ad>
+</view>

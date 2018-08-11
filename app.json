@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/payroll/payroll",
+        "pages/payroll/bonus",
         "pages/switchcity/switchcity"
     ],
     "window": {
