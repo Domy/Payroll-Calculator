@@ -8,16 +8,9 @@ Page({
         tax: '',
         currentCity: ''
     },
-    bindInput(e) {
-        this.setData({
-            bonus: parseFloat(e.detail.value || 0)
-        });
-        this.generateResult();
-    },
+
     onShow() {
-        let {
-            globalData
-        } = getApp();
+        let { globalData } = getApp();
 
         on('changeCity', this, function (value) {
             this.setData({
@@ -32,23 +25,35 @@ Page({
         this.generateResult();
     },
 
+    bindInput(e) {
+        this.setData({
+            bonus: parseFloat(e.detail.value)
+        });
+        this.generateResult();
+    },
+
     generateResult() {
-        let {openToast} = getApp();
+        var { openToast } = getApp();
 
         if (this.data.bonus === '') {
             openToast('请输入奖金数进行计算');
             return;
         }
 
-        let base = this.data.bonus / 12;
-        let level = getTaxLevel(base);
+        var base = this.data.bonus / 12;
+        var level = getTaxLevel(base);
 
-        let tax = this.data.bonus * level.rate - level.quota;
-        let result = this.data.bonus - tax;
+        if (this.data.bonus > 1000) {
+            var tax = this.data.bonus * level.rate - level.quota;
+        } else {
+            var tax = 0;
+        }
+
+        var result = this.data.bonus - tax;
 
         this.setData({
-            tax: format(tax),
-            result: format(result)
+            tax: format(tax || 0),
+            result: format(result || 0)
         })
     },
 

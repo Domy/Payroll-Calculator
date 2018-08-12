@@ -1,11 +1,13 @@
 import { on, emit } from '../../utils/event.js';
 import { getTaxLevel, formatNumber as format } from '../../utils/util.js';
-import { cityRatioList, paymentList, fundRatioList } from '../../utils/constant.js';
+import { cityRatioList, thresholdList, paymentList, fundRatioList } from '../../utils/constant.js';
 
 Page({
     data: {
         cityRatioList: {},
         currentCity: '',
+        thresholdList: [], // 起征点
+        thresholdIndex: '0',
         preTaxIncome: '', // 税前月薪
 
         insurance: true, // 是否缴纳社保
@@ -45,12 +47,14 @@ Page({
     onLoad() {
         this.setData({
             cityRatioList: cityRatioList,
+            thresholdList: thresholdList,
             paymentList: paymentList,
             fundRatioList: fundRatioList
         });
     },
+
     onShow() {
-        let {globalData} = getApp();
+        let { globalData } = getApp();
         let data = this.data;
 
         on('changeCity', this, function (value) {
@@ -58,12 +62,19 @@ Page({
                 currentCity: value
             });
         });
-        
+
         emit('updateCityRatio', data.cityRatioList[globalData.currentCity]);
 
         this.setData({
             currentCity: globalData.currentCity,
             fundRatioIndex: data.fundRatioList.indexOf(globalData.currentCityRatio.fundRatio)
+        });
+        this.generateResult();
+    },
+
+    bindThresholdChange(e) {
+        this.setData({
+            thresholdIndex: e.detail.value
         });
         this.generateResult();
     },
@@ -176,7 +187,7 @@ Page({
     },
 
     generateResult() {
-        var {globalData, openToast} = getApp();
+        var { globalData, openToast } = getApp();
 
         if (this.data.preTaxIncome === '') {
             openToast('请输入税前工资进行计算');
@@ -196,15 +207,16 @@ Page({
         }
 
         var currentCityRatio = globalData.currentCityRatio;
+        var threshold = this.data.thresholdList[this.data.thresholdIndex];
 
         if (this.data.preTaxIncome > 1000) {
             var insuranceBase = Math.min(this.data.insuranceBase, currentCityRatio.upperLimit);
-            var fundBase = Math.min(this.data.fundBase, currentCityRatio.upperLimit);   
+            var fundBase = Math.min(this.data.fundBase, currentCityRatio.upperLimit);
         } else {
             var insuranceBase = this.data.insuranceBase;
             var fundBase = this.data.fundBase;
         }
-        
+
         var medFund = insuranceBase * (currentCityRatio.medfund / 100);
         var ageFund = insuranceBase * (currentCityRatio.agefund / 100);
         var workFund = insuranceBase * (currentCityRatio.workfund / 100);
@@ -212,8 +224,8 @@ Page({
         var insuranceSum = workFund + medFund + ageFund;
 
         var incomeBefore = this.data.preTaxIncome - (insuranceSum + houseFund);
-        var taxLevel = getTaxLevel(incomeBefore - 3500);
-        var tax = (taxLevel.rate * (incomeBefore - 3500)) - taxLevel.quota;
+        var taxLevel = getTaxLevel(incomeBefore - threshold);
+        var tax = (taxLevel.rate * (incomeBefore - threshold)) - taxLevel.quota;
         var incomeTotal = incomeBefore - tax;
 
         this.setData({

@@ -451,12 +451,15 @@ const cityRatioList = {
     }
 }
 
+const thresholdList = [3500, 4800]
+
 const paymentList = ['按照工资', '自定义']
 
 const fundRatioList = [12, 11, 10, 9, 8, 7, 6, 5]
 
 export {
     cityRatioList,
+    thresholdList,
     paymentList,
     fundRatioList
 }
