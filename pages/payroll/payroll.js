@@ -1,13 +1,13 @@
 import { on, emit } from '../../utils/event.js';
 import { getTaxLevel, formatNumber as format } from '../../utils/util.js';
-import { cityRatioList, thresholdList, paymentList, fundRatioList } from '../../utils/constant.js';
+import { cityRatioList, paymentList, fundRatioList } from '../../utils/constant.js';
+
+const threshold = 5000;
 
 Page({
     data: {
         cityRatioList: {},
         currentCity: '',
-        thresholdList: [], // 起征点
-        thresholdIndex: '0',
         preTaxIncome: '', // 税前月薪
 
         insurance: true, // 是否缴纳社保
@@ -47,7 +47,6 @@ Page({
     onLoad() {
         this.setData({
             cityRatioList: cityRatioList,
-            thresholdList: thresholdList,
             paymentList: paymentList,
             fundRatioList: fundRatioList
         });
@@ -68,13 +67,6 @@ Page({
         this.setData({
             currentCity: globalData.currentCity,
             fundRatioIndex: data.fundRatioList.indexOf(globalData.currentCityRatio.fundRatio)
-        });
-        this.generateResult();
-    },
-
-    bindThresholdChange(e) {
-        this.setData({
-            thresholdIndex: e.detail.value
         });
         this.generateResult();
     },
@@ -207,7 +199,6 @@ Page({
         }
 
         var currentCityRatio = globalData.currentCityRatio;
-        var threshold = this.data.thresholdList[this.data.thresholdIndex];
 
         if (this.data.preTaxIncome > 1000) {
             var insuranceBase = Math.min(this.data.insuranceBase, currentCityRatio.upperLimit);

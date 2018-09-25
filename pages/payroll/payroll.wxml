@@ -32,18 +32,6 @@
                         </navigator>
                     </view>
                 </view>
-                <view class="weui-cell weui-cell_select">
-                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
-                        <view class="weui-label">起征点</view>
-                    </view>
-                    <view class="weui-cell__bd">
-                        <picker bindchange="bindThresholdChange" value="{{thresholdIndex}}" range="{{thresholdList}}">
-                            <view class="weui-select weui-select_in-select-after">
-                                {{thresholdList[thresholdIndex]}}
-                            </view>
-                        </picker>
-                    </view>
-                </view>
                 <view class="weui-cell weui-cell_input">
                     <view class="weui-cell__hd">
                         <view class="weui-label">税前工资</view>
