@@ -26,40 +26,40 @@ function getTaxLevel(n) {
             rate: 0,
             quota: 0
         };
-    } else if (n < 1500) {
+    } else if (n < 3000) {
         return {
             rate: 0.03,
             quota: 0
         };
-    } else if (n < 4500) {
+    } else if (n < 12000) {
         return {
             rate: 0.10,
-            quota: 105
+            quota: 210
         };
-    } else if (n < 9000) {
+    } else if (n < 25000) {
         return {
             rate: 0.20,
-            quota: 555
+            quota: 1410
         };
     } else if (n < 35000) {
         return {
             rate: 0.25,
-            quota: 1005
+            quota: 2660
         };
     } else if (n < 55000) {
         return {
             rate: 0.30,
-            quota: 2755
+            quota: 4410
         };
     } else if (n < 80000) {
         return {
             rate: 0.35,
-            quota: 5505
+            quota: 7160
         };
     } else {
         return {
             rate: 0.45,
-            quota: 13505
+            quota: 15160
         };
     }
 }
